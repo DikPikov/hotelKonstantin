@@ -3,16 +3,22 @@ using System.Collections;
 
 public class PlayerMove : MonoBehaviour
 {
+    [SerializeField] private PlayerRotation Rotation;
     [SerializeField] private Transform Camera;
     [SerializeField] private float Stamina;
     [SerializeField] private float MaxStamina;
     [SerializeField] private float Speed;
-    [SerializeField] private float CameraShake = 0;
+    private float CameraShake = 0;
     private Coroutine StabilizeCoroutine = null; //шн€га от 0 до 360 градусов, касера прыгает от синуса
 
     private void Update()
     {
-        Vector3 direction = transform.forward * Input.GetAxisRaw("Vertical") + transform.right * Input.GetAxisRaw("Horizontal");
+        if (Pause._Paused)
+        {
+            return;
+        }
+
+        Vector3 direction = transform.forward * InputManager.GetAxis(InputManager.AxisEnum.Vertical) + transform.right * InputManager.GetAxis(InputManager.AxisEnum.Horizontal);
 
         if(direction != Vector3.zero)
         {
@@ -25,9 +31,9 @@ public class PlayerMove : MonoBehaviour
             direction = direction.normalized;
 
             float speed = Speed * Time.deltaTime;
-            if (Input.GetKey(KeyCode.LeftShift) && direction != Vector3.zero && Stamina > 0)
+            if (InputManager.GetButton(InputManager.ButtonEnum.Run) && direction != Vector3.zero && Stamina > 0)
             {
-                speed *= 1.5f;
+                speed *= 2;
                 Stamina -= Time.deltaTime;
             }
             else if (Stamina < MaxStamina)
@@ -40,10 +46,14 @@ public class PlayerMove : MonoBehaviour
                 }
             }
 
-            CameraShake = (CameraShake + speed * 180) % 360;
+            CameraShake = (CameraShake + speed * 150) % 360;
 
             Camera.localPosition = new Vector3(0, 1.7f + Mathf.Sin(CameraShake * Mathf.Deg2Rad) * 0.05f, 0);
 
+            Vector3 rotation = Rotation._Rotation;
+            rotation.z = Mathf.Sin(CameraShake * Mathf.Deg2Rad) * 1f;
+            Rotation._Rotation = rotation;
+            
             transform.position += direction * speed;
         }
         else
@@ -89,6 +99,10 @@ public class PlayerMove : MonoBehaviour
             }
 
             Camera.localPosition = new Vector3(0, 1.7f + Mathf.Sin(CameraShake * Mathf.Deg2Rad) * 0.05f, 0);
+
+            Vector3 rotation = Rotation._Rotation;
+            rotation.z = Mathf.Sin(CameraShake * Mathf.Deg2Rad) * 1f;
+            Rotation._Rotation = rotation;
 
             yield return waitForEndOfFrame;
         }

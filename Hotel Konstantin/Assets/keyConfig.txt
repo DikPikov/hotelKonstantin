@@ -1,0 +1,4 @@
+{"Horizontal":"+D +RightArrow -A -LeftArrow",
+"Vertical":"+W +UpArrow -S -DownArrow",
+"Menu":"Escape F1",
+"Run":"LeftShift RightShift"}
