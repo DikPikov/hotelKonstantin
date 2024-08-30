@@ -8,8 +8,10 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float Stamina;
     [SerializeField] private float MaxStamina;
     [SerializeField] private float Speed;
-    private float CameraShake = 0;
+    [SerializeField] private float CameraShake = 0;
+
     private Coroutine StabilizeCoroutine = null; //����� �� 0 �� 360 ��������, ������ ������� �� ������
+    private Coroutine RecoverCoroutine = null;
 
     private void Update()
     {
@@ -33,16 +35,20 @@ public class PlayerMove : MonoBehaviour
             float speed = Speed * Time.deltaTime;
             if (InputManager.GetButton(InputManager.ButtonEnum.Run) && direction != Vector3.zero && Stamina > 0)
             {
-                speed *= 2;
+                if (RecoverCoroutine != null)
+                {
+                    StopCoroutine (RecoverCoroutine);
+                    RecoverCoroutine = null;
+                }
+
+                speed *= 2f;
                 Stamina -= Time.deltaTime;
             }
             else if (Stamina < MaxStamina)
             {
-                Stamina += Time.deltaTime;
-
-                if (Stamina > MaxStamina)
+                if(RecoverCoroutine == null)
                 {
-                    Stamina = MaxStamina;
+                    RecoverCoroutine = StartCoroutine(RecoverStamina());
                 }
             }
 
@@ -63,6 +69,24 @@ public class PlayerMove : MonoBehaviour
                 StabilizeCoroutine = StartCoroutine(Stabilize());
             }
         }
+    }
+
+    private IEnumerator RecoverStamina()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        WaitForEndOfFrame waitForEndOfFrame = new WaitForEndOfFrame();
+
+        while (Stamina < MaxStamina)
+        {
+            Stamina += Time.deltaTime;
+
+            yield return waitForEndOfFrame;
+        }
+
+        Stamina = MaxStamina;
+
+        RecoverCoroutine = null;
     }
 
     private IEnumerator Stabilize()
