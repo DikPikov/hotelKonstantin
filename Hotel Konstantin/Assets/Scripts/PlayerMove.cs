@@ -9,7 +9,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float MaxStamina;
     [SerializeField] private float Speed;
     private float CameraShake = 0;
-    private Coroutine StabilizeCoroutine = null; //шняга от 0 до 360 градусов, касера прыгает от синуса
+    private Coroutine StabilizeCoroutine = null; //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ 0 пїЅпїЅ 360 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
     private void Update()
     {
@@ -48,7 +48,7 @@ public class PlayerMove : MonoBehaviour
 
             CameraShake = (CameraShake + speed * 150) % 360;
 
-            Camera.localPosition = new Vector3(0, 1.7f + Mathf.Sin(CameraShake * Mathf.Deg2Rad) * 0.05f, 0);
+            Camera.localPosition = new Vector3(0, 1.6f + Mathf.Sin(CameraShake * Mathf.Deg2Rad) * 0.05f, 0);
 
             Vector3 rotation = Rotation._Rotation;
             rotation.z = Mathf.Sin(CameraShake * Mathf.Deg2Rad) * 1f;
@@ -98,7 +98,7 @@ public class PlayerMove : MonoBehaviour
                 break;
             }
 
-            Camera.localPosition = new Vector3(0, 1.7f + Mathf.Sin(CameraShake * Mathf.Deg2Rad) * 0.05f, 0);
+            Camera.localPosition = new Vector3(0, 1.6f + Mathf.Sin(CameraShake * Mathf.Deg2Rad) * 0.05f, 0);
 
             Vector3 rotation = Rotation._Rotation;
             rotation.z = Mathf.Sin(CameraShake * Mathf.Deg2Rad) * 1f;
