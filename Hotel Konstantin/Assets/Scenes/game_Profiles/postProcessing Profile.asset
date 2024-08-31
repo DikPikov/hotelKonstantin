@@ -44,6 +44,34 @@ MonoBehaviour:
   opacity:
     overrideState: 0
     value: 1
+--- !u!114 &-7184009465680293908
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d65e486e4de6e5448a8fbb43dc8756a0, type: 3}
+  m_Name: Grain
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  colored:
+    overrideState: 0
+    value: 1
+  intensity:
+    overrideState: 1
+    value: 0.5
+  size:
+    overrideState: 1
+    value: 1.5
+  lumContrib:
+    overrideState: 0
+    value: 0.8
 --- !u!114 &-4588547421710696297
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -88,6 +116,8 @@ MonoBehaviour:
   - {fileID: -7437146585856400024}
   - {fileID: 2886025674184122980}
   - {fileID: 8146014628991183510}
+  - {fileID: 6952542533622349426}
+  - {fileID: -7184009465680293908}
 --- !u!114 &2886025674184122980
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -174,7 +204,7 @@ MonoBehaviour:
     overrideState: 0
     value: 1
   temperature:
-    overrideState: 0
+    overrideState: 1
     value: 0
   tint:
     overrideState: 0
@@ -1433,6 +1463,53 @@ MonoBehaviour:
       - 0.5
       - 0.5
       - 0.5
+--- !u!114 &6952542533622349426
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a79b01ea5641d4aa6daa2e23605641, type: 3}
+  m_Name: Bloom
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  intensity:
+    overrideState: 1
+    value: 5
+  threshold:
+    overrideState: 1
+    value: 1
+  softKnee:
+    overrideState: 1
+    value: 1
+  clamp:
+    overrideState: 0
+    value: 65472
+  diffusion:
+    overrideState: 0
+    value: 7
+  anamorphicRatio:
+    overrideState: 0
+    value: 0
+  color:
+    overrideState: 1
+    value: {r: 1, g: 1, b: 1, a: 1}
+  fastMode:
+    overrideState: 1
+    value: 1
+  dirtTexture:
+    overrideState: 0
+    value: {fileID: 0}
+    defaultState: 1
+  dirtIntensity:
+    overrideState: 0
+    value: 0
 --- !u!114 &8146014628991183510
 MonoBehaviour:
   m_ObjectHideFlags: 3

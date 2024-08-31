@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class OpenClose : MonoBehaviour, IInteractable
 {
-    [SerializeField] private Animator Animator;
-    [SerializeField] private float OpenTime;
-    [SerializeField] private bool Opened;
+    [SerializeField] protected Animator Animator;
+    [SerializeField] protected float OpenTime;
+    [SerializeField] protected bool Opened;
 
     public float _BeforeTime => OpenTime;
 
@@ -13,7 +13,7 @@ public class OpenClose : MonoBehaviour, IInteractable
         Animator.SetBool("isOpen", Opened);
     }
 
-    public void Interact()
+    public virtual void Interact()
     {
         Opened = !Opened;
 

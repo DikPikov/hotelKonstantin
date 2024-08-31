@@ -3,12 +3,12 @@ using System.Collections;
 
 public class PlayerMove : MonoBehaviour
 {
+    [SerializeField] private LayerMask LayerMask;
     [SerializeField] private PlayerRotation Rotation;
     [SerializeField] private Transform Camera;
-    [SerializeField] private float Stamina;
-    [SerializeField] private float MaxStamina;
+    [SerializeField] private Player Player;
     [SerializeField] private float Speed;
-    [SerializeField] private float CameraShake = 0;
+    private float CameraShake = 0;
 
     private Coroutine StabilizeCoroutine = null; //����� �� 0 �� 360 ��������, ������ ������� �� ������
     private Coroutine RecoverCoroutine = null;
@@ -32,8 +32,18 @@ public class PlayerMove : MonoBehaviour
             direction.y = 0;
             direction = direction.normalized;
 
+            if (Physics.Raycast(transform.position + new Vector3(0, 0.8f, 0), new Vector3(direction.x, 0, 0), 0.25f, LayerMask))
+            {
+                direction.x = 0;
+            }
+            if (Physics.Raycast(transform.position + new Vector3(0, 0.8f, 0), new Vector3(0, 0, direction.z), 0.25f, LayerMask))
+            {
+                direction.z = 0;
+            }
+
+
             float speed = Speed * Time.deltaTime;
-            if (InputManager.GetButton(InputManager.ButtonEnum.Run) && direction != Vector3.zero && Stamina > 0)
+            if (InputManager.GetButton(InputManager.ButtonEnum.Run) && direction != Vector3.zero && Player._Stamina > 0)
             {
                 if (RecoverCoroutine != null)
                 {
@@ -42,9 +52,9 @@ public class PlayerMove : MonoBehaviour
                 }
 
                 speed *= 2f;
-                Stamina -= Time.deltaTime;
+                Player._Stamina -= Time.deltaTime;
             }
-            else if (Stamina < MaxStamina)
+            else if (Player._Stamina < 5)
             {
                 if(RecoverCoroutine == null)
                 {
@@ -52,9 +62,9 @@ public class PlayerMove : MonoBehaviour
                 }
             }
 
-            CameraShake = (CameraShake + speed * 150) % 360;
+            CameraShake = (CameraShake + speed * 120) % 360;
 
-            Camera.localPosition = new Vector3(0, 1.6f + Mathf.Sin(CameraShake * Mathf.Deg2Rad) * 0.05f, 0);
+           // Camera.localPosition = new Vector3(0, 1.6f + Mathf.Sin(CameraShake * Mathf.Deg2Rad) * 0.05f, 0);
 
             Vector3 rotation = Rotation._Rotation;
             rotation.z = Mathf.Sin(CameraShake * Mathf.Deg2Rad) * 1f;
@@ -77,14 +87,12 @@ public class PlayerMove : MonoBehaviour
 
         WaitForEndOfFrame waitForEndOfFrame = new WaitForEndOfFrame();
 
-        while (Stamina < MaxStamina)
+        while (Player._Stamina < 5)
         {
-            Stamina += Time.deltaTime;
+            Player._Stamina += Time.deltaTime * 0.75f;
 
             yield return waitForEndOfFrame;
         }
-
-        Stamina = MaxStamina;
 
         RecoverCoroutine = null;
     }
@@ -122,7 +130,7 @@ public class PlayerMove : MonoBehaviour
                 break;
             }
 
-            Camera.localPosition = new Vector3(0, 1.6f + Mathf.Sin(CameraShake * Mathf.Deg2Rad) * 0.05f, 0);
+          //  Camera.localPosition = new Vector3(0, 1.6f + Mathf.Sin(CameraShake * Mathf.Deg2Rad) * 0.05f, 0);
 
             Vector3 rotation = Rotation._Rotation;
             rotation.z = Mathf.Sin(CameraShake * Mathf.Deg2Rad) * 1f;

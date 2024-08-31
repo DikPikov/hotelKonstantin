@@ -2,19 +2,21 @@ using UnityEngine;
 
 public class Menu : MonoBehaviour
 {
-    [SerializeField] private GameObject Panel;
+    [SerializeField] private GameObject PlayerInterface;
+    [SerializeField] private GameObject MenuPanel;
 
     private void Update()
     {
         if (InputManager.GetButtonDown(InputManager.ButtonEnum.Menu))
         {
-            ShowPanel(!Panel.activeSelf);
+            ShowPanel(!MenuPanel.activeSelf);
         }
     }
 
     public void ShowPanel(bool state)
     {
-        Panel.SetActive(state);
+        PlayerInterface.SetActive(!state);
+        MenuPanel.SetActive(state);
         Pause._Paused = state;
     }
 

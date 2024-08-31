@@ -29,8 +29,10 @@ public class PlayerInteract : MonoBehaviour
 
                 if(Interacting == null)
                 {
-                    Skobi[0].anchoredPosition = new Vector2(-50, 0);
-                    Skobi[1].anchoredPosition = new Vector2(50, 0);
+                    Skobi[0].anchoredPosition = new Vector2(-50, 50);
+                    Skobi[1].anchoredPosition = new Vector2(50, 50);
+                    Skobi[2].anchoredPosition = new Vector2(50, -50);
+                    Skobi[3].anchoredPosition = new Vector2(-50, -50);
 
                     if (InputManager.GetButtonDown(InputManager.ButtonEnum.Interact))
                     {
@@ -71,8 +73,11 @@ public class PlayerInteract : MonoBehaviour
         {
             timer -= Time.deltaTime;
 
-            Skobi[0].anchoredPosition = new Vector2(-10 - 40 * (timer/ interactable._BeforeTime), 0);
-            Skobi[1].anchoredPosition = new Vector2(10 + 40 * (timer / interactable._BeforeTime), 0);
+            Skobi[0].anchoredPosition = new Vector2(-10 - 40 * (timer/ interactable._BeforeTime), 10 + 40 * (timer / interactable._BeforeTime));
+            Skobi[1].anchoredPosition = new Vector2(10 + 40 * (timer / interactable._BeforeTime), 10 + 40 * (timer / interactable._BeforeTime));
+            Skobi[2].anchoredPosition = new Vector2(10 + 40 * (timer / interactable._BeforeTime), -10 - 40 * (timer / interactable._BeforeTime));
+            Skobi[3].anchoredPosition = new Vector2(-10 - 40 * (timer / interactable._BeforeTime), -10 - 40 * (timer / interactable._BeforeTime));
+           
 
             if (timer <= 0)
             {

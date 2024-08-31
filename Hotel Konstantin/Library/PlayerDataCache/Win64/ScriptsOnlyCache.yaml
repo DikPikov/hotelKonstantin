@@ -1,15 +1,29 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - CoridorLights
+    - Cosmare
+    - Door
+    - Floor
+    - Ghost
+    - GhostHead
+    - Lighter
     - Menu
     - MyButton
-    - OpenClose
     - Pause
+    - Player
     - PlayerInteract
     - PlayerMove
     - PlayerRotation
+    - PlayerStats
+    - Room
+    - SanityTemperature
     - Settings
     - SettingsPanel
+    - TaskDisplayer
+    - Trigger
+    Unity.AI.Navigation.dll:
+    - Unity.AI.Navigation.NavMeshSurface
     Unity.Postprocessing.Runtime.dll:
     - UnityEngine.Rendering.PostProcessing.AmbientOcclusion
     - UnityEngine.Rendering.PostProcessing.AutoExposure
@@ -26,12 +40,6 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.PostProcessing.PostProcessVolume
     - UnityEngine.Rendering.PostProcessing.ScreenSpaceReflections
     - UnityEngine.Rendering.PostProcessing.Vignette
-    Unity.ProBuilder.Editor.dll:
-    - UnityEditor.ProBuilder.PositionToolContext
-    - UnityEditor.ProBuilder.ProBuilderEditor
-    - UnityEditor.ProBuilder.ProbuilderMoveTool
-    - UnityEditor.ProBuilder.ProbuilderRotateTool
-    - UnityEditor.ProBuilder.ProbuilderScaleTool
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.Graphs.dll:
@@ -58,6 +66,8 @@ ScriptsOnlyBuild:
   serializedClasses:
     Assembly-CSharp:
     - MyButton/MyClickEvent
+    - TaskInfo
+    - Trigger/MyTriggerEvent
     Unity.Postprocessing.Runtime:
     - UnityEngine.Rendering.PostProcessing.AmbientOcclusionModeParameter
     - UnityEngine.Rendering.PostProcessing.AmbientOcclusionQualityParameter
@@ -115,6 +125,12 @@ ScriptsOnlyBuild:
     fullTypeName: SettingsPanel
     methodName: SetQuality
   - assembly: Assembly-CSharp
+    fullTypeName: Floor
+    methodName: ShowTask
+  - assembly: Assembly-CSharp
+    fullTypeName: Floor
+    methodName: ShowTask
+  - assembly: Assembly-CSharp
     fullTypeName: SettingsPanel
     methodName: SetSensitivity
   - assembly: UnityEngine.CoreModule
@@ -132,6 +148,12 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: SettingsPanel
     methodName: SetAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: Room
+    methodName: ShowTask
+  - assembly: Assembly-CSharp
+    fullTypeName: Room
+    methodName: ShowTask
   - assembly: Assembly-CSharp
     fullTypeName: SettingsPanel
     methodName: SetFullScreen
@@ -184,64 +206,98 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1692}
+      Script: {instanceID: 1696}
     - Class: 114
-      Script: {instanceID: 2704}
+      Script: {instanceID: 1882}
     - Class: 114
-      Script: {instanceID: 2876}
+      Script: {instanceID: 2708}
     - Class: 114
-      Script: {instanceID: 2996}
+      Script: {instanceID: 2880}
     - Class: 114
-      Script: {instanceID: 3228}
+      Script: {instanceID: 3000}
     - Class: 114
-      Script: {instanceID: 3484}
+      Script: {instanceID: 3146}
     - Class: 114
-      Script: {instanceID: 3512}
+      Script: {instanceID: 3234}
     - Class: 114
-      Script: {instanceID: 3880}
+      Script: {instanceID: 3490}
     - Class: 114
-      Script: {instanceID: 4036}
+      Script: {instanceID: 3504}
     - Class: 114
-      Script: {instanceID: 5842}
+      Script: {instanceID: 3520}
     - Class: 114
-      Script: {instanceID: 6290}
+      Script: {instanceID: 3888}
     - Class: 114
-      Script: {instanceID: 6292}
+      Script: {instanceID: 4044}
     - Class: 114
-      Script: {instanceID: 6502}
+      Script: {instanceID: 4662}
     - Class: 114
-      Script: {instanceID: 6546}
+      Script: {instanceID: 5116}
     - Class: 114
-      Script: {instanceID: 6798}
+      Script: {instanceID: 5852}
     - Class: 114
-      Script: {instanceID: 6882}
+      Script: {instanceID: 5908}
     - Class: 114
-      Script: {instanceID: 7012}
+      Script: {instanceID: 6302}
     - Class: 114
-      Script: {instanceID: 7286}
+      Script: {instanceID: 6304}
     - Class: 114
-      Script: {instanceID: 7420}
+      Script: {instanceID: 6514}
     - Class: 114
-      Script: {instanceID: 7916}
+      Script: {instanceID: 6558}
     - Class: 114
-      Script: {instanceID: 8334}
+      Script: {instanceID: 6810}
     - Class: 114
-      Script: {instanceID: 8694}
+      Script: {instanceID: 6894}
     - Class: 114
-      Script: {instanceID: 9290}
+      Script: {instanceID: 7024}
     - Class: 114
-      Script: {instanceID: 10344}
+      Script: {instanceID: 7292}
     - Class: 114
-      Script: {instanceID: 10780}
+      Script: {instanceID: 7432}
     - Class: 114
-      Script: {instanceID: 10862}
+      Script: {instanceID: 7634}
+    - Class: 114
+      Script: {instanceID: 7930}
+    - Class: 114
+      Script: {instanceID: 8348}
+    - Class: 114
+      Script: {instanceID: 8708}
+    - Class: 114
+      Script: {instanceID: 9280}
+    - Class: 114
+      Script: {instanceID: 9306}
+    - Class: 114
+      Script: {instanceID: 9472}
+    - Class: 114
+      Script: {instanceID: 9858}
+    - Class: 114
+      Script: {instanceID: 10058}
+    - Class: 114
+      Script: {instanceID: 10366}
+    - Class: 114
+      Script: {instanceID: 10634}
+    - Class: 114
+      Script: {instanceID: 10804}
+    - Class: 114
+      Script: {instanceID: 10886}
+    - Class: 114
+      Script: {instanceID: 10920}
+    - Class: 114
+      Script: {instanceID: 29068}
+    - Class: 114
+      Script: {instanceID: 66654}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
+    - Class: 195
+      Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 212
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -250,6 +306,8 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 238
       Script: {instanceID: 0}
     - Class: 241
       Script: {instanceID: 0}
@@ -412,6 +470,12 @@ ScriptsOnlyBuild:
     className: UnityOnBecameVisibleMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 4226bcd64b6cb376dc5ff1631ce8ceb3
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Room
+  - hash:
+      serializedVersion: 2
       Hash: e987953190eb4c12cf19df790566dc2c
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.EventSystems
@@ -476,6 +540,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner
     namespaceName: UnityEngine.TestRunner.Utils
     className: TestRunCallbackListener
+  - hash:
+      serializedVersion: 2
+      Hash: 3ab80a08ce4ffbaa5d653908e124d5e1
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: GhostHead
   - hash:
       serializedVersion: 2
       Hash: 5a4aa2850fe11587f47e34c270c7fd22
@@ -706,6 +776,12 @@ ScriptsOnlyBuild:
     className: LocalizeSpriteEvent
   - hash:
       serializedVersion: 2
+      Hash: 323bd5c70d03ae867c400a0c870fa375
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Cosmare
+  - hash:
+      serializedVersion: 2
       Hash: b747f5d40674055dd70e18552f1b0447
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
@@ -802,7 +878,7 @@ ScriptsOnlyBuild:
     className: AssetTable
   - hash:
       serializedVersion: 2
-      Hash: 09d17ba74cb78d89e46ce3cb7c8aa101
+      Hash: 487ff6975d93beb125ae7a5955144ef1
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: PlayerMove
@@ -812,6 +888,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
     className: TMP_SpriteAsset
+  - hash:
+      serializedVersion: 2
+      Hash: d33c54423b0ebbf755989b2d33ae5bc6
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: CoridorLights
   - hash:
       serializedVersion: 2
       Hash: 96e7bcfd2d072992dab64ac44058b930
@@ -1066,6 +1148,12 @@ ScriptsOnlyBuild:
     className: test
   - hash:
       serializedVersion: 2
+      Hash: 131c88b80c156175f21e0dc731b4d2b9
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Trigger
+  - hash:
+      serializedVersion: 2
       Hash: 1ce63d97d1ca25cba2d91d5f32fd5f79
     assemblyName: Unity.VisualScripting.State
     namespaceName: Unity.VisualScripting
@@ -1126,7 +1214,7 @@ ScriptsOnlyBuild:
     className: LocalizationSettings
   - hash:
       serializedVersion: 2
-      Hash: 54c2bc5fd9ffb2f32815a12ce9940da4
+      Hash: 8945a0848638a68ac1be9d2e00a91dc0
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Menu
@@ -1228,6 +1316,12 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
+      Hash: 3af72727a0d80de4ea1d1359f3908928
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: PlayerStats
+  - hash:
+      serializedVersion: 2
       Hash: b1b45a9617eb86b95a58b2f7f5db4be4
     assemblyName: Assembly-CSharp
     namespaceName: 
@@ -1250,6 +1344,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: VerticalLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 899fdde7fbd3a31e3745347d426c8a9e
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Ghost
   - hash:
       serializedVersion: 2
       Hash: c4b85a67513b4f0cf7b5fb2d5ded04b0
@@ -1318,6 +1418,12 @@ ScriptsOnlyBuild:
     className: EventTrigger
   - hash:
       serializedVersion: 2
+      Hash: 51461ebbbf0048d4a1d4735dabe083f7
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Player
+  - hash:
+      serializedVersion: 2
       Hash: a89b0448af4e1cd103a77f9fec0a961f
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -1334,6 +1440,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline
     namespaceName: UnityEngine.Timeline
     className: SignalTrack
+  - hash:
+      serializedVersion: 2
+      Hash: c83bc5c1d9fa007836fdc11f2481229e
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Floor
   - hash:
       serializedVersion: 2
       Hash: 0468c41f6b5acab8b316fd1fc1a212a7
@@ -1378,6 +1490,12 @@ ScriptsOnlyBuild:
     className: CompatibilityAssetBundleManifest
   - hash:
       serializedVersion: 2
+      Hash: 52b4956fee4d6b07512821ceb5beb79a
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Lighter
+  - hash:
+      serializedVersion: 2
       Hash: 9a174471d4db2c0c6d3ac47d2f818db1
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -1418,6 +1536,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Localization
     namespaceName: UnityEngine.Localization.Tables
     className: StringTable
+  - hash:
+      serializedVersion: 2
+      Hash: a982ec4484410521eed4306a0ab7eb09
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: TaskDisplayer
   - hash:
       serializedVersion: 2
       Hash: 568292fb7ea6c4f7a667e5ff76bc7e85
@@ -1472,7 +1596,20 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 6fe445731868c19d012d3b54679f105b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SanityTemperature
+  - hash:
+      serializedVersion: 2
+      Hash: 07d986b03e618dbe13d8a61be596daf2
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Door
   platform: 19
   scenePathNames:
   - Assets/Scenes/game.unity
-  playerPath: C:/Users/foxed/Desktop/test/Invitation to Hotel Konstantin.exe
+  playerPath: C:/Users/228208/Desktop/Hotel Konstantin Build/Invitation to Hotel
+    Konstantin.exe

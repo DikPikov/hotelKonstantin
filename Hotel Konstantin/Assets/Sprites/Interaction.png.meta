@@ -101,11 +101,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 50
         width: 50
-        height: 100
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -122,11 +122,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 50
-        y: 0
+        y: 50
         width: 50
-        height: 100
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,6 +134,48 @@ TextureImporter:
       bones: []
       spriteID: b85e69822c235af4c90c4c08355c110f
       internalID: -639375966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interaction_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1466219b4b4c61645b17d10064387181
+      internalID: -1452678250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interaction_3
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 945e59a28c8b51342b29fb89d06f32c4
+      internalID: -1676955038
       vertices: []
       indices: 
       edges: []
@@ -151,6 +193,8 @@ TextureImporter:
     nameFileIdTable:
       Interaction_0: 1795149913
       Interaction_1: -639375966
+      Interaction_2: -1452678250
+      Interaction_3: -1676955038
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
