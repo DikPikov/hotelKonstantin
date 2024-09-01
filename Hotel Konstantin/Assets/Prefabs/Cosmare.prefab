@@ -48,7 +48,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  PlayerCamera: {fileID: 0}
+  Renderer: {fileID: 8135647697077626512}
+  CosmareNoise: {fileID: 0}
+  WallLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!65 &4461911551421536783
 BoxCollider:
   m_ObjectHideFlags: 0

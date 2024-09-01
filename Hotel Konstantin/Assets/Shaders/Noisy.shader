@@ -5,8 +5,7 @@ Shader "Custom/Noisy"
         [PerRendererData] _MainTex ("Sprite", 2D) = "white" {}
         _Color("Color", Color) = (1,1,1,1)
             _Strenght("Strenght", Range(0, 5000)) = 0
-         [HideInInspector] _UnscaledTime("UnscaledTime", Float) = 1
-         [ToggleOff]   _Animated("Animated", Range(0, 1)) = 0
+         _UnscaledTime("UnscaledTime", Float) = 1
     }
     SubShader
     {
@@ -38,7 +37,6 @@ Shader "Custom/Noisy"
             float2 uv_MainTex : TEXCOORD0;
         };
 
-        int _Animated;
         fixed _Strenght;
         fixed4 _Color;
         fixed _UnscaledTime;
@@ -59,11 +57,7 @@ Shader "Custom/Noisy"
 
         fixed4 frag(Pixel pixel) : SV_Target
         {
-            fixed time = _Time * _Animated;
-        if (time == 0) {
-            time = 1;
-            }
-            return tex2D(_MainTex, pixel.uv_MainTex) * pixel.color * _Color * Noise(pixel.uv_MainTex * time * _UnscaledTime);
+            return tex2D(_MainTex, pixel.uv_MainTex) * pixel.color * _Color * Noise(pixel.uv_MainTex * _UnscaledTime);
         }
 
         ENDCG

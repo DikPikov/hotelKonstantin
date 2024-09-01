@@ -5,8 +5,8 @@ public class Lighter : MonoBehaviour
     [SerializeField] private Light Light;
     [SerializeField] private float Value;
 
-    private float Intensity;
-    private float Range;
+    [SerializeField] private float Intensity;
+    [SerializeField] private float Range;
 
     public Color _Color
     {
@@ -57,11 +57,5 @@ public class Lighter : MonoBehaviour
             Light.intensity = Intensity * Value;
             Light.range = Range * Value;
         }
-    }
-
-    private void Awake()
-    {
-        Intensity = Light.intensity;
-        Range = Light.range;
     }
 }

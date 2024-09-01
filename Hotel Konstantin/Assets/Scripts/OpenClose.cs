@@ -6,6 +6,18 @@ public class OpenClose : MonoBehaviour, IInteractable
     [SerializeField] protected float OpenTime;
     [SerializeField] protected bool Opened;
 
+    public bool _Opened
+    {
+        get
+        {
+            return Opened;
+        }
+        set
+        {
+            Opened = !value;
+            Interact();
+        }
+    }
     public float _BeforeTime => OpenTime;
 
     private void Start()

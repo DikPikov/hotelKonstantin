@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Floor : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Floor : MonoBehaviour
 
     [SerializeField] private Room[] Rooms;
     [SerializeField] private CoridorLights CoridorLights;
+    [SerializeField] private Image GhostNoise;
     private Ghost Ghost = null;
 
 
@@ -31,7 +33,7 @@ public class Floor : MonoBehaviour
         else if(Ghost == null)
         {
             Ghost = Instantiate(GhostPrefab, SpawnPoint.position, transform.rotation).GetComponent<Ghost>();
-            Ghost.SetInfo(Player, CoridorLights);
+            Ghost.SetInfo(Player, CoridorLights, GhostNoise);
         }
     }
 
@@ -44,6 +46,8 @@ public class Floor : MonoBehaviour
         }
 
         TaskInfo.Info = $"Навести порядок в номерах <b>{roomClear}/{Rooms.Length}</b>";
+
+        TaskDisplayer.UpdateInfo();
     }
 
     public void ShowTask(bool state) => TaskDisplayer.ApplyTask(TaskInfo, !state);

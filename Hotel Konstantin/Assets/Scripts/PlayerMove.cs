@@ -10,7 +10,6 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float Speed;
     private float CameraShake = 0;
 
-    private Coroutine StabilizeCoroutine = null; //����� �� 0 �� 360 ��������, ������ ������� �� ������
     private Coroutine RecoverCoroutine = null;
 
     private void Update()
@@ -24,19 +23,14 @@ public class PlayerMove : MonoBehaviour
 
         if(direction != Vector3.zero)
         {
-            if(StabilizeCoroutine != null)
-            {
-                StopCoroutine(StabilizeCoroutine);
-            }
-
             direction.y = 0;
             direction = direction.normalized;
 
-            if (Physics.Raycast(transform.position + new Vector3(0, 0.8f, 0), new Vector3(direction.x, 0, 0), 0.25f, LayerMask))
+            if(Physics.OverlapBox(transform.position + new Vector3(direction.x * 0.25f, 0.85f, 0), new Vector3(0.25f, 0.8f, 0.25f), transform.rotation, LayerMask).Length > 0)
             {
                 direction.x = 0;
             }
-            if (Physics.Raycast(transform.position + new Vector3(0, 0.8f, 0), new Vector3(0, 0, direction.z), 0.25f, LayerMask))
+            if (Physics.OverlapBox(transform.position + new Vector3(0, 0.85f, direction.z * 0.25f), new Vector3(0.25f, 0.8f, 0.25f), transform.rotation, LayerMask).Length > 0)
             {
                 direction.z = 0;
             }
@@ -51,7 +45,7 @@ public class PlayerMove : MonoBehaviour
                     RecoverCoroutine = null;
                 }
 
-                speed *= 2f;
+                speed += 4f * Time.deltaTime;
                 Player._Stamina -= Time.deltaTime;
             }
             else if (Player._Stamina < 5)
@@ -72,13 +66,6 @@ public class PlayerMove : MonoBehaviour
             
             transform.position += direction * speed;
         }
-        else
-        {
-            if (StabilizeCoroutine == null && CameraShake % 180 != 0)
-            {
-                StabilizeCoroutine = StartCoroutine(Stabilize());
-            }
-        }
     }
 
     private IEnumerator RecoverStamina()
@@ -95,50 +82,5 @@ public class PlayerMove : MonoBehaviour
         }
 
         RecoverCoroutine = null;
-    }
-
-    private IEnumerator Stabilize()
-    {
-        WaitForEndOfFrame waitForEndOfFrame = new WaitForEndOfFrame();
-
-        float target = 0;
-
-        if (Mathf.Abs(CameraShake - 0) > Mathf.Abs(CameraShake - 360))
-        {
-            if(Mathf.Abs(CameraShake - 360) > Mathf.Abs(CameraShake - 180))
-            {
-                target = 180;
-            }
-            else
-            {
-                target = 360;
-            }
-        }
-        else if (Mathf.Abs(CameraShake - 0) > Mathf.Abs(CameraShake - 180))
-        {
-            target = 0;
-        }
-
-        byte sign = (byte)Mathf.Sign(target - CameraShake);
-        while (true)
-        {
-            CameraShake += Mathf.Sign(target - CameraShake) * Speed * 90 * Time.deltaTime;
-
-            if (sign != (byte)Mathf.Sign(target - CameraShake))
-            {
-                CameraShake = target;
-                break;
-            }
-
-          //  Camera.localPosition = new Vector3(0, 1.6f + Mathf.Sin(CameraShake * Mathf.Deg2Rad) * 0.05f, 0);
-
-            Vector3 rotation = Rotation._Rotation;
-            rotation.z = Mathf.Sin(CameraShake * Mathf.Deg2Rad) * 1f;
-            Rotation._Rotation = rotation;
-
-            yield return waitForEndOfFrame;
-        }
-
-        StabilizeCoroutine = null;
     }
 }

@@ -15,9 +15,19 @@ public class Menu : MonoBehaviour
 
     public void ShowPanel(bool state)
     {
+        if (Game._GameOver)
+        {
+            return;
+        }
+
         PlayerInterface.SetActive(!state);
         MenuPanel.SetActive(state);
         Pause._Paused = state;
+    }
+
+    public void Restart()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
     }
 
     public void ExitGame()
