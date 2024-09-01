@@ -6,6 +6,7 @@ public class test : MonoBehaviour, IInteractable
     [SerializeField] private float Time;
 
     public float _BeforeTime => Time;
+    public bool _CanInteract => true;
 
     public void Interact()
     {

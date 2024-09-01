@@ -10,11 +10,18 @@ public class Ghost : MonoBehaviour
     private CoridorLights CoridorLights;
     private Image GhostNoise;
 
+    private void OnDestroy()
+    {
+        GhostNoise.color = new Color(0.3f, 0.3f, 1, 0);
+    }
+
     public void SetInfo(Player player, CoridorLights lights, Image noise)
     {
         Player = player;
         CoridorLights = lights;
         GhostNoise = noise;
+
+        Agent.speed = 1 + Game._HotelMadness * 4;
     }
 
     private void Update()
@@ -26,11 +33,11 @@ public class Ghost : MonoBehaviour
 
         Agent.destination = Player.transform.position;
 
-        if(distance < 0.5f)
+        if(distance < 0.65f)
         {
-            Game._HotelTime += 3600;
-            Player._Sanity += 0.25f;
-            CoridorLights._LightTime = 60;
+            Game._HotelTime += Random.Range(300, 900);
+            Player._Sanity += 0.25f - 0.25f * Game._HotelMadness;
+            CoridorLights._LightTime = Random.Range(60, 180f);
             Destroy(gameObject);
 
             GhostNoise.color = new Color(0.3f, 0.3f, 1, 0);

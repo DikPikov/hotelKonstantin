@@ -1,23 +1,56 @@
+using System.Collections;
+using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Cosmare : MonoBehaviour
 {
     [SerializeField] private Player Player;
-    [SerializeField] private Renderer Renderer;
-    [SerializeField] private GameObject CosmareNoise;
+    [SerializeField] private SpriteRenderer Renderer;
+    [SerializeField] private Image CosmareNoise;
     [SerializeField] private LayerMask WallLayer;
     private bool Visioned = false;
 
-    public void SetInfo(Player player, GameObject noise)
+    private Lighter Lighter = null;
+    private float Intense = 0;
+
+    private float SanitySpeed = 0.01f;
+
+    private bool Killing = false;
+
+    public void SetInfo(Player player, Image noise)
     {
         Player = player;
         CosmareNoise = noise;
+
+        SanitySpeed = 0.01f + Game._HotelMadness * 0.24f;
+
+        foreach(Collider collider in Physics.OverlapSphere(transform.position, 5))
+        {
+            if (collider.GetComponent<Lighter>())
+            {
+                Lighter = collider.GetComponent<Lighter>();
+                break;
+            }
+        }
+
+        if(Lighter != null)
+        {
+            Intense = Lighter._Intensity;
+
+            Lighter._Intensity = 0;
+        }
     }
 
     private void OnDestroy()
     {
         Visioned = true;
-        CosmareNoise.SetActive(false);
+        CosmareNoise.color = new Color(1, 0, 0, 0);
+
+        if (Lighter != null)
+        {
+            Lighter._Intensity = Intense;
+        }
     }
 
     private void Update()
@@ -38,23 +71,37 @@ public class Cosmare : MonoBehaviour
 
             if (!Visioned)
             {
-                CosmareNoise.SetActive(true);
+                CosmareNoise.color = new Color(1, 0, 0, 1 - Player._Sanity);
 
                 Player._Sanity -= 0.1f;
                 Visioned = true;
             }
 
-            Player._Sanity -= Time.deltaTime * 0.25f;
+            Player._Sanity -= Time.deltaTime * 0.05f;
+            CosmareNoise.color = new Color(1, 0, 0, 1 - Player._Sanity);
 
             if (Player._Sanity == 0)
             {
-                Game.Over();
-                Destroy(gameObject);
+                Killing = true;
+                StartCoroutine(Kill());
             }
         }
-        else if (Visioned)
+        else if (Visioned && Game._HotelMadness < 0.5f && !Killing)
         {
             Destroy(gameObject);
         }
+    }
+
+    private IEnumerator Kill()
+    {
+        CosmareNoise.color = new Color(1, 0, 0, 1);
+
+        yield return new WaitForSecondsRealtime(1);
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+                Application.Quit();
+#endif
     }
 }
