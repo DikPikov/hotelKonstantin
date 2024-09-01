@@ -65,8 +65,8 @@ public class Room : MonoBehaviour
 
         TowelUpdated = Towel._Updated;
 
-        TaskInfo.Info = $"Кровать заправлена <b>{(BedCleared ? "Да" : "Нет")}</b>\nМусор убран <b>{(TrashRemoved ? "Да" : "Нет")}</b>\nПолотенце обновлено <b>{(TowelUpdated ? "Да" : "Нет")}</b>" +
-            $"\nЯщики, шкафы и двери закрыты <b>{(CabinetsClosed ? "Да" : "Нет")}</b>\nГрязь отсутствует <b>{(DirtWashed ? "Да" : "Нет")}</b>\nСвет выключен <b>{(LightsOff ? "Да" : "Нет")}</b>";
+        TaskInfo.Info = $"РљСЂРѕРІР°С‚СЊ Р·Р°РїСЂР°РІР»РµРЅР° <b>{(BedCleared ? "Р”Р°" : "РќРµС‚")}</b>\nРњСѓСЃРѕСЂ СѓР±СЂР°РЅ <b>{(TrashRemoved ? "Р”Р°" : "РќРµС‚")}</b>\nРџРѕР»РѕС‚РµРЅС†Рµ РѕР±РЅРѕРІР»РµРЅРѕ <b>{(TowelUpdated ? "Р”Р°" : "РќРµС‚")}</b>" +
+            $"\nРЇС‰РёРєРё, С€РєР°С„С‹ Рё РґРІРµСЂРё Р·Р°РєСЂС‹С‚С‹ <b>{(CabinetsClosed ? "Р”Р°" : "РќРµС‚")}</b>\nР“СЂСЏР·СЊ РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚ <b>{(DirtWashed ? "Р”Р°" : "РќРµС‚")}</b>\nРЎРІРµС‚ РІС‹РєР»СЋС‡РµРЅ <b>{(LightsOff ? "Р”Р°" : "РќРµС‚")}</b>";
        
         Floor.UpdateTaskInfo(); 
         TaskDisplayer.UpdateInfo();

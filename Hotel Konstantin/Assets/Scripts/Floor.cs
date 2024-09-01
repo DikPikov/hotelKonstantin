@@ -45,7 +45,7 @@ public class Floor : MonoBehaviour
             roomClear += room._Clear.GetHashCode();
         }
 
-        TaskInfo.Info = $"Навести порядок в номерах <b>{roomClear}/{Rooms.Length}</b>";
+        TaskInfo.Info = $"ВќВќВќВќВќВќВќ ВќВќВќВќВќВќВќ Вќ ВќВќВќВќВќВќВќ <b>{roomClear}/{Rooms.Length}</b>";
 
         TaskDisplayer.UpdateInfo();
     }

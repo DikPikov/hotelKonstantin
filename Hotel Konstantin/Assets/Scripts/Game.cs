@@ -21,7 +21,7 @@ public class Game : MonoBehaviour
         set
         {
             Instance.HotelTime = value;
-            Instance.TimeIndicator.text = $"{(int)(value / 3600f)}˜ {(int)(value % 3600 / 60f)}Ï {(int)(value % 60)}Ò";
+            Instance.TimeIndicator.text = $"{(int)(value / 3600f)}—á {(int)(value % 3600 / 60f)}–º {(int)(value % 60)}—Å";
         }
     }
     public static bool _GameOver
@@ -51,7 +51,7 @@ public class Game : MonoBehaviour
         while (true)
         {
             HotelTime++;
-            TimeIndicator.text = $"{(int)(HotelTime / 3600f)}˜ {(int)(HotelTime % 3600 / 60f)}Ï {(int)(HotelTime % 60)}Ò";
+            TimeIndicator.text = $"{(int)(HotelTime / 3600f)}—á {(int)(HotelTime % 3600 / 60f)}–º {(int)(HotelTime % 60)}—Å";
             yield return new WaitForSeconds(1);
         }
 

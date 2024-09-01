@@ -30,17 +30,17 @@ public class SettingsPanel : MonoBehaviour
         switch (Config.Quality)
         {
             case 0:
-                QualityInfo.text = $"Низкое";
+                QualityInfo.text = $"РќРёР·РєРѕРµ";
                 break;
             case 1:
-                QualityInfo.text = $"Среднее";
+                QualityInfo.text = $"РЎСЂРµРґРЅРµРµ";
                 break;
             case 2:
-                QualityInfo.text = $"Высокое";
+                QualityInfo.text = $"Р’С‹СЃРѕРєРѕРµ";
                 break;
         }
 
-        SensitivityInfo.text = $"Чувствительность: {Config.Sensitivity}";
+        SensitivityInfo.text = $"Р§СѓРІСЃС‚РІРёС‚РµР»СЊРЅРѕСЃС‚СЊ: {Config.Sensitivity}";
         FullScreen.isOn = Config.FullScreen == 1;
         Audio.value = Config.Audio;
         Sensitivity.value = Config.Sensitivity / 4f;
@@ -87,13 +87,13 @@ public class SettingsPanel : MonoBehaviour
         switch (Config.Quality)
         {
             case 0:
-                QualityInfo.text = $"Низкое";
+                QualityInfo.text = $"РќРёР·РєРѕРµ";
                 break;
             case 1:
-                QualityInfo.text = $"Среднее";
+                QualityInfo.text = $"РЎСЂРµРґРЅРµРµ";
                 break;
             case 2:
-                QualityInfo.text = $"Высокое";
+                QualityInfo.text = $"Р’С‹СЃРѕРєРѕРµ";
                 break;
         }
     }
@@ -101,7 +101,7 @@ public class SettingsPanel : MonoBehaviour
     public void SetSensitivity(float value)
     {
         Config.Sensitivity = value * 4;
-        SensitivityInfo.text = $"Чувствительность: {Config.Sensitivity}";
+        SensitivityInfo.text = $"Р§СѓРІСЃС‚РІРёС‚РµР»СЊРЅРѕСЃС‚СЊ: {Config.Sensitivity}";
     }
 
     public void SetAudio(float value)
