@@ -69,18 +69,21 @@ public class PlayerMove : MonoBehaviour
             transform.position += direction * speed;
         }
 
-        if(Physics.CheckSphere(transform.position, 0.01f, LayerMask))
+        if(Physics.CheckSphere(transform.position, 0.04f, LayerMask))
         {
             Fall = 0;
         }
         else
         {
-            Fall += Time.deltaTime * 10;
+            if(Fall < 15)
+            {
+                Fall += Time.deltaTime * 10;
+            }
 
             RaycastHit hit;
             if(Physics.Raycast(transform.position, Vector3.down, out hit, Fall * Time.deltaTime, LayerMask))
             {
-                transform.position -= Vector3.up * (hit.distance - 0.01f);
+                transform.position -= Vector3.up * (hit.distance - 0.04f);
             }
             else
             {

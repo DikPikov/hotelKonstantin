@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3204716523196621134}
   - component: {fileID: 7098974102771282284}
   - component: {fileID: 5078434280258543426}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -51,7 +51,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 8345333626526190262}
   - component: {fileID: 942642360102707255}
   - component: {fileID: 516286308293259008}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Eye2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 2970965117441040932}
   - component: {fileID: 3582446806101083260}
   - component: {fileID: 5066334926460830058}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Eye1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4658380703846425544}
   - component: {fileID: 4930057680830436917}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}

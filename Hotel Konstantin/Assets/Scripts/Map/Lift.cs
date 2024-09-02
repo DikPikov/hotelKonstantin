@@ -9,6 +9,12 @@ public interface ILiftable
 public class Lift : MonoBehaviour
 {
     [SerializeField] private Floor[] Floors;
+
+    [SerializeField] private Animator Animator;
+
+    [SerializeField] private Material IndicatorMaterial;
+    [SerializeField] private Texture2D[] IndicatorTextures;
+
     [SerializeField] private int CurrentFloor;
     [SerializeField] private float Speed;
 
@@ -20,6 +26,14 @@ public class Lift : MonoBehaviour
 
     public void Elevate(int floor)
     {
+        if(ElevateCoroutine == null)
+        {
+            if(CurrentFloor == floor)
+            {
+                return;
+            }
+        }
+
         if(Order.Length > 1)
         {
             Order[1] = floor;
@@ -31,7 +45,7 @@ public class Lift : MonoBehaviour
 
         if(ElevateCoroutine == null)
         {
-            ElevateCoroutine = StartCoroutine(Elevate(Order[0] * 5 + 0.5f));
+            ElevateCoroutine = StartCoroutine(Elevate(Order[0] * 5 + 1.1f));
         }
     }
 
@@ -55,6 +69,9 @@ public class Lift : MonoBehaviour
         float sign = Mathf.Sign(high - transform.position.y);
         int floor = CurrentFloor;
 
+        Animator.SetBool("Open", false);
+        yield return new WaitForSeconds(2);
+
         WaitForEndOfFrame waitForEndOfFrame = new WaitForEndOfFrame();
         while (true)
         {
@@ -65,7 +82,10 @@ public class Lift : MonoBehaviour
             {
                 CurrentFloor = floor;
 
-                foreach(ILiftable liftable in Objects)
+                IndicatorMaterial.SetTexture("_MainTex", IndicatorTextures[floor]);
+                IndicatorMaterial.SetTexture("_EmissionMap", IndicatorTextures[floor]);
+
+                foreach (ILiftable liftable in Objects)
                 {
                     liftable._Floor = Floors[floor];
                 }
@@ -80,13 +100,15 @@ public class Lift : MonoBehaviour
             yield return waitForEndOfFrame;
         }
 
-        yield return new WaitForSeconds(5);
+        Animator.SetBool("Open", true);
+
+        yield return new WaitForSeconds(2);
 
         Order = StaticTools.ReduceMassive(Order, 0);
 
         if(Order.Length > 0)
         {
-            ElevateCoroutine = StartCoroutine(Elevate(Order[0] * 5 + 0.5f));
+            ElevateCoroutine = StartCoroutine(Elevate(Order[0] * 5 + 1.1f));
         }
         else
         {

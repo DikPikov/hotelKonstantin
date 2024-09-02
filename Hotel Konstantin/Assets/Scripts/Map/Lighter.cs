@@ -1,12 +1,51 @@
+using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Lighter : MonoBehaviour
 {
     [SerializeField] private Light Light;
+
+    [SerializeField] private Renderer LampRenderer;
+    [SerializeField] private int LightMaterialIndex;
+    private Material LampMaterial = null;
+
     [SerializeField] private float Value;
 
     [SerializeField] private float Intensity;
     [SerializeField] private float Range;
+
+    private void OnEnable()
+    {
+        _LampMaterial.color = Light.color * Mathf.Min(Intensity, Value);
+    }
+
+    private void OnDisable()
+    {
+        _LampMaterial.color = Color.black;
+    }
+
+    private Material _LampMaterial
+    {
+        get
+        {
+            if (LampMaterial == null)
+            {
+                LampMaterial = new Material(LampRenderer.materials[LightMaterialIndex]);
+                LampRenderer.materials[LightMaterialIndex] = LampMaterial;
+
+                LampMaterial.name = "Light";
+
+                List<Material> materials = new List<Material>();
+                LampRenderer.GetMaterials(materials);
+
+                materials[LightMaterialIndex] = LampMaterial;
+                LampRenderer.SetMaterials(materials);
+            }
+
+            return LampMaterial;
+        }
+    }
 
     public Color _Color
     {
@@ -17,6 +56,11 @@ public class Lighter : MonoBehaviour
         set
         {
             Light.color = value;
+
+            if (gameObject.activeSelf)
+            {
+                _LampMaterial.color = value * Mathf.Min(Intensity, Value);
+            }
         }
     }
     public float _Intensity
@@ -29,6 +73,11 @@ public class Lighter : MonoBehaviour
         {
             Intensity = value;
             Light.intensity = Intensity * Value;
+
+            if (gameObject.activeSelf)
+            {
+                _LampMaterial.color = Light.color * Mathf.Min(Intensity, Value);
+            }
         }
     }
     public float _Range
@@ -56,6 +105,11 @@ public class Lighter : MonoBehaviour
 
             Light.intensity = Intensity * Value;
             Light.range = Range * Value;
+
+            if (gameObject.activeSelf)
+            {
+                _LampMaterial.color = Light.color * Mathf.Min(Intensity, Value);
+            }
         }
     }
 }
