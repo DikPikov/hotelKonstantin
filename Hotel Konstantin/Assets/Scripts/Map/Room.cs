@@ -6,9 +6,10 @@ public class Room : MonoBehaviour
     [SerializeField] private TaskInfo TaskInfo;
     [SerializeField] private Floor Floor;
 
-    [SerializeField] private GameObject Light;
     [SerializeField] private Bed Bed;
     [SerializeField] private Towel Towel;
+    [SerializeField] private Televizor Televizor;
+    [SerializeField] private GameObject[] Light;
     [SerializeField] private OpenClose[] Cabinets;
     [SerializeField] private GameObject[] Trash;
     [SerializeField] private GameObject[] Dirt;
@@ -19,8 +20,9 @@ public class Room : MonoBehaviour
     [SerializeField] private bool CabinetsClosed;
     [SerializeField] private bool DirtWashed;
     [SerializeField] private bool LightsOff;
+    [SerializeField] private bool TVOff;
 
-    public bool _Clear => BedCleared && TrashRemoved && TowelUpdated && CabinetsClosed && DirtWashed && LightsOff;
+    public bool _Clear => BedCleared && TrashRemoved && TowelUpdated && CabinetsClosed && DirtWashed && LightsOff && TVOff;
 
     private void Start()
     {
@@ -38,7 +40,17 @@ public class Room : MonoBehaviour
 
     public void UpdateTaskInfo()
     {
-        LightsOff = !Light.activeSelf;
+        LightsOff = true;
+        foreach (GameObject light in Light)
+        {
+            if (light.activeSelf)
+            {
+                LightsOff = false;
+                break;
+            }
+        }
+
+        TVOff = !Televizor._On;
 
         BedCleared = Bed._Cleared;
 
@@ -59,7 +71,7 @@ public class Room : MonoBehaviour
         TowelUpdated = Towel._Updated;
 
         TaskInfo.Info = $"Кровать заправлена <b>{(BedCleared ? "Да" : "Нет")}</b>\nМусор убран <b>{(TrashRemoved ? "Да" : "Нет")}</b>\nПолотенце обновлено <b>{(TowelUpdated ? "Да" : "Нет")}</b>" +
-            $"\nЯщики, шкафы и двери закрыты <b>{(CabinetsClosed ? "Да" : "Нет")}</b>\nГрязь отсутствует <b>{(DirtWashed ? "Да" : "Нет")}</b>\nСвет выключен <b>{(LightsOff ? "Да" : "Нет")}</b>";
+            $"\nЯщики, шкафы и двери закрыты <b>{(CabinetsClosed ? "Да" : "Нет")}</b>\nГрязь отсутствует <b>{(DirtWashed ? "Да" : "Нет")}</b>\nСвет выключен <b>{(LightsOff ? "Да" : "Нет")}</b>\nЭЛТ Телевизор выключен <b>{(TVOff ? "Да" : "Нет")}</b>";
        
         Floor.UpdateTaskInfo(); 
         TaskDisplayer.UpdateInfo();

@@ -4,6 +4,10 @@ public class Towel : MonoBehaviour, IInteractable
 {
     [SerializeField] private Room Room;
     [SerializeField] private Animator Animator;
+
+    [SerializeField] private MeshRenderer Renderer;
+    [SerializeField] private Material[] Materials;
+
     [SerializeField] private bool Updated;
 
     public float _BeforeTime => 2;
@@ -15,9 +19,19 @@ public class Towel : MonoBehaviour, IInteractable
         }
         set
         {
+            if(Updated == value)
+            {
+                return;
+            }
+
             Updated = value;
 
-            Animator.SetBool("Updated", Updated);
+            Renderer.material = Materials[Updated ? 0 : 1];
+
+            if (Updated)
+            {
+                Animator.Play("update");
+            }
 
             Room.UpdateTaskInfo();
         }

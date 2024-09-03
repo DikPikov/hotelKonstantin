@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class OpenClose : MonoBehaviour, IInteractable
 {
+    [SerializeField] protected Room Room;
+
     [SerializeField] protected Animator Animator;
     [SerializeField] protected float OpenTime;
     [SerializeField] protected bool Opened;
@@ -31,5 +33,10 @@ public class OpenClose : MonoBehaviour, IInteractable
         Opened = !Opened;
 
         Animator.SetBool("isOpen", Opened);
+
+        if(Room != null)
+        {
+            Room.UpdateTaskInfo();
+        }
     }
 }
