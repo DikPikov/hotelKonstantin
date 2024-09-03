@@ -7,6 +7,7 @@ public class SettingsPanel : MonoBehaviour
     [SerializeField] private Text QualityInfo;
     [SerializeField] private Text SensitivityInfo;
     [SerializeField] private Toggle FullScreen;
+    [SerializeField] private Toggle PostProcessing;
     [SerializeField] private Slider Audio;
     [SerializeField] private Slider Sensitivity;
 
@@ -42,6 +43,7 @@ public class SettingsPanel : MonoBehaviour
 
         SensitivityInfo.text = $"Чувствительность: {Config.Sensitivity}";
         FullScreen.isOn = Config.FullScreen == 1;
+        PostProcessing.isOn = Config.PostProcessing == 1;
         Audio.value = Config.Audio;
         Sensitivity.value = Config.Sensitivity / 4f;
 
@@ -112,5 +114,10 @@ public class SettingsPanel : MonoBehaviour
     public void SetFullScreen(bool state)
     {
         Config.FullScreen = state ? 1 : 0;
+    }
+
+    public void SetPostProcess(bool state)
+    {
+        Config.PostProcessing = state ? 1 : 0;
     }
 }

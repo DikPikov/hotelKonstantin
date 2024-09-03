@@ -8,6 +8,11 @@ public class LensDistortionEffect : MonoBehaviour
     private LensDistortion LensDistortion = null;
     private float BaseValue = 0;
 
+    private void OnApplicationQuit()
+    {
+        LensDistortion.intensity.value = BaseValue;
+    }
+
     private void Start()
     {
         foreach(PostProcessEffectSettings settings in PostProcess.settings)

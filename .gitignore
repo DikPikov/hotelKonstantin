@@ -71,3 +71,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 /Hotel Konstantin/Logs
+*.umbracache
+Hotel Konstantin/Assets/Materials/Noise.mat
+Hotel Konstantin/UserSettings/Layouts/CurrentMaximizeLayout.dwlt
+Hotel Konstantin/UserSettings/Layouts/default-2022.dwlt

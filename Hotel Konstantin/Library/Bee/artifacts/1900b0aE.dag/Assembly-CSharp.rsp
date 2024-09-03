@@ -383,6 +383,7 @@
 "Assets/Scripts/Enemies/Ghost.cs"
 "Assets/Scripts/Enemies/GhostHead.cs"
 "Assets/Scripts/ExtraInfoPanel.cs"
+"Assets/Scripts/FPSCounter.cs"
 "Assets/Scripts/Game.cs"
 "Assets/Scripts/InputManager.cs"
 "Assets/Scripts/Interaction/Bed.cs"

@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering.PostProcessing;
 
 public class Settings : MonoBehaviour
 {
     [SerializeField] private AudioMixer Mixer;
+    [SerializeField] private PostProcessVolume PostProcess;
     [SerializeField] private PlayerRotation Rotation;
     private Config Config;
 
@@ -23,6 +25,7 @@ public class Settings : MonoBehaviour
             PlayerPrefs.SetFloat("Audio", 1);
 
             PlayerPrefs.SetInt("Qual", 1);
+            PlayerPrefs.SetInt("PostP", 1);
 
             PlayerPrefs.SetInt("FullScreen", 0);
 
@@ -53,6 +56,22 @@ public class Settings : MonoBehaviour
         Screen.SetResolution(Config.XResolution, Config.YResolution, Config.FullScreen == 1);
 
         Rotation._Sensitivity = Config.Sensitivity;
+
+        PostProcess.weight = Config.PostProcessing == 1 ? 1 : 0;
+
+        QualitySettings.SetQualityLevel(Config.Quality, true);
+        switch (Config.Quality)
+        {
+            case 0:
+                Graphics.activeTier = UnityEngine.Rendering.GraphicsTier.Tier1;
+                break;
+            case 1:
+                Graphics.activeTier = UnityEngine.Rendering.GraphicsTier.Tier2;
+                break;
+            case 2:
+                Graphics.activeTier = UnityEngine.Rendering.GraphicsTier.Tier3;
+                break;
+        }
     }
 }
 
@@ -67,6 +86,7 @@ public class Config
     public float Audio;
 
     public int Quality;
+    public int PostProcessing;
 
     public Config()
     {
@@ -78,6 +98,7 @@ public class Config
         Audio = PlayerPrefs.GetFloat("Audio");
 
         Quality = PlayerPrefs.GetInt("Qual");
+        PostProcessing = PlayerPrefs.GetInt("PostP");
 
         FullScreen = PlayerPrefs.GetInt("FullScreen");
     }
@@ -92,6 +113,7 @@ public class Config
         PlayerPrefs.SetFloat("Audio", Audio);
 
         PlayerPrefs.SetInt("Qual", Quality);
+        PlayerPrefs.SetInt("PostP", PostProcessing);
 
         PlayerPrefs.SetInt("FullScreen", FullScreen);
         
