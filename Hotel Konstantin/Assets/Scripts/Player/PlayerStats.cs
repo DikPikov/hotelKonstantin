@@ -17,6 +17,16 @@ public class PlayerStats : MonoBehaviour
     public void UpdateInfo()
     {
         StaminaBar.fillAmount = Player._Stamina / 5f;
+        
+        if(Player._Stamina == 5)
+        {
+            StaminaBar.gameObject.SetActive(false);
+        }
+        else if (!StaminaBar.gameObject.activeSelf)
+        {
+            StaminaBar.gameObject.SetActive(true);
+        }
+        
         SanityBar.fillAmount = Player._Sanity;
     }
 }

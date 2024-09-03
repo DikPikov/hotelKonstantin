@@ -20,7 +20,7 @@ public class InputManager : MonoBehaviour
 
     public enum ButtonState { Down, Hold, Up }
     public enum AxisEnum {Horizontal, Vertical}
-    public enum ButtonEnum {Menu, Run, Interact}
+    public enum ButtonEnum {Menu, Run, Interact, OpenExtraInfo, Item1, Item2, Item3, DropItem }
 
     [SerializeField] private KeyMapData KeyMap;
 #if UNITY_EDITOR
@@ -44,7 +44,11 @@ public class InputManager : MonoBehaviour
     private Button Menu = null;
     private Button Run = null;
     private Button Interact = null;
-
+    private Button OpenExtraInfo = null;
+    private Button Item1 = null;
+    private Button Item2 = null;
+    private Button Item3 = null;
+    private Button DropItem = null;
 
     private void Awake()
     {
@@ -92,6 +96,13 @@ public class InputManager : MonoBehaviour
         Menu = new Button(KeyMap.Menu);
         Run = new Button(KeyMap.Run);
         Interact = new Button(KeyMap.Interact);
+        OpenExtraInfo = new Button(KeyMap.OpenExtraInfo);
+
+        Item1 = new Button(KeyMap.Item1);
+        Item2 = new Button(KeyMap.Item2);
+        Item3 = new Button(KeyMap.Item3);
+
+        DropItem = new Button(KeyMap.DropItem);
     }
 
     public static float GetAxis(AxisEnum axis)
@@ -119,6 +130,16 @@ public class InputManager : MonoBehaviour
                 return Run.CheckState(state);
             case ButtonEnum.Interact:
                 return Interact.CheckState(state);
+            case ButtonEnum.OpenExtraInfo:
+                return OpenExtraInfo.CheckState(state);
+            case ButtonEnum.Item1:
+                return Item1.CheckState(state);
+            case ButtonEnum.Item2:
+                return Item2.CheckState(state);
+            case ButtonEnum.Item3:
+                return Item3.CheckState(state);
+            case ButtonEnum.DropItem:
+                return DropItem.CheckState(state);
         }
 
         Debug.LogError($"кнопка <color=white>{button}</color> не найдена");
@@ -316,6 +337,12 @@ public class KeyMapData
     public string Vertical = "+W +UpArrow -S -DownArrow";
 
     public string Menu = "Escape F1";
+    public string OpenExtraInfo = "Tab Space";
+    public string Item1 = KeyCode.Alpha1.ToString();
+    public string Item2 = KeyCode.Alpha2.ToString();
+    public string Item3 = KeyCode.Alpha3.ToString();
+
+    public string DropItem = "Q G";
 
     public string Run = "LeftShift RightShift";
 

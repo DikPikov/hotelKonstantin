@@ -1,16 +1,22 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AlcoholObject
     - Bed
     - CoridorLights
     - Cosmare
     - CosmareSpawner
     - Door
+    - ExtraInfoPanel
+    - FOVEffect
     - Floor
     - Game
     - Ghost
     - GhostHead
     - Interactable
+    - ItemManager
+    - ItemPick
+    - LensDistortionEffect
     - Lift
     - LiftTrigger
     - Lighter
@@ -70,6 +76,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Outline
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
     - UnityEngine.UI.Toggle
@@ -282,105 +289,119 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1696}
     - Class: 114
-      Script: {instanceID: 1882}
+      Script: {instanceID: 1788}
     - Class: 114
-      Script: {instanceID: 1960}
+      Script: {instanceID: 1884}
     - Class: 114
-      Script: {instanceID: 2708}
+      Script: {instanceID: 1962}
     - Class: 114
-      Script: {instanceID: 2880}
+      Script: {instanceID: 2710}
     - Class: 114
-      Script: {instanceID: 2894}
+      Script: {instanceID: 2882}
     - Class: 114
-      Script: {instanceID: 3232}
+      Script: {instanceID: 2896}
     - Class: 114
-      Script: {instanceID: 3488}
+      Script: {instanceID: 3004}
     - Class: 114
-      Script: {instanceID: 3502}
+      Script: {instanceID: 3150}
     - Class: 114
-      Script: {instanceID: 3518}
+      Script: {instanceID: 3238}
     - Class: 114
-      Script: {instanceID: 4656}
+      Script: {instanceID: 3494}
     - Class: 114
-      Script: {instanceID: 5110}
+      Script: {instanceID: 3508}
     - Class: 114
-      Script: {instanceID: 5900}
+      Script: {instanceID: 3524}
     - Class: 114
-      Script: {instanceID: 6252}
+      Script: {instanceID: 3892}
     - Class: 114
-      Script: {instanceID: 6296}
+      Script: {instanceID: 4048}
     - Class: 114
-      Script: {instanceID: 6394}
+      Script: {instanceID: 4666}
     - Class: 114
-      Script: {instanceID: 6506}
+      Script: {instanceID: 5120}
     - Class: 114
-      Script: {instanceID: 6550}
+      Script: {instanceID: 5856}
     - Class: 114
-      Script: {instanceID: 6802}
+      Script: {instanceID: 5912}
     - Class: 114
-      Script: {instanceID: 6886}
+      Script: {instanceID: 6266}
     - Class: 114
-      Script: {instanceID: 7016}
+      Script: {instanceID: 6310}
     - Class: 114
-      Script: {instanceID: 7284}
+      Script: {instanceID: 6312}
     - Class: 114
-      Script: {instanceID: 7422}
+      Script: {instanceID: 6412}
     - Class: 114
-      Script: {instanceID: 7914}
+      Script: {instanceID: 6436}
     - Class: 114
-      Script: {instanceID: 8150}
+      Script: {instanceID: 6526}
     - Class: 114
-      Script: {instanceID: 8464}
+      Script: {instanceID: 6570}
     - Class: 114
-      Script: {instanceID: 8694}
+      Script: {instanceID: 6696}
     - Class: 114
-      Script: {instanceID: 9266}
+      Script: {instanceID: 6824}
     - Class: 114
-      Script: {instanceID: 9456}
+      Script: {instanceID: 6908}
     - Class: 114
-      Script: {instanceID: 9842}
+      Script: {instanceID: 7038}
     - Class: 114
-      Script: {instanceID: 10348}
+      Script: {instanceID: 7306}
     - Class: 114
-      Script: {instanceID: 10616}
+      Script: {instanceID: 7368}
     - Class: 114
-      Script: {instanceID: 10786}
+      Script: {instanceID: 7448}
     - Class: 114
-      Script: {instanceID: 10868}
+      Script: {instanceID: 7650}
     - Class: 114
-      Script: {instanceID: 11722}
+      Script: {instanceID: 7810}
     - Class: 114
-      Script: {instanceID: 11726}
+      Script: {instanceID: 7948}
     - Class: 114
-      Script: {instanceID: 11730}
+      Script: {instanceID: 8184}
     - Class: 114
-      Script: {instanceID: 11734}
+      Script: {instanceID: 8270}
     - Class: 114
-      Script: {instanceID: 11738}
+      Script: {instanceID: 8370}
     - Class: 114
-      Script: {instanceID: 11742}
+      Script: {instanceID: 8502}
     - Class: 114
-      Script: {instanceID: 11746}
+      Script: {instanceID: 8732}
     - Class: 114
-      Script: {instanceID: 11750}
+      Script: {instanceID: 9278}
     - Class: 114
-      Script: {instanceID: 11758}
+      Script: {instanceID: 9304}
     - Class: 114
-      Script: {instanceID: 11762}
+      Script: {instanceID: 9330}
     - Class: 114
-      Script: {instanceID: 11766}
+      Script: {instanceID: 9496}
     - Class: 114
-      Script: {instanceID: 11778}
+      Script: {instanceID: 9882}
     - Class: 114
-      Script: {instanceID: 11782}
+      Script: {instanceID: 10082}
     - Class: 114
-      Script: {instanceID: 11786}
+      Script: {instanceID: 10390}
     - Class: 114
-      Script: {instanceID: 11790}
+      Script: {instanceID: 10400}
     - Class: 114
-      Script: {instanceID: 11794}
+      Script: {instanceID: 10604}
     - Class: 114
-      Script: {instanceID: 11798}
+      Script: {instanceID: 10662}
+    - Class: 114
+      Script: {instanceID: 10832}
+    - Class: 114
+      Script: {instanceID: 10914}
+    - Class: 114
+      Script: {instanceID: 10948}
+    - Class: 114
+      Script: {instanceID: 65940}
+    - Class: 114
+      Script: {instanceID: 115630}
+    - Class: 114
+      Script: {instanceID: 159998}
+    - Class: 114
+      Script: {instanceID: 190846}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -426,6 +447,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: Image
+  - hash:
+      serializedVersion: 2
+      Hash: 6fe445731868c19d012d3b54679f105b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SanityTemperature
   - hash:
       serializedVersion: 2
       Hash: f45600bcc886206dd55a3208474aad61
@@ -530,7 +557,7 @@ ScriptsOnlyBuild:
     className: UnityOnJointBreakMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 3946ef92fb89e4d8480769094aa079d6
+      Hash: a181058d759d7878f5108723d1e4815f
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: PlayerInteract
@@ -560,10 +587,22 @@ ScriptsOnlyBuild:
     className: Bed
   - hash:
       serializedVersion: 2
+      Hash: eeb729313a0363e9591002514ca3ace1
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Settings
+  - hash:
+      serializedVersion: 2
       Hash: 1321993db8249e1e05e1e0492b2bbdc3
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnBecameVisibleMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 67f916b5210d237e8d230bf9afc9b7e5
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Room
   - hash:
       serializedVersion: 2
       Hash: e987953190eb4c12cf19df790566dc2c
@@ -698,6 +737,12 @@ ScriptsOnlyBuild:
     className: BezierShape
   - hash:
       serializedVersion: 2
+      Hash: a4a4f00fb273c3b455e9d84865951b5b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Pause
+  - hash:
+      serializedVersion: 2
       Hash: a1ac4c50e55874de16eee3db71aa9784
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
@@ -708,6 +753,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: Button
+  - hash:
+      serializedVersion: 2
+      Hash: d01cd7c107f8d3f044f1ac2f6542b0f9
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: MyButton
   - hash:
       serializedVersion: 2
       Hash: d90629714fa6b0145fcaffc87f5c6559
@@ -956,6 +1007,12 @@ ScriptsOnlyBuild:
     className: AssetTable
   - hash:
       serializedVersion: 2
+      Hash: 487ff6975d93beb125ae7a5955144ef1
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: PlayerMove
+  - hash:
+      serializedVersion: 2
       Hash: 9078325c2a6f6a2d9612ade897511860
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
@@ -992,6 +1049,12 @@ ScriptsOnlyBuild:
     className: Door
   - hash:
       serializedVersion: 2
+      Hash: 9d8ae7a87a5702ba97645cddc0ce2def
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: PlayerRotation
+  - hash:
+      serializedVersion: 2
       Hash: ffaaa6b08bc8a8928411e8e402432358
     assemblyName: Unity.Postprocessing.Runtime
     namespaceName: UnityEngine.Rendering.PostProcessing
@@ -1008,6 +1071,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline
     namespaceName: UnityEngine.Timeline
     className: ActivationPlayableAsset
+  - hash:
+      serializedVersion: 2
+      Hash: a3d45b7c9d711b3b9a5483e1a06c5c2c
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: NoiseEffect
   - hash:
       serializedVersion: 2
       Hash: e402a382f213255c22bda9254dd831b3
@@ -1086,6 +1155,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Localization
     namespaceName: UnityEngine.Localization
     className: LocalizationBehaviour
+  - hash:
+      serializedVersion: 2
+      Hash: 636f66cb0f2b0881995b7289eb728c84
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Lift
   - hash:
       serializedVersion: 2
       Hash: 47ee34eb8b6021efa0289dbbb17a5a85
@@ -1190,10 +1265,22 @@ ScriptsOnlyBuild:
     className: NavMeshSurface
   - hash:
       serializedVersion: 2
+      Hash: a70307261324e50eec4cf2f9a9e565d6
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: OpenClose
+  - hash:
+      serializedVersion: 2
       Hash: 9dd54ce33440072d6692a67e0c384ad1
     assemblyName: Unity.Timeline
     namespaceName: UnityEngine.Timeline
     className: GroupTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 08ad53708b2e8b3eb7dade34312d6940
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: ItemPick
   - hash:
       serializedVersion: 2
       Hash: bf0842d88681628b29beb00b5e2ab785
@@ -1214,6 +1301,18 @@ ScriptsOnlyBuild:
     className: LocalizeStringEvent
   - hash:
       serializedVersion: 2
+      Hash: 0eedde5c50691462b76e3a7bea03ebaf
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: test
+  - hash:
+      serializedVersion: 2
+      Hash: 131c88b80c156175f21e0dc731b4d2b9
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Trigger
+  - hash:
+      serializedVersion: 2
       Hash: 1ce63d97d1ca25cba2d91d5f32fd5f79
     assemblyName: Unity.VisualScripting.State
     namespaceName: Unity.VisualScripting
@@ -1224,6 +1323,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.ResourceManager
     namespaceName: 
     className: MonoBehaviourCallbackHooks
+  - hash:
+      serializedVersion: 2
+      Hash: e59be3f0a38c9f219c68261517fe9685
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: InputManager
+  - hash:
+      serializedVersion: 2
+      Hash: 1ed4f87bb29473534a6c2ea256a0e104
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Game
   - hash:
       serializedVersion: 2
       Hash: 540882762544409cc4530e60db00e951
@@ -1272,6 +1383,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Localization
     namespaceName: UnityEngine.Localization.Settings
     className: LocalizationSettings
+  - hash:
+      serializedVersion: 2
+      Hash: f0944899fd46b41978975c25c313e677
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: ExtraInfoPanel
+  - hash:
+      serializedVersion: 2
+      Hash: 8945a0848638a68ac1be9d2e00a91dc0
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Menu
   - hash:
       serializedVersion: 2
       Hash: 8e0fc96fa85d5f45718225025b01474d
@@ -1380,6 +1503,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: PlayerStats
+  - hash:
+      serializedVersion: 2
+      Hash: b1b45a9617eb86b95a58b2f7f5db4be4
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SettingsPanel
   - hash:
       serializedVersion: 2
       Hash: 17142b03663387290480c82303274c02
@@ -1496,6 +1625,12 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
+      Hash: 6e90b90e99ba308c57375c9bdd6be604
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Floor
+  - hash:
+      serializedVersion: 2
       Hash: 0468c41f6b5acab8b316fd1fc1a212a7
     assemblyName: Unity.Localization
     namespaceName: UnityEngine.Localization.Components
@@ -1520,6 +1655,12 @@ ScriptsOnlyBuild:
     className: PostProcessProfile
   - hash:
       serializedVersion: 2
+      Hash: 7c6807f463b462c2663ab0ce1ee79f05
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Towel
+  - hash:
+      serializedVersion: 2
       Hash: 429ce0b58f9d2275bbc4ed740bee78ec
     assemblyName: Unity.Postprocessing.Runtime
     namespaceName: UnityEngine.Rendering.PostProcessing
@@ -1536,6 +1677,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.ScriptableBuildPipeline
     namespaceName: UnityEngine.Build.Pipeline
     className: CompatibilityAssetBundleManifest
+  - hash:
+      serializedVersion: 2
+      Hash: 8273f1736d99edde69776c3cf8f0bda3
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: LiftTrigger
   - hash:
       serializedVersion: 2
       Hash: e0f7721edb2157cb1fc961211dc2f31d
@@ -1584,6 +1731,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Localization
     namespaceName: UnityEngine.Localization.Tables
     className: StringTable
+  - hash:
+      serializedVersion: 2
+      Hash: a982ec4484410521eed4306a0ab7eb09
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: TaskDisplayer
   - hash:
       serializedVersion: 2
       Hash: 568292fb7ea6c4f7a667e5ff76bc7e85
@@ -1646,124 +1799,34 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 0eedde5c50691462b76e3a7bea03ebaf
+      Hash: b887b39d2ba090bc2f5b3e68e461c45c
     assemblyName: Assembly-CSharp
     namespaceName: 
-    className: test
+    className: ItemObject
   - hash:
       serializedVersion: 2
-      Hash: b1b45a9617eb86b95a58b2f7f5db4be4
+      Hash: 52a8cdf18f4a9b3e5495372af045a207
     assemblyName: Assembly-CSharp
     namespaceName: 
-    className: SettingsPanel
+    className: AlcoholObject
   - hash:
       serializedVersion: 2
-      Hash: d01cd7c107f8d3f044f1ac2f6542b0f9
+      Hash: 6a4417c04ac85ce311d2dc554fe982fc
     assemblyName: Assembly-CSharp
     namespaceName: 
-    className: MyButton
+    className: ItemManager
   - hash:
       serializedVersion: 2
-      Hash: 7c6807f463b462c2663ab0ce1ee79f05
+      Hash: 08ce328946113b7ecfd2ac056ee4ce6e
     assemblyName: Assembly-CSharp
     namespaceName: 
-    className: Towel
+    className: FOVEffect
   - hash:
       serializedVersion: 2
-      Hash: eeb729313a0363e9591002514ca3ace1
+      Hash: 2240934ca7a1bfcd5c56214529769b16
     assemblyName: Assembly-CSharp
     namespaceName: 
-    className: Settings
-  - hash:
-      serializedVersion: 2
-      Hash: a982ec4484410521eed4306a0ab7eb09
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: TaskDisplayer
-  - hash:
-      serializedVersion: 2
-      Hash: 9d8ae7a87a5702ba97645cddc0ce2def
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: PlayerRotation
-  - hash:
-      serializedVersion: 2
-      Hash: 487ff6975d93beb125ae7a5955144ef1
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: PlayerMove
-  - hash:
-      serializedVersion: 2
-      Hash: 636f66cb0f2b0881995b7289eb728c84
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: Lift
-  - hash:
-      serializedVersion: 2
-      Hash: a70307261324e50eec4cf2f9a9e565d6
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: OpenClose
-  - hash:
-      serializedVersion: 2
-      Hash: a3d45b7c9d711b3b9a5483e1a06c5c2c
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: NoiseEffect
-  - hash:
-      serializedVersion: 2
-      Hash: 8945a0848638a68ac1be9d2e00a91dc0
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: Menu
-  - hash:
-      serializedVersion: 2
-      Hash: 131c88b80c156175f21e0dc731b4d2b9
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: Trigger
-  - hash:
-      serializedVersion: 2
-      Hash: 473e3b1153d13e3d52553deea35cb918
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: InputManager
-  - hash:
-      serializedVersion: 2
-      Hash: 67f916b5210d237e8d230bf9afc9b7e5
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: Room
-  - hash:
-      serializedVersion: 2
-      Hash: 6e90b90e99ba308c57375c9bdd6be604
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: Floor
-  - hash:
-      serializedVersion: 2
-      Hash: 6fe445731868c19d012d3b54679f105b
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: SanityTemperature
-  - hash:
-      serializedVersion: 2
-      Hash: 8273f1736d99edde69776c3cf8f0bda3
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: LiftTrigger
-  - hash:
-      serializedVersion: 2
-      Hash: 1ed4f87bb29473534a6c2ea256a0e104
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: Game
-  - hash:
-      serializedVersion: 2
-      Hash: a4a4f00fb273c3b455e9d84865951b5b
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: Pause
+    className: LensDistortionEffect
   platform: 19
   scenePathNames:
   - Assets/Scenes/game.unity

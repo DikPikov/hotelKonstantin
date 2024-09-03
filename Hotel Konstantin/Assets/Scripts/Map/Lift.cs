@@ -4,6 +4,7 @@ using System.Collections;
 public interface ILiftable 
 { 
     public Floor _Floor { get; set; }
+    public Transform _Transform { get; }
 }
 
 public class Lift : MonoBehaviour
@@ -51,16 +52,18 @@ public class Lift : MonoBehaviour
 
     public void ObjectEntered(Transform object1)
     {
-        if(object1.GetComponent<ILiftable>() != null)
+        ILiftable liftable = object1.GetComponentInParent<ILiftable>();
+        if (liftable != null)
         {
-            object1.parent = transform;
+            liftable._Transform.parent = transform;
         }
     }
     public void ObjectLeft(Transform object1)
     {
-        if (object1.GetComponent<ILiftable>() != null)
+        ILiftable liftable = object1.GetComponentInParent<ILiftable>();
+        if (liftable != null)
         {
-            object1.parent = null;
+            liftable._Transform.parent = null;
         }
     }
 

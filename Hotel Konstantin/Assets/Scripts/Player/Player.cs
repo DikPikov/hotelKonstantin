@@ -7,7 +7,30 @@ public class Player : MonoBehaviour, ILiftable
     [SerializeField] private float Sanity;
     [SerializeField] private float Stamina;
 
+    private ItemObject CurrentItem = null;
+    private Item[] Items = new Item[0];
+
     public event SimpleVoid OnChanges = null;
+    public event SimpleVoid OnItemChanges = null;
+
+    public Transform _Transform => transform;
+    public ItemObject _CurrentItem
+    {
+        get
+        {
+            return CurrentItem;
+        }
+        set
+        {
+            if(CurrentItem != null && CurrentItem != value)
+            {
+                Destroy(CurrentItem.gameObject);
+            }
+
+            CurrentItem = value;
+        }
+    }
+    public Item[] _Items => Items;
 
     public Floor _Floor
     {
@@ -21,7 +44,6 @@ public class Player : MonoBehaviour, ILiftable
             Floor = value;
         }
    }
-
 
     public float _Sanity
     {
@@ -54,6 +76,23 @@ public class Player : MonoBehaviour, ILiftable
             {
                 OnChanges.Invoke();
             }
+        }
+    }
+
+    public void ApplyItem(Item item, bool remove)
+    {
+        if (remove)
+        {
+            Items = StaticTools.RemoveFromMassive(Items, item);
+        }
+        else if(Items.Length < 3)
+        {
+            Items = StaticTools.ExcludingExpandMassive(Items, item);
+        }
+
+        if(OnItemChanges != null)
+        {
+            OnItemChanges.Invoke();
         }
     }
 }

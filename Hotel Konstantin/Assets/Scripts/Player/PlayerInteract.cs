@@ -6,6 +6,7 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private GameObject InteractMarker;
     [SerializeField] private RectTransform[] Skobi;
 
+    [SerializeField] private Player Player;
     [SerializeField] private Transform Camera;
     [SerializeField] private float Distance;
 
@@ -42,24 +43,31 @@ public class PlayerInteract : MonoBehaviour
             }
             else
             {
-                if (Interacting != null)
-                {
-                    StopCoroutine(Interacting);
-                    Interacting = null;
-                }
-
-                InteractMarker.SetActive(false);
+                Deinteract();
             }
         }
         else
         {
-            if(Interacting != null)
-            {
-                StopCoroutine(Interacting);
-                Interacting = null;
-            }
+            Deinteract();
+        }
+    }
 
-            InteractMarker.SetActive(false);
+    private void Deinteract()
+    {
+        if (Interacting != null)
+        {
+            StopCoroutine(Interacting);
+            Interacting = null;
+        }
+
+        InteractMarker.SetActive(false);
+
+        if (InputManager.GetButtonDown(InputManager.ButtonEnum.Interact))
+        {
+            if (Player._CurrentItem != null)
+            {
+                Player._CurrentItem.Use();
+            }
         }
     }
 
