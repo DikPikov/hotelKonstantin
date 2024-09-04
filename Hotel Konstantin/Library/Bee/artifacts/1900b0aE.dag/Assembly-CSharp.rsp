@@ -388,7 +388,6 @@
 "Assets/Scripts/InputManager.cs"
 "Assets/Scripts/Interaction/Bed.cs"
 "Assets/Scripts/Interaction/Dirt.cs"
-"Assets/Scripts/Interaction/Door.cs"
 "Assets/Scripts/Interaction/Interactable.cs"
 "Assets/Scripts/Interaction/OpenClose.cs"
 "Assets/Scripts/Interaction/RoomLightSwitch.cs"

@@ -26,8 +26,6 @@ public class Towel : MonoBehaviour, IInteractable
 
             Updated = value;
 
-            Renderer.material = Materials[Updated ? 0 : 1];
-
             if (Updated)
             {
                 Animator.Play("update");
@@ -36,6 +34,17 @@ public class Towel : MonoBehaviour, IInteractable
             Room.UpdateTaskInfo();
         }
     }
+
+    public void SetDirtMaterial()
+    {
+        Renderer.material = Materials[1];
+    }
+
+    public void SetCleanMaterial()
+    {
+        Renderer.material = Materials[0];
+    }
+
     public bool _CanInteract => !Updated;
 
     public void Interact()
