@@ -19,11 +19,6 @@ public class Towel : MonoBehaviour, IInteractable
         }
         set
         {
-            if(Updated == value)
-            {
-                return;
-            }
-
             Updated = value;
 
             if (Updated)
@@ -46,6 +41,11 @@ public class Towel : MonoBehaviour, IInteractable
     }
 
     public bool _CanInteract => !Updated;
+
+    private void Start()
+    {
+        Room.SetTowel(this);
+    }
 
     public void Interact()
     {

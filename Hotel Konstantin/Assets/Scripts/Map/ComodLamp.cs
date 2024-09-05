@@ -49,6 +49,7 @@ public class ComodLamp : MonoBehaviour, IInteractable
 
     private void Start()
     {
+        Room.SetCommodLamp(this);
         _On = TurndOn;
     }
 

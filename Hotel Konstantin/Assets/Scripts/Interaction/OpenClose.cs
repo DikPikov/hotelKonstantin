@@ -25,6 +25,11 @@ public class OpenClose : MonoBehaviour, IInteractable
 
     private void Start()
     {
+        if(Room != null)
+        {
+            Room.AddCabinet(this);
+        }
+
         Animator.SetBool("isOpen", Opened);
     }
 

@@ -34,6 +34,7 @@ public class Televizor : MonoBehaviour, IInteractable
 
     private void Start()
     {
+        Room.SetTV(this);
         _On = TurnedOn;
     }
 

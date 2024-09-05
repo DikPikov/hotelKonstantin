@@ -24,7 +24,17 @@ public class Bed : MonoBehaviour, IAnimated
             Room.UpdateTaskInfo();
 
             Animator.SetBool("Clear", Cleared);
+
+            if (Cleared)
+            {
+                Animator.Play("Cleared");
+            }
         }
+    }
+
+    private void Start()
+    {
+        Room.AddBed(this);
     }
 
     public void Interact()

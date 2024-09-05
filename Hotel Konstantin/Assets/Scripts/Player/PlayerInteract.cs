@@ -6,6 +6,7 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private GameObject InteractMarker;
     [SerializeField] private RectTransform[] Skobi;
 
+    [SerializeField] private LayerMask LayerMask;
     [SerializeField] private Player Player;
     [SerializeField] private Transform Camera;
     [SerializeField] private float Distance;
@@ -20,7 +21,7 @@ public class PlayerInteract : MonoBehaviour
         }
 
         RaycastHit hit;
-        if (Physics.Raycast(Camera.transform.position, Camera.forward, out hit, Distance))
+        if (Physics.Raycast(Camera.transform.position, Camera.forward, out hit, Distance, LayerMask))
         {
             IInteractable interactable = hit.transform.GetComponentInParent<IInteractable>();
 
