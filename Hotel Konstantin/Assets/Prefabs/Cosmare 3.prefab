@@ -51,7 +51,7 @@ MonoBehaviour:
   CosmareNoise: {fileID: 0}
   WallLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 65
 --- !u!65 &4461911551421536783
 BoxCollider:
   m_ObjectHideFlags: 0

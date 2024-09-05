@@ -23,6 +23,12 @@ public class Floor : MonoBehaviour
         CoridorLights._LightTime = Random.Range(60, 180f - 90 * Game._HotelMadness);
     }
 
+    public void AddRoom(Room room)
+    {
+        Rooms = StaticTools.ExpandMassive(Rooms, room);
+        CoridorLights.AddLighter(room._RoomLight);
+    }
+
     public void SpawnGhost(bool despawn)
     {
         if (despawn)
@@ -69,7 +75,7 @@ public class Floor : MonoBehaviour
             roomClear += room._Clear.GetHashCode();
         }
 
-        TaskInfo.Info = $"    <b>{roomClear}/{Rooms.Length}</b>";
+        TaskInfo.Info = $"Навести порядок в номерах <b>{roomClear}/{Rooms.Length}</b>";
 
         TaskDisplayer.UpdateInfo();
     }

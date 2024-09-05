@@ -7,25 +7,32 @@ public class Room : MonoBehaviour
     [SerializeField] private Floor Floor;
 
     [SerializeField] private GameObject TrashPrefab;
+    [SerializeField] private LayerMask LayerMask;
     [SerializeField] private GameObject[] Presets;
 
-    [SerializeField] private Bed[] Bed;
-    [SerializeField] private Towel Towel;
-    [SerializeField] private RoomLightSwitch LightSwitch;
-    [SerializeField] private Televizor Televizor;
-    [SerializeField] private ComodLamp ComodLamp;
-    [SerializeField] private OpenClose[] Cabinets;
-    [SerializeField] private GameObject[] Trash;
-    [SerializeField] private GameObject[] Dirt;
+    [SerializeField] private RoomLightSwitch LightSwitch = null;
+    [SerializeField] private Lighter Lighter;
+    [SerializeField] private GameObject[] Lustras;
 
-    [SerializeField] private bool BedCleared;
-    [SerializeField] private bool TrashRemoved;
-    [SerializeField] private bool TowelUpdated;
-    [SerializeField] private bool CabinetsClosed;
-    [SerializeField] private bool DirtWashed;
-    [SerializeField] private bool LightsOff;
-    [SerializeField] private bool TVOff;
+    private Bed[] Bed = new Bed[0];
+    private Towel Towel = null;
+    private Televizor Televizor = null;
+    private ComodLamp ComodLamp = null;
+    private OpenClose[] Cabinets= new OpenClose[0];
+     private GameObject[] Trash = new GameObject[0];
+     private GameObject[] Dirt = new GameObject[0];
 
+    private bool BedCleared;
+    private bool TrashRemoved;
+    private bool TowelUpdated;
+    private bool CabinetsClosed;
+    private bool DirtWashed;
+    private bool LightsOff;
+    private bool TVOff;
+
+    private bool Initialized = false;
+
+    public Lighter _RoomLight => LightSwitch._Lighter;
     public bool _Clear => BedCleared && TrashRemoved && TowelUpdated && CabinetsClosed && DirtWashed && LightsOff && TVOff;
 
     public void AddBed(Bed bed)
@@ -67,12 +74,13 @@ public class Room : MonoBehaviour
             Vector3 position = new Vector3(Random.Range(-6.5f, 4.5f), 2.7f, Random.Range(5.5f, 10));
 
             RaycastHit hit;
-            if(Physics.Raycast(position + transform.position, Vector3.down, out hit, 10))
+            if(Physics.Raycast(position + transform.position, Vector3.down, out hit, 10, LayerMask))
             {
                 trash.transform.position = hit.point + new Vector3(0, 0.17f, 0);
             }
             else
             {
+                position.y = 1.17f;
                 trash.transform.localPosition = position;
             }
 
@@ -81,6 +89,18 @@ public class Room : MonoBehaviour
         }
 
         LightSwitch._Enabled = Random.value > 0.7f;
+
+        int lustra = Random.Range(0, Lustras.Length);
+        Lustras[lustra].SetActive(true);
+        if(lustra == 2)
+        {
+            Lighter._LightMaterialIndex = 1;
+        }
+        Lighter._Renderer = Lustras[lustra].GetComponent<MeshRenderer>();
+
+        Floor.AddRoom(this);
+
+        UpdateTaskInfo();
     }
 
     public void DeleteTrash(GameObject trash)
@@ -94,6 +114,11 @@ public class Room : MonoBehaviour
 
     public void UpdateTaskInfo()
     {
+        if (!Initialized)
+        {
+            return;
+        }
+
         LightsOff = !LightSwitch._Enabled && !ComodLamp._On;
 
         TVOff = !Televizor._On;
@@ -124,12 +149,21 @@ public class Room : MonoBehaviour
 
         TowelUpdated = Towel._Updated;
 
-        TaskInfo.Info = $"Кровать заправлена <b>{(BedCleared ? "Да" : "Нет")}</b>\nМусор убран <b>{(TrashRemoved ? "Да" : "Нет")}</b>\nПолотенце обновлено <b>{(TowelUpdated ? "Да" : "Нет")}</b>" +
+        TaskInfo.Info = $"Кровати заправлены <b>{(BedCleared ? "Да" : "Нет")}</b>\nМусор убран <b>{(TrashRemoved ? "Да" : "Нет")}</b>\nПолотенце обновлено <b>{(TowelUpdated ? "Да" : "Нет")}</b>" +
             $"\nЯщики, шкафы и двери закрыты <b>{(CabinetsClosed ? "Да" : "Нет")}</b>\nГрязь отсутствует <b>{(DirtWashed ? "Да" : "Нет")}</b>\nСвет выключен <b>{(LightsOff ? "Да" : "Нет")}</b>\nЭЛТ Телевизор выключен <b>{(TVOff ? "Да" : "Нет")}</b>";
        
         Floor.UpdateTaskInfo(); 
         TaskDisplayer.UpdateInfo();
     }
 
-    public void ShowTask(bool state) => TaskDisplayer.ApplyTask(TaskInfo, !state);
+    public void ShowTask(bool state)
+    {
+        if (!Initialized) 
+        {
+            Initialized = true;
+            UpdateTaskInfo();
+        }
+
+        TaskDisplayer.ApplyTask(TaskInfo, !state);
+    }
 }

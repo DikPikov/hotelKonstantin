@@ -7,6 +7,7 @@ public class RoomLightSwitch : MonoBehaviour, IInteractable
     [SerializeField] private Animator Animator;
     [SerializeField] private bool Enabled;
 
+    public Lighter _Lighter => Light.GetComponent<Lighter>();
     public float _BeforeTime => 0.1f;
     public bool _CanInteract => true;
     public bool _Enabled

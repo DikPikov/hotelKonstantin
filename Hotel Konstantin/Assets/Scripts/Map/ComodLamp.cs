@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ComodLamp : MonoBehaviour, IInteractable
 {
+    [SerializeField] private GameObject[] Model;
     [SerializeField] private GameObject Light;
     [SerializeField] private Room Room;
 
@@ -49,6 +50,10 @@ public class ComodLamp : MonoBehaviour, IInteractable
 
     private void Start()
     {
+        int random = Random.Range(0, Model.Length);
+        Model[random].SetActive(true);
+        Renderer = Model[random].GetComponent<MeshRenderer>();
+
         Room.SetCommodLamp(this);
         _On = TurndOn;
     }

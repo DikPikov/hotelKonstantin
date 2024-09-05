@@ -25,6 +25,35 @@ public class Lighter : MonoBehaviour
         _LampMaterial.color = Color.black;
     }
 
+    public int _LightMaterialIndex
+    {
+        get
+        {
+            return LightMaterialIndex;
+        }
+        set
+        {
+            LightMaterialIndex = value;
+        }
+    }
+
+    public Renderer _Renderer
+    {
+        get
+        {
+            return LampRenderer;
+        }
+        set
+        {
+            LampRenderer = value;
+
+            LampMaterial = null;
+            Material material = _LampMaterial;
+
+            _Value = Value;
+        }
+    }
+
     private Material _LampMaterial
     {
         get

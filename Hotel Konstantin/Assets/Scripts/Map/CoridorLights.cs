@@ -38,6 +38,11 @@ public class CoridorLights : MonoBehaviour
         StartCoroutine(LightOff());
     }
 
+    public void AddLighter(Lighter lighter)
+    {
+        Lighters = StaticTools.ExpandMassive(Lighters, lighter);
+    }
+
     private IEnumerator LightOn()
     {
         WaitForEndOfFrame waitForEndOfFrame = new WaitForEndOfFrame();
