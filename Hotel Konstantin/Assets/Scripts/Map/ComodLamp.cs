@@ -50,6 +50,10 @@ public class ComodLamp : MonoBehaviour, IInteractable
 
     private void Start()
     {
+        foreach(GameObject model in Model)
+        {
+            model.SetActive(false);
+        }
         int random = Random.Range(0, Model.Length);
         Model[random].SetActive(true);
         Renderer = Model[random].GetComponent<MeshRenderer>();

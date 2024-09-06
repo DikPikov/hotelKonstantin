@@ -79,6 +79,12 @@ public class Cosmare : MonoBehaviour
             Player._Sanity -= Time.deltaTime * 0.05f;
             CosmareNoise.color = new Color(1, 0, 0, 1 - Player._Sanity);
 
+            if(Vector3.Distance(Player.transform.position, transform.position) < 0.25f && Game._HotelMadness > 0.5f)
+            {
+                Killing = true;
+                StartCoroutine(Kill());
+            }
+
             if (Player._Sanity == 0)
             {
                 Killing = true;

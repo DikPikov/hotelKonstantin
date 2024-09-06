@@ -17,12 +17,18 @@ public class Lighter : MonoBehaviour
 
     private void OnEnable()
     {
-        _LampMaterial.color = Light.color * Mathf.Min(Intensity, Value);
+        if(_LampMaterial != null)
+        {
+            _LampMaterial.color = Light.color * Mathf.Min(Intensity, Value);
+        }
     }
 
     private void OnDisable()
     {
-        _LampMaterial.color = Color.black;
+        if (_LampMaterial != null)
+        {
+            _LampMaterial.color = Color.black;
+        }
     }
 
     public int _LightMaterialIndex
@@ -58,6 +64,11 @@ public class Lighter : MonoBehaviour
     {
         get
         {
+            if(LampRenderer == null)
+            {
+                return LampMaterial;
+            }
+
             if (LampMaterial == null)
             {
                 LampMaterial = new Material(LampRenderer.materials[LightMaterialIndex]);
@@ -88,7 +99,10 @@ public class Lighter : MonoBehaviour
 
             if (gameObject.activeSelf)
             {
-                _LampMaterial.color = value * Mathf.Min(Intensity, Value);
+                if (_LampMaterial != null)
+                {
+                    _LampMaterial.color = value * Mathf.Min(Intensity, Value);
+                }
             }
         }
     }
@@ -105,7 +119,10 @@ public class Lighter : MonoBehaviour
 
             if (gameObject.activeSelf)
             {
-                _LampMaterial.color = Light.color * Mathf.Min(Intensity, Value);
+                if (_LampMaterial != null)
+                {
+                    _LampMaterial.color = Light.color * Mathf.Min(Intensity, Value);
+                }
             }
         }
     }
@@ -137,7 +154,10 @@ public class Lighter : MonoBehaviour
 
             if (gameObject.activeSelf)
             {
-                _LampMaterial.color = Light.color * Mathf.Min(Intensity, Value);
+                if (_LampMaterial != null)
+                {
+                    _LampMaterial.color = Light.color * Mathf.Min(Intensity, Value);
+                }
             }
         }
     }

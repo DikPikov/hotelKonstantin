@@ -65,28 +65,28 @@ public class Room : MonoBehaviour
     {
         Presets[Random.Range(0, Presets.Length)].SetActive(true);
 
-        int count = Random.Range(0, 5);
-        Trash = new GameObject[count];
-        for (int i = 0; i < count; i++)
-        {
-            Transform trash = Instantiate(TrashPrefab, transform).transform;
+        //int count = Random.Range(0, 5);
+        //Trash = new GameObject[count];
+        //for (int i = 0; i < count; i++)
+        //{
+        //    Transform trash = Instantiate(TrashPrefab, transform).transform;
 
-            Vector3 position = new Vector3(Random.Range(-6.5f, 4.5f), 2.7f, Random.Range(5.5f, 10));
+        //    Vector3 position = new Vector3(Random.Range(5.5f, 10), 2.7f, Random.Range(-6.5f, 4.5f));
 
-            RaycastHit hit;
-            if(Physics.Raycast(position + transform.position, Vector3.down, out hit, 10, LayerMask))
-            {
-                trash.transform.position = hit.point + new Vector3(0, 0.17f, 0);
-            }
-            else
-            {
-                position.y = 1.17f;
-                trash.transform.localPosition = position;
-            }
+        //    RaycastHit hit;
+        //    if(Physics.Raycast(position + transform.position, Vector3.down, out hit, 10, LayerMask))
+        //    {
+        //        trash.transform.position = hit.point + new Vector3(0, 0.17f, 0);
+        //    }
+        //    else
+        //    {
+        //        position.y = 1.17f;
+        //        trash.transform.localPosition = position;
+        //    }
 
-            trash.GetComponent<Trash>().SetRoom(this);
-            Trash[i] = trash.gameObject;
-        }
+        //    trash.GetComponent<Trash>().SetRoom(this);
+        //    Trash[i] = trash.gameObject;
+        //}
 
         LightSwitch._Enabled = Random.value > 0.7f;
 

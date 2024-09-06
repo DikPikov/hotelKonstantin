@@ -388,5 +388,5 @@ OcclusionPortal:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7578094072945549631}
   m_Open: 0
-  m_Center: {x: -0.25047362, y: 0.057797026, z: 0.49998492}
-  m_Size: {x: 0.50284386, y: 0.13170879, z: 1.003326}
+  m_Center: {x: -0.25047362, y: 0.060987927, z: 0.49998492}
+  m_Size: {x: 0.50284386, y: 0.07720949, z: 1.003326}

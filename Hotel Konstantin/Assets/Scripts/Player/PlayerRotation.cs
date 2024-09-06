@@ -42,7 +42,7 @@ public class PlayerRotation : MonoBehaviour
             }
 
             Camera.localEulerAngles = new Vector3(Rotation.x, 0, Rotation.z);
-            transform.localEulerAngles = new Vector3(0, Rotation.y, 0);
+            transform.eulerAngles = new Vector3(0, Rotation.y, 0);
         }
     }
 
