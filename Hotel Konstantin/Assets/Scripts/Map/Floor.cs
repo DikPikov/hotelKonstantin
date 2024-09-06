@@ -52,7 +52,7 @@ public class Floor : MonoBehaviour
         int times = 10;
         while (times > 0)
         {
-            vector3 = new Vector3(Random.Range(82, -13), 1 + transform.position.y, Random.Range(0, 15));
+            vector3 = new Vector3(Random.Range(-9.25f, 5.25f), 1 + transform.position.y, Random.Range(-37.5f, 56.75f));
 
             NavMeshPath path = new NavMeshPath();
             NavMesh.CalculatePath(vector3, Player.transform.position, -1, path);

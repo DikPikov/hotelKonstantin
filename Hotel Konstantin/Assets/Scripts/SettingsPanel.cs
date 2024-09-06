@@ -25,7 +25,7 @@ public class SettingsPanel : MonoBehaviour
 
     public void UpdateInfo()
     {
-        Config = new Config();
+        Config = Settings._Config.Clone();
 
         ResolutionInfo.text = $"{Config.XResolution}x{Config.YResolution}";
         switch (Config.Quality)
@@ -42,8 +42,8 @@ public class SettingsPanel : MonoBehaviour
         }
 
         SensitivityInfo.text = $"Чувствительность: {Config.Sensitivity}";
-        FullScreen.isOn = Config.FullScreen == 1;
-        PostProcessing.isOn = Config.PostProcessing == 1;
+        FullScreen.isOn = Config.FullScreen;
+        PostProcessing.isOn = Config.PostProcessing;
         Audio.value = Config.Audio;
         Sensitivity.value = Config.Sensitivity / 4f;
 
@@ -59,7 +59,7 @@ public class SettingsPanel : MonoBehaviour
 
     public void Apply()
     {
-        Settings.SetConfig(Config);
+        Settings._Config = Config;
     }
 
     public void SetResolution()
@@ -113,11 +113,11 @@ public class SettingsPanel : MonoBehaviour
 
     public void SetFullScreen(bool state)
     {
-        Config.FullScreen = state ? 1 : 0;
+        Config.FullScreen = state;
     }
 
     public void SetPostProcess(bool state)
     {
-        Config.PostProcessing = state ? 1 : 0;
+        Config.PostProcessing = state;
     }
 }

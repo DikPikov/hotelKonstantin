@@ -1,3 +1,4 @@
+using System.IO;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering.PostProcessing;
@@ -11,53 +12,55 @@ public class Settings : MonoBehaviour
 
     public event SimpleVoid OnChanges = null;
 
-    private void Awake()
+    public Config _Config
     {
-        if(PlayerPrefs.GetInt("Initialized") == 0)
+        get
         {
-            PlayerPrefs.SetInt("Initialized", 1);
-
-            PlayerPrefs.SetInt("Xres", Screen.width);
-            PlayerPrefs.SetInt("Yres", Screen.height);
-
-            PlayerPrefs.SetFloat("Sens", 1);
-
-            PlayerPrefs.SetFloat("Audio", 1);
-
-            PlayerPrefs.SetInt("Qual", 1);
-            PlayerPrefs.SetInt("PostP", 1);
-
-            PlayerPrefs.SetInt("FullScreen", 0);
-
-            PlayerPrefs.Save();
+            return Config;
         }
+        set
+        {
+            Config = value;
 
-        Config = new Config();
+            File.WriteAllText(Path.Combine(Application.persistentDataPath, "config.txt"), JsonUtility.ToJson(Config));
+
+            UpdateSettings();
+
+            if (OnChanges != null)
+            {
+                OnChanges.Invoke();
+            }
+        }
     }
 
-    public void SetConfig(Config config)
+    private void Awake()
     {
-        config.Save();
+        string path = Path.Combine(Application.persistentDataPath, "config.txt");
 
-        Config = new Config();
+        Config = null;
+
+        if (File.Exists(path))
+        {
+            Config = JsonUtility.FromJson<Config>(File.ReadAllText(path));
+        }
+
+        if(Config == null)
+        {
+            Config = new Config();
+        }
 
         UpdateSettings();
-
-        if (OnChanges != null)
-        {
-            OnChanges.Invoke();
-        }
     }
 
     public void UpdateSettings()
     {
         Mixer.SetFloat("Volume", Config.Audio == 0 ? -80 : (-30 * (1 - Config.Audio)));
 
-        Screen.SetResolution(Config.XResolution, Config.YResolution, Config.FullScreen == 1);
+        Screen.SetResolution(Config.XResolution, Config.YResolution, Config.FullScreen);
 
         Rotation._Sensitivity = Config.Sensitivity;
 
-        PostProcess.weight = Config.PostProcessing == 1 ? 1 : 0;
+        PostProcess.weight = Config.PostProcessing ? 1 : 0;
 
         QualitySettings.SetQualityLevel(Config.Quality, true);
         switch (Config.Quality)
@@ -79,44 +82,52 @@ public class Config
 {
     public int XResolution;
     public int YResolution;
-    public int FullScreen;
+    public bool FullScreen;
 
     public float Sensitivity;
 
     public float Audio;
 
     public int Quality;
-    public int PostProcessing;
+    public bool PostProcessing;
 
     public Config()
     {
-        XResolution = PlayerPrefs.GetInt("Xres");
-        YResolution = PlayerPrefs.GetInt("Yres");
+        int high = 0;
+        for (int i = 1; i < Screen.resolutions.Length; i++)
+        {
+            if (Screen.resolutions[high].width < Screen.resolutions[i].width)
+            {
+                high = i;
+            }
+        }
 
-        Sensitivity = PlayerPrefs.GetFloat("Sens");
+        XResolution = Screen.resolutions[high].width;
+        YResolution = Screen.resolutions[high].height;
+        FullScreen = true;
 
-        Audio = PlayerPrefs.GetFloat("Audio");
-
-        Quality = PlayerPrefs.GetInt("Qual");
-        PostProcessing = PlayerPrefs.GetInt("PostP");
-
-        FullScreen = PlayerPrefs.GetInt("FullScreen");
+        Sensitivity = 1;
+        Audio = 0.5f;
+        Quality = 1;
+        PostProcessing = true;
     }
 
-    public void Save()
+    public Config Clone()
     {
-        PlayerPrefs.SetInt("Xres", XResolution);
-        PlayerPrefs.SetInt("Yres", YResolution);
+        Config config = new Config();
 
-        PlayerPrefs.SetFloat("Sens", Sensitivity);
+        config.XResolution = XResolution;
+        config.YResolution = YResolution; 
+        config.FullScreen = FullScreen;
 
-        PlayerPrefs.SetFloat("Audio", Audio);
+        config.Sensitivity = Sensitivity;
 
-        PlayerPrefs.SetInt("Qual", Quality);
-        PlayerPrefs.SetInt("PostP", PostProcessing);
+        config.Audio = Audio;
 
-        PlayerPrefs.SetInt("FullScreen", FullScreen);
-        
-        PlayerPrefs.Save();
+        config.Quality = Quality;
+        config.PostProcessing = PostProcessing;
+
+        return config;
+
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Room : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class Room : MonoBehaviour
     [SerializeField] private Floor Floor;
 
     [SerializeField] private GameObject TrashPrefab;
+    [SerializeField] private Vector3[] TrashSpawnRect;
     [SerializeField] private LayerMask LayerMask;
     [SerializeField] private GameObject[] Presets;
 
@@ -65,42 +67,36 @@ public class Room : MonoBehaviour
     {
         Presets[Random.Range(0, Presets.Length)].SetActive(true);
 
-        //int count = Random.Range(0, 5);
-        //Trash = new GameObject[count];
-        //for (int i = 0; i < count; i++)
-        //{
-        //    Transform trash = Instantiate(TrashPrefab, transform).transform;
-
-        //    Vector3 position = new Vector3(Random.Range(5.5f, 10), 2.7f, Random.Range(-6.5f, 4.5f));
-
-        //    RaycastHit hit;
-        //    if(Physics.Raycast(position + transform.position, Vector3.down, out hit, 10, LayerMask))
-        //    {
-        //        trash.transform.position = hit.point + new Vector3(0, 0.17f, 0);
-        //    }
-        //    else
-        //    {
-        //        position.y = 1.17f;
-        //        trash.transform.localPosition = position;
-        //    }
-
-        //    trash.GetComponent<Trash>().SetRoom(this);
-        //    Trash[i] = trash.gameObject;
-        //}
+        foreach (GameObject preset in Presets)
+        {
+            if (!preset.activeSelf)
+            {
+                Destroy(preset);
+            }
+        }
 
         LightSwitch._Enabled = Random.value > 0.7f;
 
         int lustra = Random.Range(0, Lustras.Length);
         Lustras[lustra].SetActive(true);
+
+        foreach (GameObject lustra1 in Lustras)
+        {
+            if (!lustra1.activeSelf)
+            {
+                Destroy(lustra1);
+            }
+        }
+
         if(lustra == 2)
         {
             Lighter._LightMaterialIndex = 1;
         }
         Lighter._Renderer = Lustras[lustra].GetComponent<MeshRenderer>();
 
-        Floor.AddRoom(this);
+        StartCoroutine(SpawnOther());
 
-        UpdateTaskInfo();
+        Floor.AddRoom(this);
     }
 
     public void DeleteTrash(GameObject trash)
@@ -165,5 +161,36 @@ public class Room : MonoBehaviour
         }
 
         TaskDisplayer.ApplyTask(TaskInfo, !state);
+    }
+
+    private IEnumerator SpawnOther()
+    {
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+
+        int count = Random.Range(0, 5);
+        Trash = new GameObject[count];
+        for (int i = 0; i < count; i++)
+        {
+            Transform trash = Instantiate(TrashPrefab, transform).transform;
+            trash.localScale = new Vector3(Random.Range(14f, 16f), Random.Range(14f, 16), Random.Range(14f, 16));
+            trash.localEulerAngles = new Vector3(0, Random.Range(0, 360), 0);
+
+            Vector3 position = new Vector3(Random.Range(TrashSpawnRect[0].x, TrashSpawnRect[1].x), 2.7f, Random.Range(TrashSpawnRect[0].z, TrashSpawnRect[1].z));
+            Debug.DrawRay(position + transform.position, Vector3.down * 10, Color.red);
+            RaycastHit hit;
+            if (Physics.Raycast(position + transform.position, Vector3.down, out hit, 10, LayerMask))
+            {
+                trash.transform.position = hit.point + new Vector3(0, 0.17f, 0);
+            }
+            else
+            {
+                position.y = 1.17f;
+                trash.transform.localPosition = position;
+            }
+
+            trash.GetComponent<Trash>().SetRoom(this);
+            Trash[i] = trash.gameObject;
+        }
     }
 }
