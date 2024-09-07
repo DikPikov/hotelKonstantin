@@ -1,14 +1,9 @@
 {
-"Date": "07.09.2024 20:38:18",
+"Date": "08.09.2024 0:43:02",
 "UnityVersion": "2022.3.38f1",
 "com.unity.scriptablebuildpipeline": "1.21.23",
 "com.unity.addressables": "1.21.21",
 "traceEvents": [
-{"name": "Building Default Build Script", "ph": "X", "dur": 306248.3, "tid": 1, "ts": 8265, "pid": 1}
-,{"name": "ProcessAllGroups", "ph": "X", "dur": 259106.7, "tid": 1, "ts": 11019, "pid": 1}
-,{"name": "Generate JSON Catalog", "ph": "X", "dur": 20381.1, "tid": 1, "ts": 274265, "pid": 1}
-,{"name": "Generating Json", "ph": "X", "dur": 392.899999999997, "tid": 1, "ts": 292165, "pid": 1}
-,{"name": "Generate link", "ph": "X", "dur": 18680.2, "tid": 1, "ts": 294648, "pid": 1}
-,{"name": "Generate Settings", "ph": "X", "dur": 798.699999999997, "tid": 1, "ts": 313347, "pid": 1}
+{"name": "Building Use Asset Database (fastest)", "ph": "X", "dur": 827.1, "tid": 1, "ts": 9123, "pid": 1}
 ]
 }

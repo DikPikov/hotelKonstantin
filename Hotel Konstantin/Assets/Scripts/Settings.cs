@@ -35,6 +35,7 @@ public class Settings : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 1;
         string path = Path.Combine(Application.persistentDataPath, "config.txt");
 
         Config = null;

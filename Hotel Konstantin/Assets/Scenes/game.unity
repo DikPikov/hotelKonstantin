@@ -3366,6 +3366,7 @@ GameObject:
   m_Component:
   - component: {fileID: 356801224}
   - component: {fileID: 356801225}
+  - component: {fileID: 356801226}
   m_Layer: 8
   m_Name: Point Light
   m_TagString: Untagged
@@ -3450,6 +3451,27 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!95 &356801226
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356801223}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 592e91a9a66ff2e4fb4e58e9e6b536dc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &361451413
 GameObject:
   m_ObjectHideFlags: 0
@@ -29381,7 +29403,7 @@ Transform:
   m_GameObject: {fileID: 1667897009}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2, y: 1.3220024, z: -34.499996}
+  m_LocalPosition: {x: -2, y: 1, z: -39.346}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
