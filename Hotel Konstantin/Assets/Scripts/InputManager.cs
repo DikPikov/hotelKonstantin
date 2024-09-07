@@ -20,7 +20,7 @@ public class InputManager : MonoBehaviour
 
     public enum ButtonState { Down, Hold, Up }
     public enum AxisEnum {Horizontal, Vertical}
-    public enum ButtonEnum {Menu, Run, Interact, OpenExtraInfo, Item1, Item2, Item3, DropItem }
+    public enum ButtonEnum {Menu, Run, Interact, OpenExtraInfo, Item1, Item2, Item3, DropItem, Shoot, Reload }
 
     [SerializeField] private KeyMapData KeyMap;
 #if UNITY_EDITOR
@@ -49,6 +49,8 @@ public class InputManager : MonoBehaviour
     private Button Item2 = null;
     private Button Item3 = null;
     private Button DropItem = null;
+    private Button Shoot = null;
+    private Button Reload = null;
 
     private void Awake()
     {
@@ -103,6 +105,9 @@ public class InputManager : MonoBehaviour
         Item3 = new Button(KeyMap.Item3);
 
         DropItem = new Button(KeyMap.DropItem);
+
+        Shoot = new Button(KeyMap.Shoot);
+        Reload = new Button(KeyMap.Reload);
     }
 
     public static float GetAxis(AxisEnum axis)
@@ -140,6 +145,10 @@ public class InputManager : MonoBehaviour
                 return Item3.CheckState(state);
             case ButtonEnum.DropItem:
                 return DropItem.CheckState(state);
+            case ButtonEnum.Shoot:
+                return Shoot.CheckState(state);
+            case ButtonEnum.Reload:
+                return Reload.CheckState(state);
         }
 
         Debug.LogError($"кнопка <color=white>{button}</color> не найдена");
@@ -347,4 +356,7 @@ public class KeyMapData
     public string Run = "LeftShift RightShift";
 
     public string Interact = "E F Mouse0";
+
+    public string Shoot = "Mouse0";
+    public string Reload = "R";
 }

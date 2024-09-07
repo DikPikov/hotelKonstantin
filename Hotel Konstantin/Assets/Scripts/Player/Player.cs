@@ -79,20 +79,43 @@ public class Player : MonoBehaviour, ILiftable
         }
     }
 
-    public void ApplyItem(Item item, bool remove)
+    public bool ApplyItem(Item item, bool remove)
     {
+        int index = StaticTools.IndexOf(Items, item);
+
         if (remove)
         {
-            Items = StaticTools.RemoveFromMassive(Items, item);
+            if(index < 0)
+            {
+                return false;
+            }
+            else
+            {
+                Items = StaticTools.ReduceMassive(Items, index);
+            }
         }
-        else if(Items.Length < 3)
+        else
         {
-            Items = StaticTools.ExcludingExpandMassive(Items, item);
+            if(Items.Length >= 3)
+            {
+                return false;
+            }
+
+            if(index < 0)
+            {
+                Items = StaticTools.ExcludingExpandMassive(Items, item);
+            }
+            else
+            {
+                return false;
+            }
         }
 
         if(OnItemChanges != null)
         {
             OnItemChanges.Invoke();
         }
+
+        return true;
     }
 }

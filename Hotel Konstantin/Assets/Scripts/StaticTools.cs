@@ -366,11 +366,11 @@ public class StaticTools
         return -1;
     }
 
-    static public int ContainsType<T>(T[] massive, T value)
+    static public int ContainsType<T>(T[] massive, Type type)
     {
         for (int i = 0; i < massive.Length; i++)
         {
-            if (massive[i].GetType() == typeof(T))
+            if (massive[i].GetType() == type)
             {
                 return i;
             }

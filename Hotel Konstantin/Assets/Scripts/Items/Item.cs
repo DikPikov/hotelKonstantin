@@ -29,3 +29,53 @@ public class Alcohol : Item
 {
     public override string _Prefab => "Alcohol";
 }
+
+public class Bullet : Item
+{
+    public override string _Prefab => "Patron";
+}
+
+[System.Serializable]
+public class Winchester : Item
+{
+    [SerializeField] private int Ammo = 0;
+    [SerializeField] private bool Ready = false;
+    [SerializeField] private bool Shooted = false;
+
+    public override string _Prefab => "Winchester";
+    public override float _PickTime => 1.5f;
+
+    public int _Ammo
+    {
+        get
+        {
+            return Ammo;
+        }
+        set
+        {
+            Ammo = Mathf.Clamp(value, 0, 7);
+        }
+    }
+    public bool _Ready
+    {
+        get
+        {
+            return Ready;
+        }
+        set
+        {
+            Ready = value;
+        }
+    }
+    public bool _Shooted
+    {
+        get
+        {
+            return Shooted;
+        }
+        set
+        {
+            Shooted = value;
+        }
+    }
+}

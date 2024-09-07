@@ -38,7 +38,9 @@ public class ItemPick : MonoBehaviour, IInteractable, ILiftable
 
     public void Interact()
     {
-        FindObjectOfType<Player>().ApplyItem(Item, false);
-        Destroy(gameObject);
+        if (FindObjectOfType<Player>().ApplyItem(Item, false))
+        {
+            Destroy(gameObject);
+        }
     }
 }
