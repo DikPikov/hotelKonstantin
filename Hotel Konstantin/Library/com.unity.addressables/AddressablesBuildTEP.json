@@ -1,14 +1,14 @@
 {
-"Date": "07.09.2024 17:21:50",
+"Date": "07.09.2024 20:38:18",
 "UnityVersion": "2022.3.38f1",
 "com.unity.scriptablebuildpipeline": "1.21.23",
 "com.unity.addressables": "1.21.21",
 "traceEvents": [
-{"name": "Building Default Build Script", "ph": "X", "dur": 330565, "tid": 1, "ts": 7583, "pid": 1}
-,{"name": "ProcessAllGroups", "ph": "X", "dur": 227943.1, "tid": 1, "ts": 10295, "pid": 1}
-,{"name": "Generate JSON Catalog", "ph": "X", "dur": 21778.8, "tid": 1, "ts": 243361, "pid": 1}
-,{"name": "Generating Json", "ph": "X", "dur": 378.899999999987, "tid": 1, "ts": 263085, "pid": 1}
-,{"name": "Generate link", "ph": "X", "dur": 72237.6, "tid": 1, "ts": 265141, "pid": 1}
-,{"name": "Generate Settings", "ph": "X", "dur": 573.399999999992, "tid": 1, "ts": 337401, "pid": 1}
+{"name": "Building Default Build Script", "ph": "X", "dur": 306248.3, "tid": 1, "ts": 8265, "pid": 1}
+,{"name": "ProcessAllGroups", "ph": "X", "dur": 259106.7, "tid": 1, "ts": 11019, "pid": 1}
+,{"name": "Generate JSON Catalog", "ph": "X", "dur": 20381.1, "tid": 1, "ts": 274265, "pid": 1}
+,{"name": "Generating Json", "ph": "X", "dur": 392.899999999997, "tid": 1, "ts": 292165, "pid": 1}
+,{"name": "Generate link", "ph": "X", "dur": 18680.2, "tid": 1, "ts": 294648, "pid": 1}
+,{"name": "Generate Settings", "ph": "X", "dur": 798.699999999997, "tid": 1, "ts": 313347, "pid": 1}
 ]
 }

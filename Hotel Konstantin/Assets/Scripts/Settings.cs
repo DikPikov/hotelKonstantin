@@ -2,7 +2,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering.PostProcessing;
-
+using UnityEngine.SceneManagement;
 public class Settings : MonoBehaviour
 {
     [SerializeField] private AudioMixer Mixer;
@@ -58,7 +58,11 @@ public class Settings : MonoBehaviour
 
         Screen.SetResolution(Config.XResolution, Config.YResolution, Config.FullScreen);
 
-        Rotation._Sensitivity = Config.Sensitivity;
+        if (SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            Rotation._Sensitivity = Config.Sensitivity;
+        }
+        
 
         PostProcess.weight = Config.PostProcessing ? 1 : 0;
 

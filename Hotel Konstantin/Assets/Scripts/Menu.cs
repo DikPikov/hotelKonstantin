@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
@@ -33,9 +34,9 @@ public class Menu : MonoBehaviour
     public void ExitGame()
     {
 #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
+        SceneManager.LoadScene(0);
 #else
-                Application.Quit();
+                SceneManager.LoadScene(0);
 #endif
     }
 }

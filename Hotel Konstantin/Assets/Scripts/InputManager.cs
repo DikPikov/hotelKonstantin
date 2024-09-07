@@ -346,7 +346,7 @@ public class KeyMapData
     public string Vertical = "+W +UpArrow -S -DownArrow";
 
     public string Menu = "Escape F1";
-    public string OpenExtraInfo = "Tab Space";
+    public string OpenExtraInfo = "H";
     public string Item1 = KeyCode.Alpha1.ToString();
     public string Item2 = KeyCode.Alpha2.ToString();
     public string Item3 = KeyCode.Alpha3.ToString();
