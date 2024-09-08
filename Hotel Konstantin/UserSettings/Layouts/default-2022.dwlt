@@ -73,7 +73,7 @@ MonoBehaviour:
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
-  m_LastLoadedLayoutName: 2 by 3
+  m_LastLoadedLayoutName: 
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 36266
+  controlID: 694
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 36161
+  controlID: 598
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -873,7 +873,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 7a69f6ff8869f6ff4a40f7fff842f7ffda9cf7ffe6a6f7ffacadf7ff06aef7ff3807f8ff7607f8ffaa20f8ff0421f8ff367af8ff747af8ff3293f8ff8c93f8ffbeecf8fffcecf8ff3663faff4c63faff9063faffaa63faff4ad5faff9ad5faffc22efbff002ffbffdae9fbff4accfeffdc53ffffe8e3ffff0e7f0000307f0000880a0100b20a0100d40a01009eb00100beb00100feb201000e6302007a730200308a0200bc8c02006e8f0200fee8090042e9090080e90900c2ed09004af00900c8f30900e4f4090000f5090022f50900
+      m_ExpandedIDs: fefaffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -942,7 +942,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Audio
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -950,7 +950,7 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 43
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Audio
   m_LastFoldersGridSize: 43
   m_LastProjectPath: "D:\\\u0425\u043E\u0442\u0435\u043B \u041A\u043E\u043D\u0441\u0442\u0430\u043D\u0442\u0438\u043D\\hotelKonstantin\\Hotel
     Konstantin"
@@ -958,9 +958,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 5a2d0000
-    m_LastClickedID: 11610
-    m_ExpandedIDs: 000000005a2d0000762d00007e2d0000862d0000e22d0000262e00005c80000000ca9a3b
+    m_SelectedIDs: e46d0000
+    m_LastClickedID: 28132
+    m_ExpandedIDs: 00000000766d0000786d00007a6d00007c6d00007e6d0000806d0000826d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -988,7 +988,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000005a2d0000762d00007e2d0000862d0000e22d0000262e00005c80000000ca9a3b
+    m_ExpandedIDs: 00000000766d0000786d00007a6d00007c6d00007e6d0000806d0000826d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
