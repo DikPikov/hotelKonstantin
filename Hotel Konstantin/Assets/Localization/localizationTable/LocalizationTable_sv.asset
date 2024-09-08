@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: LocalizationTable_sv
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: sv
+  m_SharedData: {fileID: 11400000, guid: aa62b4c51b89d884c8bf0cc6f04b372f, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 67064684544
+    m_Localized: SPELA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93887258624
+    m_Localized: "INST\xC4LLNINGAR"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111146819584
+    m_Localized: AVSLUTA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2539778859008
+    m_Localized: "\xABP\xC5 DAGEN D\xD6LJER HOTELLET NATTENS GALENSKAP\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553418735616
+    m_Localized: "\xABEN BEST F\xC4NGSLAD P\xC5 HOTELLET,\nI UTBYTE MOT EVIGT LIV,\n\xD6NSKAR
+      F\xC5 EN M\xC4NSKLIG KROPP\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2608993263616
+    m_Localized: "\xABEN SKUGGA SOM D\xD6R I M\xD6RKRET\nVILL R\xC4DDA DIG FR\xC5N
+      EVIGT LIV\nMEN TAR DIG MED TILL DET ST\xC4LLE\nD\xC4R ENDAST SKUGGOR OCH EVIG
+      M\xD6RKER R\xC5DER\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2624755458048
+    m_Localized: "\xABBLIR ALLT I ORDNING\nOM VI ST\xC4DAR I ALLA RUM?\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2639435522048
+    m_Localized: "\xABDIN SKYLDIGHET \xC4R RENHET\nV\xC5R SKYLDIGHET \xC4R BETALNING\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2647039795200
+    m_Localized: "\xABIDAG SKULLE VI INTE HA JOBBAT EXTRA\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2654933475328
+    m_Localized: "\xABDET \xC4R SYND ATT DU INTE L\xC4STE DET FINTA TEXTEN\nUNDER
+      KONTRAKTET\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9808927121408
+    m_Localized: "\xABKONTRAKTET \xC4R UNDERSKRIVET,\nDET FINNS INGEN V\xC4G TILLBAKA\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11884440707072
+    m_Localized: "UPPL\xD6SNING"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11914253819904
+    m_Localized: KVALITET
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11936647208960
+    m_Localized: "HELA SK\xC4RMEN"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11962412818432
+    m_Localized: EFTERBEARBETNING
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

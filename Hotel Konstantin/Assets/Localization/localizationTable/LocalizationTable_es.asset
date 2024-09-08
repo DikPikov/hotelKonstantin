@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: LocalizationTable_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: aa62b4c51b89d884c8bf0cc6f04b372f, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 67064684544
+    m_Localized: JUGAR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93887258624
+    m_Localized: "CONFIGURACI\xD3N"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111146819584
+    m_Localized: SALIR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2539778859008
+    m_Localized: "\xABDURANTE EL D\xCDA, EL HOTEL ESCONDE LA LOCURA DE LA NOCHE\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553418735616
+    m_Localized: "\xABUNA BESTIA ATRAPADA EN EL HOTEL,\nA CAMBIO DE LA INMORTALIDAD,\nDESEA
+      OBTENER UN CUERPO HUMANO\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2608993263616
+    m_Localized: "\xABUNA SOMBRA QUE SE EXTINGUE EN LA PENUMBRA\nQUIERE SALVARTE
+      DE LA OSCURIDAD ETERNA\nPERO TE LLEVAR\xC1 CON ELLA A DONDE\nSOLO LAS SOMBRAS
+      Y LA NOCHE ETERNA REINAN\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2624755458048
+    m_Localized: "\xAB\xBFTODO ESTAR\xC1 EN ORDEN\nSI LIMPIAMOS TODAS LAS HABITACIONES?\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2639435522048
+    m_Localized: "\xABSU DEBER ES LA LIMPIEZA\nNUESTRO DEBER ES EL PAGO\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2647039795200
+    m_Localized: "\xABHOY NO DEBER\xCDA HABER SIDO UN TRABAJO EXTRA\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2654933475328
+    m_Localized: "\xABES UNA PENA QUE NO HAYAS LE\xCDDO LA LETRA PEQUE\xD1A\nBAJO
+      EL CONTRATO\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9808927121408
+    m_Localized: "\xABEL CONTRATO EST\xC1 FIRMADO,\nNO HAY VUELTA ATR\xC1S\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11884440707072
+    m_Localized: "RESOLUCI\xD3N"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11914253819904
+    m_Localized: CALIDAD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11936647208960
+    m_Localized: PANTALLA COMPLETA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11962412818432
+    m_Localized: POSTPROCESAMIENTO
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

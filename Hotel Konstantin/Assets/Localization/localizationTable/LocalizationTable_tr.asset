@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: LocalizationTable_tr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: tr
+  m_SharedData: {fileID: 11400000, guid: aa62b4c51b89d884c8bf0cc6f04b372f, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 67064684544
+    m_Localized: OYNA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93887258624
+    m_Localized: AYARLAR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111146819584
+    m_Localized: "\xC7IKI\u015E"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2539778859008
+    m_Localized: " \xABG\xDCND\xDCZ OTEL, GECEN\u0130N DEL\u0130L\u0130\u011E\u0130N\u0130
+      G\u0130ZLER\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553418735616
+    m_Localized: "\xABOTEL\u0130N \u0130\xC7\u0130NDE HAPSED\u0130LM\u0130\u015E
+      B\u0130R CANAVAR,\nSONSUZLUK KAR\u015EILI\u011EINDA,\n\u0130NSAN BEDEN\u0130NE
+      SAH\u0130P OLMAK \u0130ST\u0130YOR\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2608993263616
+    m_Localized: "\xABKARANLIKTA SOLAN B\u0130R G\xD6LGE\nSEN\u0130 SONSUZ K\xD6RL\xDCKTEN
+      KURTARMAK \u0130ST\u0130YOR\nAMA SEN\u0130 KEND\u0130S\u0130YLE B\u0130RL\u0130KTE
+      G\xD6T\xDCRECEK YERE\nYALNIZCA G\xD6LGELER\u0130N VE SONSUZ GECE\u0130N HAK\u0130M
+      OLDU\u011EU YERE\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2624755458048
+    m_Localized: "\xABHER \u015EEY D\xDCZENDE OLACAK MI\nE\u011EER T\xDCM ODALARI
+      TEM\u0130ZLERSEK?\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2639435522048
+    m_Localized: "\xABS\u0130Z\u0130N G\xD6REV\u0130N\u0130Z TEM\u0130ZL\u0130K\nB\u0130Z\u0130M
+      G\xD6REV\u0130M\u0130Z \xD6DEME\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2647039795200
+    m_Localized: "\xABBUG\xDCN EK \u0130\u015E YAPILMAMALIYDI\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2654933475328
+    m_Localized: "\xABS\xD6ZLE\u015EMEN\u0130N ALTINDAK\u0130 K\xDC\xC7\xDCK YAZILARI
+      OKUMADI\u011EINIZ \xDCZ\xDCC\xDC\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9808927121408
+    m_Localized: "\xABS\xD6ZLE\u015EME \u0130MZALANDI,\nGER\u0130 D\xD6N\xDC\u015E
+      YOK\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11884440707072
+    m_Localized: "\xC7\xD6Z\xDCN\xDCRL\xDCK"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11914253819904
+    m_Localized: "KAL\u0130TE"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11936647208960
+    m_Localized: TAM EKRAN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11962412818432
+    m_Localized: "SONRA \u0130\u015ELEME"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

@@ -2,17 +2,18 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.Localization.Settings;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private Animator[] AnimatorObjects;
 
     [SerializeField] private Text Subtitle;
-    [Multiline][SerializeField] private string[] Phrases;
+    [SerializeField] private int maxQuoteIndex;
 
     private void Start()
     {
-        Subtitle.text = Phrases[Random.Range(0, Phrases.Length)];
+        Subtitle.text = LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable", "Quote"+Random.Range(0, maxQuoteIndex-1).ToString());
+        
     }
 
     private IEnumerator EntryNumerator()
