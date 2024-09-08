@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: LocalizationTable_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: aa62b4c51b89d884c8bf0cc6f04b372f, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 67064684544
+    m_Localized: PLAY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93887258624
+    m_Localized: SETTINGS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111146819584
+    m_Localized: EXIT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2539778859008
+    m_Localized: "\xABBY DAY, THE HOTEL HIDES THE MADNESS OF THE NIGHT\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553418735616
+    m_Localized: "\xABA BEAST IMPRISONED IN THE HOTEL,\nIN EXCHANGE FOR ETERNAL LIFE,\nWANTS
+      TO ACQUIRE A HUMAN BODY\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2608993263616
+    m_Localized: "\xABA SHADOW FADING IN THE GLOOM\nWANTS TO SAVE YOU FROM ETERNAL
+      DOOM\nBUT WILL TAKE YOU WITH IT TO THE PLACE\nWHERE ONLY SHADOWS AND ENDLESS
+      NIGHT EMBRACE\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2624755458048
+    m_Localized: "\xABWILL EVERYTHING BE IN ORDER\nIF WE CLEAN ALL THE ROOMS?\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2639435522048
+    m_Localized: "\xABYOUR DUTY IS CLEANLINESS\nOUR DUTY IS PAYMENT\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2647039795200
+    m_Localized: "\xABTODAY SHOULD NOT HAVE BEEN A SIDE JOB\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2654933475328
+    m_Localized: "\xABIT'S A SHAME YOU DIDN'T READ THE FINE PRINT\nUNDER THE CONTRACT\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9808927121408
+    m_Localized: "\xABTHE CONTRACT IS SIGNED,\nTHERE'S NO TURNING BACK\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11884440707072
+    m_Localized: RESOLUTION
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11914253819904
+    m_Localized: QUALITY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11936647208960
+    m_Localized: FULL SCREEN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11962412818432
+    m_Localized: POST-PROCESSING
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

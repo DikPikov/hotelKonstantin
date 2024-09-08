@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: LocalizationTable_pl
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pl
+  m_SharedData: {fileID: 11400000, guid: aa62b4c51b89d884c8bf0cc6f04b372f, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 67064684544
+    m_Localized: GRAJ
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93887258624
+    m_Localized: USTAWIENIA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111146819584
+    m_Localized: "WYJ\u015ACIE"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2539778859008
+    m_Localized: "\xABZA DNIA HOTEL UKRYWA SZALE\u0143STWO NOCY\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553418735616
+    m_Localized: "\xABBESTIA UWIEZIONA W HOTELU,\nW ZAMIAN ZA WIECZNO\u015A\u0106,\nPRAGNIE
+      ZDOBY\u0106 LUDZKIE CIA\u0141O\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2608993263616
+    m_Localized: "\xABCIEN\u0301, KT\xD3RY GA\u015ANIE W MGLE\nPRAGNIE URATOWA\u0106
+      CI\u0118 OD WIECZNEGO MROKU\nLECZ ZABIERZE CI\u0118 Z SOB\u0104 DO MIEJSCA\nGDZIE
+      TYLKO CIENIE I WIECZNA NOC PANUJ\u0104\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2624755458048
+    m_Localized: "\xABCZY WSZYSTKO B\u0118DZIE W PORZ\u0104DKU\nJE\u015ALI POSPRZ\u0104TAMY
+      WE WSZYSTKICH POKOJACH?\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2639435522048
+    m_Localized: "\xABPA\u0143STWA OBOWI\u0104ZEK TO CZYSTO\u015A\u0106\nNASZ OBOWI\u0104ZEK
+      TO WYP\u0141ATA\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2647039795200
+    m_Localized: "\xABDZISIAJ NIE POWINNO BY\u0141O PRACOWA\u0106 DODATKOWO\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2654933475328
+    m_Localized: "\xABSZKODA, \u017BE NIE PRZECZYTALI\u015ACIE DROBNEGO DRUKU\nPOD
+      KONTRAKTEM\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9808927121408
+    m_Localized: "\xABUMOWA JEST PODPISANA,\nNIE MA JU\u017B DROGI POWROTU\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11884440707072
+    m_Localized: "ROZDZIELCZO\u015A\u0106"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11914253819904
+    m_Localized: "JAKO\u015A\u0106"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11936647208960
+    m_Localized: "PE\u0141NY EKRAN"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11962412818432
+    m_Localized: POSTPROCESJONOWANIE
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
