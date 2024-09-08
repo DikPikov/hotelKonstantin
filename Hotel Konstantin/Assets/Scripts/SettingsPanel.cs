@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Localization.Settings;
 
 public class SettingsPanel : MonoBehaviour
 {
@@ -41,17 +42,17 @@ public class SettingsPanel : MonoBehaviour
         switch (Config.Quality)
         {
             case 0:
-                QualityInfo.text = $"НИЗКОЕ";
+                QualityInfo.text = LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable", "LowGraphicsText");
                 break;
             case 1:
-                QualityInfo.text = $"СРЕДНЕЕ";
+                QualityInfo.text = LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable", "MediumGraphicsText");
                 break;
             case 2:
-                QualityInfo.text = $"ВЫСОКОЕ";
+                QualityInfo.text = LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable", "HighGraphicsText");
                 break;
         }
 
-        SensitivityInfo.text = $"ЧУВСТВИТЕЛЬНОСТЬ: {Config.Sensitivity}";
+        SensitivityInfo.text = $"{LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable", "SensitivityText")}: {Config.Sensitivity}";
         FullScreen.isOn = Config.FullScreen;
         PostProcessing.isOn = Config.PostProcessing;
         AlwaysShowInterface.isOn = Config.AlwaysShowInterface;
@@ -100,13 +101,13 @@ public class SettingsPanel : MonoBehaviour
         switch (Config.Quality)
         {
             case 0:
-                QualityInfo.text = $"НИЗКОЕ";
+                QualityInfo.text = LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable", "LowGraphicsText");
                 break;
             case 1:
-                QualityInfo.text = $"СРЕДНЕЕ";
+                QualityInfo.text = LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable", "MediumGraphicsText");
                 break;
             case 2:
-                QualityInfo.text = $"ВЫСОКОЕ";
+                QualityInfo.text = LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable", "HighGraphicsText");
                 break;
         }
     }
@@ -114,7 +115,7 @@ public class SettingsPanel : MonoBehaviour
     public void SetSensitivity(float value)
     {
         Config.Sensitivity = value * 4;
-        SensitivityInfo.text = $"ЧУВСТВИТЕЛЬНОСТЬ: {Config.Sensitivity}";
+        SensitivityInfo.text = $"{LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable", "SensitivityText")}: {Config.Sensitivity}";
     }
 
     public void SetAudio(float value)

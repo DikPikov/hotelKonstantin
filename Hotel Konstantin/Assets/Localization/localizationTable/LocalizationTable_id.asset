@@ -83,6 +83,42 @@ MonoBehaviour:
     m_Localized: PASCAPROSES
     m_Metadata:
       m_Items: []
+  - m_Id: 104817378582528
+    m_Localized: RENDAH
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104861095813120
+    m_Localized: SEDANG
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104877508124672
+    m_Localized: TINGGI
+    m_Metadata:
+      m_Items: []
+  - m_Id: 108629862506496
+    m_Localized: KEPEKAAN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 109340780257280
+    m_Localized: SUARA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 109946840408064
+    m_Localized: KEMBALI
+    m_Metadata:
+      m_Items: []
+  - m_Id: 109872680919040
+    m_Localized: TERIMA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 110900851630080
+    m_Localized: SELALU TAMPILKAN ANTARMUKA PEMAIN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111353446391808
+    m_Localized: AREA PANDANGAN
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

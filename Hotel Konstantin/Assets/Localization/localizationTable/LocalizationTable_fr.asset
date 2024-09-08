@@ -84,6 +84,42 @@ MonoBehaviour:
     m_Localized: POST-TRAITEMENT
     m_Metadata:
       m_Items: []
+  - m_Id: 104817378582528
+    m_Localized: BAS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104861095813120
+    m_Localized: MOYEN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104877508124672
+    m_Localized: "\xC9LEV\xC9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 108629862506496
+    m_Localized: "SENSIBILIT\xC9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 109340780257280
+    m_Localized: SON
+    m_Metadata:
+      m_Items: []
+  - m_Id: 109946840408064
+    m_Localized: RETOUR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 109872680919040
+    m_Localized: ACCEPTER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 110900851630080
+    m_Localized: "TOUJOURS AFFICHER L\u2019INTERFACE JOUEUR"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111353446391808
+    m_Localized: CHAMP DE VISION
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

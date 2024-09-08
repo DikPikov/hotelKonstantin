@@ -82,6 +82,42 @@ MonoBehaviour:
     m_Localized: POST-PROCESSAMENTO
     m_Metadata:
       m_Items: []
+  - m_Id: 104817378582528
+    m_Localized: BASSA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104861095813120
+    m_Localized: MEDIA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104877508124672
+    m_Localized: ALTA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 108629862506496
+    m_Localized: "SENSIBILIT\xC0"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 109340780257280
+    m_Localized: SUONO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 109946840408064
+    m_Localized: INDIETRO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 109872680919040
+    m_Localized: ACCETTARE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 110900851630080
+    m_Localized: MOSTRA SEMPRE L'INTERFACCIA GIOCATORE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111353446391808
+    m_Localized: CAMPO VISIVO
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

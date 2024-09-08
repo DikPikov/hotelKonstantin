@@ -81,6 +81,42 @@ MonoBehaviour:
     m_Localized: POST-PROCESSING
     m_Metadata:
       m_Items: []
+  - m_Id: 104817378582528
+    m_Localized: LOW
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104861095813120
+    m_Localized: MEDIUM
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104877508124672
+    m_Localized: HIGH
+    m_Metadata:
+      m_Items: []
+  - m_Id: 108629862506496
+    m_Localized: SENSITIVITY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 109340780257280
+    m_Localized: SOUND
+    m_Metadata:
+      m_Items: []
+  - m_Id: 109946840408064
+    m_Localized: BACK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 109872680919040
+    m_Localized: ACCEPT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 110900851630080
+    m_Localized: ALWAYS SHOW PLAYER INTERFACE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111353446391808
+    m_Localized: FIELD OF VIEW
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

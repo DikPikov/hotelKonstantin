@@ -82,6 +82,42 @@ MonoBehaviour:
     m_Localized: NACHBEARBEITUNG
     m_Metadata:
       m_Items: []
+  - m_Id: 104817378582528
+    m_Localized: NIEDRIG
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104861095813120
+    m_Localized: MITTEL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104877508124672
+    m_Localized: HOCH
+    m_Metadata:
+      m_Items: []
+  - m_Id: 108629862506496
+    m_Localized: EMPFINDLICHKEIT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 109340780257280
+    m_Localized: TON
+    m_Metadata:
+      m_Items: []
+  - m_Id: 109946840408064
+    m_Localized: "ZUR\xDCCK"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 109872680919040
+    m_Localized: AKZEPTIEREN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 110900851630080
+    m_Localized: "ST\xC4NDIG DAS SPIELER-INTERFACE ANZEIGEN"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111353446391808
+    m_Localized: SICHTFELD
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

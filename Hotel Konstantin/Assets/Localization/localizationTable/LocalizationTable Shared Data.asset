@@ -75,6 +75,42 @@ MonoBehaviour:
     m_Key: PostProcessingText
     m_Metadata:
       m_Items: []
+  - m_Id: 104817378582528
+    m_Key: LowGraphicsText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104861095813120
+    m_Key: MediumGraphicsText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104877508124672
+    m_Key: HighGraphicsText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 108629862506496
+    m_Key: SensitivityText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 109340780257280
+    m_Key: SoundText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 109946840408064
+    m_Key: ReturnText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 109872680919040
+    m_Key: ConfirmText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 110900851630080
+    m_Key: AlwaysShowInterfaceText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111353446391808
+    m_Key: FieldOfViewText
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

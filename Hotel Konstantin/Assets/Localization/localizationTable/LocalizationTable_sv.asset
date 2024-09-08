@@ -82,6 +82,42 @@ MonoBehaviour:
     m_Localized: EFTERBEARBETNING
     m_Metadata:
       m_Items: []
+  - m_Id: 104817378582528
+    m_Localized: "L\xC5G"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104861095813120
+    m_Localized: MEDEL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104877508124672
+    m_Localized: "H\xD6G"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 108629862506496
+    m_Localized: "K\xC4NSLIGHET"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 109340780257280
+    m_Localized: LJUD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 109946840408064
+    m_Localized: TILLBAKA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 109872680919040
+    m_Localized: ACCEPTERA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 110900851630080
+    m_Localized: "ALLTID VISA SPELARENS GR\xC4NSSNITT"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111353446391808
+    m_Localized: SYNVINKEL
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
