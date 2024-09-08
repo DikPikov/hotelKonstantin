@@ -1,7 +1,7 @@
 {"Horizontal":"+D +RightArrow -A -LeftArrow",
 "Vertical":"+W +UpArrow -S -DownArrow",
 "Menu":"Escape F1",
-"OpenExtraInfo":"H",
+"OpenExtraInfo":"Tab Space",
 "Item1":"Alpha1",
 "Item2":"Alpha2",
 "Item3":"Alpha3",

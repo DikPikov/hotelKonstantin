@@ -8,6 +8,7 @@ public class SettingsPanel : MonoBehaviour
     [SerializeField] private Text SensitivityInfo;
     [SerializeField] private Toggle FullScreen;
     [SerializeField] private Toggle PostProcessing;
+    [SerializeField] private Toggle AlwaysShowInterface;
     [SerializeField] private Slider Audio;
     [SerializeField] private Slider Sensitivity;
 
@@ -15,12 +16,21 @@ public class SettingsPanel : MonoBehaviour
 
     private Config Config = null;
 
+    private Vector2Int[] Resolutions = new Vector2Int[0];
     private int Resolution = 0;
 
     private void Start()
     {
         Settings.OnChanges += UpdateInfo;
         UpdateInfo();
+
+        Resolutions = new Vector2Int[0];
+        for(int i = 0; i < Screen.resolutions.Length; i++)
+        {
+            Vector2Int resolution = new Vector2Int(Screen.resolutions[i].width, Screen.resolutions[i].height);
+
+            Resolutions = StaticTools.ExcludingExpandMassive(Resolutions, resolution);
+        }
     }
 
     public void UpdateInfo()
@@ -44,12 +54,13 @@ public class SettingsPanel : MonoBehaviour
         SensitivityInfo.text = $"ЧУВСТВИТЕЛЬНОСТЬ: {Config.Sensitivity}";
         FullScreen.isOn = Config.FullScreen;
         PostProcessing.isOn = Config.PostProcessing;
+        AlwaysShowInterface.isOn = Config.AlwaysShowInterface;
         Audio.value = Config.Audio;
         Sensitivity.value = Config.Sensitivity / 4f;
 
-        for(int i = 0; i < Screen.resolutions.Length; i++)
+        for(int i = 0; i < Resolutions.Length; i++)
         {
-            if (Config.XResolution == Screen.resolutions[i].width && Config.YResolution == Screen.resolutions[i].height)
+            if (Config.XResolution == Resolutions[i].x && Config.YResolution == Resolutions[i].y)
             {
                 Resolution = i;
                 break;
@@ -66,19 +77,19 @@ public class SettingsPanel : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
-            Resolution = (Resolution + 1) % Screen.resolutions.Length;
+            Resolution = (Resolution + 1) % Resolutions.Length;
         }
         else if (Input.GetKeyUp(KeyCode.Mouse1))
         {
             Resolution--;
             if(Resolution < 0)
             {
-                Resolution = Screen.resolutions.Length - 1;
+                Resolution = Resolutions.Length - 1;
             }
         }
 
-        Config.XResolution = Screen.resolutions[Resolution].width;
-        Config.YResolution = Screen.resolutions[Resolution].height;
+        Config.XResolution = Resolutions[Resolution].x;
+        Config.YResolution = Resolutions[Resolution].y;
 
         ResolutionInfo.text = $"{Config.XResolution}x{Config.YResolution}";
     }
@@ -109,6 +120,11 @@ public class SettingsPanel : MonoBehaviour
     public void SetAudio(float value)
     {
         Config.Audio = value;
+    }
+
+    public void SetShowInterface(bool state)
+    {
+        Config.AlwaysShowInterface = state;
     }
 
     public void SetFullScreen(bool state)

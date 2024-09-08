@@ -88,10 +88,10 @@ public class PlayerInteract : MonoBehaviour
         {
             timer -= Time.deltaTime;
 
-            Skobi[0].anchoredPosition = new Vector2(-10 - 40 * (timer/ time), 10 + 40 * (timer / time));
-            Skobi[1].anchoredPosition = new Vector2(10 + 40 * (timer / time), 10 + 40 * (timer / time));
-            Skobi[2].anchoredPosition = new Vector2(10 + 40 * (timer / time), -10 - 40 * (timer / time));
-            Skobi[3].anchoredPosition = new Vector2(-10 - 40 * (timer / time), -10 - 40 * (timer / time));
+            Skobi[0].anchoredPosition = new Vector2(-7 - 43 * (timer/ time), 7 + 43 * (timer / time));
+            Skobi[1].anchoredPosition = new Vector2(7 + 43 * (timer / time), 7 + 43 * (timer / time));
+            Skobi[2].anchoredPosition = new Vector2(7 + 43 * (timer / time), -7 - 43 * (timer / time));
+            Skobi[3].anchoredPosition = new Vector2(-7 - 43 * (timer / time), -7 - 43 * (timer / time));
            
 
             if (timer <= 0)

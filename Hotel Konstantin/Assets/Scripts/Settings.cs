@@ -96,6 +96,8 @@ public class Config
     public int Quality;
     public bool PostProcessing;
 
+    public bool AlwaysShowInterface;
+
     public Config()
     {
         int high = 0;
@@ -115,6 +117,8 @@ public class Config
         Audio = 0.5f;
         Quality = 1;
         PostProcessing = true;
+
+        AlwaysShowInterface = false;
     }
 
     public Config Clone()
@@ -131,6 +135,8 @@ public class Config
 
         config.Quality = Quality;
         config.PostProcessing = PostProcessing;
+
+        config.AlwaysShowInterface = AlwaysShowInterface;
 
         return config;
 
