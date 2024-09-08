@@ -604,6 +604,16 @@ MonoBehaviour:
   - {fileID: 205282633410559838}
   - {fileID: 7672183581597546886}
   - {fileID: 2685853119691262837}
+  localizedStrings:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
 --- !u!1 &178273180296685926
 GameObject:
   m_ObjectHideFlags: 0

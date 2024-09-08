@@ -22,7 +22,7 @@ public class Game : MonoBehaviour
         set
         {
             Instance.HotelTime = value;
-            Instance.TimeIndicator.text = $"{(int)(value / 3600f)}ч {(int)(value % 3600 / 60f)}м {(int)(value % 60)}с";
+            Instance.TimeIndicator.text = $"{(int)(value / 3600f)} : {(int)(value % 3600 / 60f)} : {(int)(value % 60)}";
         }
     }
     public static bool _GameOver

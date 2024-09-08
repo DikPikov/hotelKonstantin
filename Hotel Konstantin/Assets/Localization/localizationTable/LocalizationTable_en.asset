@@ -117,6 +117,58 @@ MonoBehaviour:
     m_Localized: FIELD OF VIEW
     m_Metadata:
       m_Items: []
+  - m_Id: 128505566060544
+    m_Localized: CLEAN UP THE ROOMS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 129351473291264
+    m_Localized: YES
+    m_Metadata:
+      m_Items: []
+  - m_Id: 129369965977600
+    m_Localized: NO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132208859668480
+    m_Localized: BEDS ARE MADE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132226580602880
+    m_Localized: TRASH IS REMOVED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132254464335872
+    m_Localized: TOWEL IS REPLACED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 134534773202944
+    m_Localized: DRAWERS, CLOSETS, AND DOORS ARE CLOSED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 135333372878848
+    m_Localized: DIRT IS GONE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 135654933389312
+    m_Localized: LIGHT IS OFF
+    m_Metadata:
+      m_Items: []
+  - m_Id: 135976078663680
+    m_Localized: TV IS OFF
+    m_Metadata:
+      m_Items: []
+  - m_Id: 148000544251904
+    m_Localized: CONTINUE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 148327200841728
+    m_Localized: RESTART
+    m_Metadata:
+      m_Items: []
+  - m_Id: 159757648125952
+    m_Localized: LANGUAGE
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

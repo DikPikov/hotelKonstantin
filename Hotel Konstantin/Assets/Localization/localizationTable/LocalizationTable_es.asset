@@ -118,6 +118,58 @@ MonoBehaviour:
     m_Localized: "CAMPO DE VISI\xD3N"
     m_Metadata:
       m_Items: []
+  - m_Id: 128505566060544
+    m_Localized: LIMPIAR LAS HABITACIONES
+    m_Metadata:
+      m_Items: []
+  - m_Id: 129351473291264
+    m_Localized: "S\xCD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 129369965977600
+    m_Localized: NO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132208859668480
+    m_Localized: "LAS CAMAS EST\xC1N HECHAS"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132226580602880
+    m_Localized: LA BASURA HA SIDO RETIRADA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132254464335872
+    m_Localized: LA TOALLA HA SIDO REEMPLAZADA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 134534773202944
+    m_Localized: "LOS CAJONES, ARMARIOS Y PUERTAS EST\xC1N CERRADOS"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 135333372878848
+    m_Localized: LA SUCIEDAD HA DESAPARECIDO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 135654933389312
+    m_Localized: "LA LUZ EST\xC1 APAGADA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 135976078663680
+    m_Localized: "LA TELEVISI\xD3N EST\xC1 APAGADA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 148000544251904
+    m_Localized: CONTINUAR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 148327200841728
+    m_Localized: REINICIAR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 159757648125952
+    m_Localized: IDIOMA
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

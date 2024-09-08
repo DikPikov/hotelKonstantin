@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
-
+using UnityEngine.Localization.Settings;
 public class Floor : MonoBehaviour
 {
     [SerializeField] private GameObject GhostPrefab;
@@ -75,7 +75,7 @@ public class Floor : MonoBehaviour
             roomClear += room._Clear.GetHashCode();
         }
 
-        TaskInfo.Info = $"Навести порядок в номерах <b>{roomClear}/{Rooms.Length}</b>";
+        TaskInfo.Info = $"{LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable","CorridorTaskText")} <b>{roomClear}/{Rooms.Length}</b>";
 
         TaskDisplayer.UpdateInfo();
     }

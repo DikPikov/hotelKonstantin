@@ -118,6 +118,58 @@ MonoBehaviour:
     m_Localized: "CAMPO DE VIS\xC3O"
     m_Metadata:
       m_Items: []
+  - m_Id: 128505566060544
+    m_Localized: ARRUMAR OS QUARTOS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 129351473291264
+    m_Localized: SIM
+    m_Metadata:
+      m_Items: []
+  - m_Id: 129369965977600
+    m_Localized: "N\xC3O"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132208859668480
+    m_Localized: "AS CAMAS EST\xC3O FEITAS"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132226580602880
+    m_Localized: O LIXO FOI REMOVIDO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132254464335872
+    m_Localized: A TOALHA FOI TROCADA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 134534773202944
+    m_Localized: "AS GAVETAS, OS ARM\xC1RIOS E AS PORTAS EST\xC3O FECHADOS"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 135333372878848
+    m_Localized: A SUJEIRA DESAPARECEU
+    m_Metadata:
+      m_Items: []
+  - m_Id: 135654933389312
+    m_Localized: "A LUZ EST\xC1 DESLIGADA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 135976078663680
+    m_Localized: "A TELEVIS\xC3O EST\xC1 DESLIGADA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 148000544251904
+    m_Localized: CONTINUAR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 148327200841728
+    m_Localized: REINICIAR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 159757648125952
+    m_Localized: IDIOMA
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -120,6 +120,58 @@ MonoBehaviour:
     m_Localized: POLE WIDZENIA
     m_Metadata:
       m_Items: []
+  - m_Id: 128505566060544
+    m_Localized: "POSPRZ\u0104TAJ POKOJE"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 129351473291264
+    m_Localized: TAK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 129369965977600
+    m_Localized: NIE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132208859668480
+    m_Localized: "\u0141\xD3\u017BKA S\u0104 PO\u015ACIELONE"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132226580602880
+    m_Localized: "\u015AMIECI ZOSTA\u0141Y USUNI\u0118TE"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132254464335872
+    m_Localized: "R\u0118CZNIK ZOSTA\u0141 WYMIENIONY"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 134534773202944
+    m_Localized: "SZUFLADY, SZAFY I DRZWI S\u0104 ZAMKNI\u0118TE"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 135333372878848
+    m_Localized: "BRUD JEST USUNI\u0118TY"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 135654933389312
+    m_Localized: "\u015AWIAT\u0141O JEST WY\u0141\u0104CZONE"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 135976078663680
+    m_Localized: "TELEWIZOR JEST WY\u0141\u0104CZONY"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 148000544251904
+    m_Localized: KONTYNUUJ
+    m_Metadata:
+      m_Items: []
+  - m_Id: 148327200841728
+    m_Localized: RESTART
+    m_Metadata:
+      m_Items: []
+  - m_Id: 159757648125952
+    m_Localized: "J\u0118ZYK"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

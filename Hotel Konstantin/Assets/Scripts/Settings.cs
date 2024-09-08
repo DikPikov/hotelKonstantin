@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
+using UnityEngine.Localization.Settings;
+
 public class Settings : MonoBehaviour
 {
     [SerializeField] private AudioMixer Mixer;
@@ -63,11 +65,13 @@ public class Settings : MonoBehaviour
         {
             Rotation._Sensitivity = Config.Sensitivity;
         }
-        
+
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[Config.LanguageID];
 
         PostProcess.weight = Config.PostProcessing ? 1 : 0;
 
         QualitySettings.SetQualityLevel(Config.Quality, true);
+
         switch (Config.Quality)
         {
             case 0:
@@ -98,6 +102,28 @@ public class Config
 
     public bool AlwaysShowInterface;
 
+    public int LanguageID;
+
+    /*
+    Коды раскладок: 
+    ru Русский [0]
+    en Английский [1]
+    sv Шведский [2]
+    pl Польский [3]
+    de Немецкий [4]
+    fr Французский [5]
+    it Итальянский [6]
+    es Испанский [7]
+    pt Португальский [8]
+    tr Турецкий [9]
+    zh Китайский (упрощенный) [10]
+    hi Хинди [11]
+    vi Вьетнамский [12]
+    id Индонезийский [13]
+    */
+
+
+
     public Config()
     {
         int high = 0;
@@ -117,7 +143,7 @@ public class Config
         Audio = 0.5f;
         Quality = 1;
         PostProcessing = true;
-
+        LanguageID = LocalizationSettings.AvailableLocales.Locales.IndexOf(LocalizationSettings.SelectedLocale);
         AlwaysShowInterface = false;
     }
 
@@ -137,6 +163,8 @@ public class Config
         config.PostProcessing = PostProcessing;
 
         config.AlwaysShowInterface = AlwaysShowInterface;
+        
+        config.LanguageID = LanguageID;
 
         return config;
 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using System.Collections;
 
 public class Room : MonoBehaviour
@@ -36,6 +37,8 @@ public class Room : MonoBehaviour
 
     public Lighter _RoomLight => LightSwitch._Lighter;
     public bool _Clear => BedCleared && TrashRemoved && TowelUpdated && CabinetsClosed && DirtWashed && LightsOff && TVOff;
+
+    [SerializeField] private string[] localizedStrings;
 
     public void AddBed(Bed bed)
     {
@@ -97,6 +100,17 @@ public class Room : MonoBehaviour
         StartCoroutine(SpawnOther());
 
         Floor.AddRoom(this);
+
+        localizedStrings[0] = LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable","YesText");
+        localizedStrings[1] = LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable","NoText");
+        localizedStrings[2] = LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable","BedTaskText");
+        localizedStrings[3] = LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable","TrashTaskText");
+        localizedStrings[4] = LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable","TowelTaskText");
+        localizedStrings[5] = LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable","WardrobeDoorsTaskText");
+        localizedStrings[6] = LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable","DirtTaskText");
+        localizedStrings[7] = LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable","LightTaskText");
+        localizedStrings[8] = LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable","TvTaskText");
+
     }
 
     public void DeleteTrash(GameObject trash)
@@ -145,8 +159,8 @@ public class Room : MonoBehaviour
 
         TowelUpdated = Towel._Updated;
 
-        TaskInfo.Info = $"Кровати заправлены <b>{(BedCleared ? "Да" : "Нет")}</b>\nМусор убран <b>{(TrashRemoved ? "Да" : "Нет")}</b>\nПолотенце обновлено <b>{(TowelUpdated ? "Да" : "Нет")}</b>" +
-            $"\nЯщики, шкафы и двери закрыты <b>{(CabinetsClosed ? "Да" : "Нет")}</b>\nГрязь отсутствует <b>{(DirtWashed ? "Да" : "Нет")}</b>\nСвет выключен <b>{(LightsOff ? "Да" : "Нет")}</b>\nЭЛТ Телевизор выключен <b>{(TVOff ? "Да" : "Нет")}</b>";
+        TaskInfo.Info = $"{localizedStrings[2]} : <b>{(BedCleared ? localizedStrings[0] : localizedStrings[1])}</b>\n{localizedStrings[3]} : <b>{(TrashRemoved ? localizedStrings[0] : localizedStrings[1])}</b>\n{localizedStrings[4]} : <b>{(TowelUpdated ? localizedStrings[0] : localizedStrings[1])}</b>" +
+            $"\n{localizedStrings[5]} : <b>{(CabinetsClosed ? localizedStrings[0] : localizedStrings[1])}</b>\n{localizedStrings[6]} : <b>{(DirtWashed ? localizedStrings[0] : localizedStrings[1])}</b>\n{localizedStrings[7]} : <b>{(LightsOff ? localizedStrings[0] : localizedStrings[1])}</b>\n{localizedStrings[8]} : <b>{(TVOff ? localizedStrings[0] : localizedStrings[1])}</b>";
        
         Floor.UpdateTaskInfo(); 
         TaskDisplayer.UpdateInfo();

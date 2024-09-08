@@ -13,6 +13,9 @@ public class SettingsPanel : MonoBehaviour
     [SerializeField] private Slider Audio;
     [SerializeField] private Slider Sensitivity;
 
+    [SerializeField] private Text LanguageSelected;
+
+
     [SerializeField] private Settings Settings;
 
     private Config Config = null;
@@ -51,6 +54,53 @@ public class SettingsPanel : MonoBehaviour
                 QualityInfo.text = LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable", "HighGraphicsText");
                 break;
         }
+
+        switch (Config.LanguageID)
+        {
+            case 0:
+                LanguageSelected.text = "РУССКИЙ";
+                break;
+            case 1:
+                LanguageSelected.text = "ENGLISH";
+                break;
+            case 2:
+                LanguageSelected.text = "SVENSKA";
+                break;
+            case 3:
+                LanguageSelected.text = "POLSKI";
+                break;
+            case 4:
+                LanguageSelected.text = "DEUTSCH";
+                break;
+            case 5:
+                LanguageSelected.text = "FRANÇAIS";
+                break;
+            case 6:
+                LanguageSelected.text = "ITALIANO";
+                break;
+            case 7:
+                LanguageSelected.text = "ESPAÑOL";
+                break;
+            case 8:
+                LanguageSelected.text = "PORTUGUÊS";
+                break;
+            case 9:
+                LanguageSelected.text = "TÜRKÇE";
+                break;
+            case 10:
+                LanguageSelected.text = "ZHŌNGWÉN";
+                break;
+            case 11:
+                LanguageSelected.text = "HINDĪ";
+                break;
+            case 12:
+                LanguageSelected.text = "TIẾNG VIỆT";
+                break;
+            case 13:
+                LanguageSelected.text = "BAHASA INDONESIA";
+                break;
+        }
+        
 
         SensitivityInfo.text = $"{LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable", "SensitivityText")}: {Config.Sensitivity}";
         FullScreen.isOn = Config.FullScreen;
@@ -108,6 +158,56 @@ public class SettingsPanel : MonoBehaviour
                 break;
             case 2:
                 QualityInfo.text = LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable", "HighGraphicsText");
+                break;
+        }
+    }
+
+    public void SetLanguage()
+    {
+        Config.LanguageID = (Config.LanguageID + 1) % 14;
+        switch (Config.LanguageID)
+        {
+            case 0:
+                LanguageSelected.text = "РУССКИЙ";
+                break;
+            case 1:
+                LanguageSelected.text = "ENGLISH";
+                break;
+            case 2:
+                LanguageSelected.text = "SVENSKA";
+                break;
+            case 3:
+                LanguageSelected.text = "POLSKI";
+                break;
+            case 4:
+                LanguageSelected.text = "DEUTSCH";
+                break;
+            case 5:
+                LanguageSelected.text = "FRANÇAIS";
+                break;
+            case 6:
+                LanguageSelected.text = "ITALIANO";
+                break;
+            case 7:
+                LanguageSelected.text = "ESPAÑOL";
+                break;
+            case 8:
+                LanguageSelected.text = "PORTUGUÊS";
+                break;
+            case 9:
+                LanguageSelected.text = "TÜRKÇE";
+                break;
+            case 10:
+                LanguageSelected.text = "ZHŌNGWÉN";
+                break;
+            case 11:
+                LanguageSelected.text = "HINDĪ";
+                break;
+            case 12:
+                LanguageSelected.text = "TIẾNG VIỆT";
+                break;
+            case 13:
+                LanguageSelected.text = "BAHASA INDONESIA";
                 break;
         }
     }
