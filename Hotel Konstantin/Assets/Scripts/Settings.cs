@@ -2,8 +2,8 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering.PostProcessing;
-using UnityEngine.SceneManagement;
 using UnityEngine.Localization.Settings;
+using System.Collections;
 
 public class Settings : MonoBehaviour
 {
@@ -57,11 +57,11 @@ public class Settings : MonoBehaviour
 
     public void UpdateSettings()
     {
-        Mixer.SetFloat("Volume", Config.Audio == 0 ? -80 : (-30 * (1 - Config.Audio)));
+        StartCoroutine(SetMixerVolume(Config.Audio));
 
         Screen.SetResolution(Config.XResolution, Config.YResolution, Config.FullScreen);
 
-        if (SceneManager.GetActiveScene().buildIndex != 0)
+        if(Rotation != null)
         {
             Rotation._Sensitivity = Config.Sensitivity;
         }
@@ -84,6 +84,14 @@ public class Settings : MonoBehaviour
                 Graphics.activeTier = UnityEngine.Rendering.GraphicsTier.Tier3;
                 break;
         }
+    }
+
+    private IEnumerator SetMixerVolume(float value)
+    {
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+
+        Mixer.SetFloat("Volume", value == 0 ? -80 : (-30 * (1 - value)));
     }
 }
 

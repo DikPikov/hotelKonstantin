@@ -7,13 +7,25 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private Animator[] AnimatorObjects;
 
+    [SerializeField] private Settings Settings;
+    [SerializeField] private Dropdown LanguageSetter;
+
     [SerializeField] private Text Subtitle;
     [SerializeField] private int maxQuoteIndex;
 
     private void Start()
     {
         Subtitle.text = LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable", "Quote"+Random.Range(0, maxQuoteIndex-1).ToString());
-        
+        LanguageSetter.SetValueWithoutNotify(Settings._Config.LanguageID);
+    }
+
+    public void SetLanguage(int index)
+    {
+        Config config = Settings._Config;
+        config.LanguageID = index;
+        Settings._Config = config;
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private IEnumerator EntryNumerator()

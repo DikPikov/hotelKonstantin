@@ -22,7 +22,12 @@ public class Game : MonoBehaviour
         set
         {
             Instance.HotelTime = value;
-            Instance.TimeIndicator.text = $"{(int)(value / 3600f)} : {(int)(value % 3600 / 60f)} : {(int)(value % 60)}";
+
+            int hours = (int)(value / 3600f);
+            int minuts = (int)(value % 3600 / 60f);
+            int seconds = (int)(value % 60);
+
+            Instance.TimeIndicator.text = $"{(hours > 0 ? $"{(hours < 10 ? $"0{hours}" : $"{hours}")} : " : $"")}{(minuts < 10 ? $"0{minuts}" : $"{minuts}")} : {(seconds < 10 ? $"0{seconds}" : $"{seconds}")}";
         }
     }
     public static bool _GameOver
@@ -51,8 +56,7 @@ public class Game : MonoBehaviour
     {
         while (true)
         {
-            HotelTime++;
-            TimeIndicator.text = $"{(int)(HotelTime / 3600f)}ч {(int)(HotelTime % 3600 / 60f)}м {(int)(HotelTime % 60)}с";
+            _HotelTime++;
             yield return new WaitForSeconds(1);
         }
 
