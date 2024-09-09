@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UI;
 using UnityEngine.Localization.Settings;
+
 public class Floor : MonoBehaviour
 {
     [SerializeField] private GameObject GhostPrefab;
@@ -12,15 +12,12 @@ public class Floor : MonoBehaviour
 
     [SerializeField] private Room[] Rooms;
     [SerializeField] private CoridorLights CoridorLights;
-    [SerializeField] private Image GhostNoise;
 
-    private Ghost Ghost = null;
+   public CoridorLights _Light => CoridorLights;
 
     private void Start()
     {
         UpdateTaskInfo();
-
-        CoridorLights._LightTime = Random.Range(60, 180f - 90 * Game._HotelMadness);
     }
 
     public void AddRoom(Room room)
@@ -29,21 +26,21 @@ public class Floor : MonoBehaviour
         CoridorLights.AddLighter(room._RoomLight);
     }
 
-    public void SpawnGhost(bool despawn)
-    {
-        if (despawn)
-        {
-            if(Ghost != null)
-            {
-                Destroy(Ghost.gameObject);
-            }
-        }
-        else if(Ghost == null)
-        {
-            Ghost = Instantiate(GhostPrefab, GetSpawnPoint(15), transform.rotation).GetComponent<Ghost>();
-            Ghost.SetInfo(Player, CoridorLights, GhostNoise);
-        }
-    }
+    //public void SpawnGhost(bool despawn)
+    //{
+    //    if (despawn)
+    //    {
+    //        if(Ghost != null)
+    //        {
+    //            Destroy(Ghost.gameObject);
+    //        }
+    //    }
+    //    else if(Ghost == null)
+    //    {
+    //        Ghost = Instantiate(GhostPrefab, GetSpawnPoint(15), transform.rotation).GetComponent<Ghost>();
+    //        Ghost.SetInfo(Player, CoridorLights, GhostNoise);
+    //    }
+    //}
 
     public Vector3 GetSpawnPoint(float distance)
     {

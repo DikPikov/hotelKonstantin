@@ -28,11 +28,11 @@ public class PlayerMove : MonoBehaviour
             direction.y = 0;
             direction = direction.normalized;
 
-            if(Physics.OverlapBox(transform.position + new Vector3(direction.x * 0.25f, 0.85f, 0), new Vector3(0.25f, 0.8f, 0.25f), transform.rotation, LayerMask).Length > 0)
+            if(Physics.OverlapBox(transform.position + new Vector3(direction.x * 0.25f, 0.85f, 0), new Vector3(0.25f, 0.75f, 0.25f), transform.rotation, LayerMask).Length > 0)
             {
                 direction.x = 0;
             }
-            if (Physics.OverlapBox(transform.position + new Vector3(0, 0.85f, direction.z * 0.25f), new Vector3(0.25f, 0.8f, 0.25f), transform.rotation, LayerMask).Length > 0)
+            if (Physics.OverlapBox(transform.position + new Vector3(0, 0.85f, direction.z * 0.25f), new Vector3(0.25f, 0.75f, 0.25f), transform.rotation, LayerMask).Length > 0)
             {
                 direction.z = 0;
             }
@@ -80,12 +80,7 @@ public class PlayerMove : MonoBehaviour
                 Fall += Time.deltaTime * 10;
             }
 
-            RaycastHit hit;
-            if(Physics.Raycast(transform.position, Vector3.down, out hit, Fall * Time.deltaTime, LayerMask))
-            {
-                transform.position -= Vector3.up * (hit.distance - 0.04f);
-            }
-            else
+            if(Physics.OverlapBox(transform.position + new Vector3(0, 0.49f, 0), new Vector3(0.25f, 0.5f, 0.25f), transform.rotation, LayerMask).Length < 1)
             {
                 transform.position -= Vector3.up * Fall * Time.deltaTime;
             }

@@ -10,6 +10,7 @@ public class Player : MonoBehaviour, ILiftable
     private ItemObject CurrentItem = null;
     private Item[] Items = new Item[0];
 
+    public event SimpleVoid OnFloorChange = null;
     public event SimpleVoid OnChanges = null;
     public event SimpleVoid OnItemChanges = null;
 
@@ -40,16 +41,26 @@ public class Player : MonoBehaviour, ILiftable
         }
         set
         {
-            if (Floor != null)
+            if(Floor == value)
             {
-                Floor.gameObject.SetActive(false);
+                return;
             }
-            
+
+            //if (Floor != null)
+            //{
+            //    Floor.gameObject.SetActive(false);
+            //}
+
             Floor = value;
 
-            if (Floor != null)
+            //if (Floor != null)
+            //{
+            //    Floor.gameObject.SetActive(true);
+            //}
+
+            if (OnFloorChange != null)
             {
-                Floor.gameObject.SetActive(true);
+                OnFloorChange.Invoke();
             }
         }
    }

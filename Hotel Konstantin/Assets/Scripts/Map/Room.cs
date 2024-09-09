@@ -68,26 +68,24 @@ public class Room : MonoBehaviour
 
     private void Start()
     {
-        Presets[Random.Range(0, Presets.Length)].SetActive(true);
+        int preset = Random.Range(0, Presets.Length);
 
-        foreach (GameObject preset in Presets)
+        for(int i = 0; i < Presets.Length; i++)
         {
-            if (!preset.activeSelf)
+            if(i != preset)
             {
-                Destroy(preset);
+                Destroy(Presets[i]);
             }
         }
 
         LightSwitch._Enabled = Random.value > 0.7f;
 
         int lustra = Random.Range(0, Lustras.Length);
-        Lustras[lustra].SetActive(true);
-
-        foreach (GameObject lustra1 in Lustras)
+        for (int i = 0; i < Lustras.Length; i++)
         {
-            if (!lustra1.activeSelf)
+            if (i != lustra)
             {
-                Destroy(lustra1);
+                Destroy(Lustras[i]);
             }
         }
 
@@ -191,7 +189,7 @@ public class Room : MonoBehaviour
             trash.localEulerAngles = new Vector3(0, Random.Range(0, 360), 0);
 
             Vector3 position = new Vector3(Random.Range(TrashSpawnRect[0].x, TrashSpawnRect[1].x), 2.7f, Random.Range(TrashSpawnRect[0].z, TrashSpawnRect[1].z));
-            Debug.DrawRay(position + transform.position, Vector3.down * 10, Color.red);
+
             RaycastHit hit;
             if (Physics.Raycast(position + transform.position, Vector3.down, out hit, 10, LayerMask))
             {

@@ -9,8 +9,6 @@ public interface ILiftable
 
 public class Lift : MonoBehaviour
 {
-    [SerializeField] private Floor[] Floors;
-
     [SerializeField] private Animator Animator;
 
     [SerializeField] private Material IndicatorMaterial;
@@ -46,7 +44,7 @@ public class Lift : MonoBehaviour
 
         if(ElevateCoroutine == null)
         {
-            ElevateCoroutine = StartCoroutine(Elevate(Order[0] * 5 + 1.1f));
+            ElevateCoroutine = StartCoroutine(ElevateProcess(Order[0]));
         }
     }
 
@@ -69,8 +67,22 @@ public class Lift : MonoBehaviour
         }
     }
 
-    private IEnumerator Elevate(float high)
+    private int CheckFloor(float high)
     {
+        for(int i = 0; i < GameMap._Floors.Length - 1; i++)
+        {
+            if(high >= GameMap._Floors[i].transform.position.y && high < GameMap._Floors[i + 1].transform.position.y)
+            {
+                return i;
+            }
+        }
+
+        return GameMap._Floors.Length - 1;
+    }
+
+    private IEnumerator ElevateProcess(int targetFloor)
+    {
+        float high = GameMap._Floors[targetFloor].transform.position.y + 1.1f;
         float sign = Mathf.Sign(high - transform.position.y);
         int floor = CurrentFloor;
 
@@ -82,7 +94,7 @@ public class Lift : MonoBehaviour
         {
             transform.position += Vector3.up * (sign * Time.deltaTime * Speed);
 
-            floor = (int)((transform.position.y - 0.5f) / 5);
+            floor = CheckFloor(transform.position.y);
             if(floor != CurrentFloor)
             {
                 CurrentFloor = floor;
@@ -92,7 +104,7 @@ public class Lift : MonoBehaviour
 
                 foreach (ILiftable liftable in Objects)
                 {
-                    liftable._Floor = Floors[floor];
+                    liftable._Floor = GameMap._Floors[floor];
                 }
             }
 
@@ -113,7 +125,7 @@ public class Lift : MonoBehaviour
 
         if(Order.Length > 0)
         {
-            ElevateCoroutine = StartCoroutine(Elevate(Order[0] * 5 + 1.1f));
+            ElevateCoroutine = StartCoroutine(ElevateProcess(Order[0]));
         }
         else
         {

@@ -7,7 +7,7 @@ public class Ghost : MonoBehaviour
     [SerializeField] private NavMeshAgent Agent;
 
     private Player Player;
-    private CoridorLights CoridorLights;
+    private Floor Floor;
     private Image GhostNoise;
 
     private void OnDestroy()
@@ -15,13 +15,22 @@ public class Ghost : MonoBehaviour
         GhostNoise.color = new Color(0.3f, 0.3f, 1, 0);
     }
 
-    public void SetInfo(Player player, CoridorLights lights, Image noise)
+    public void SetInfo(Player player, Floor floor, Image noise)
     {
         Player = player;
-        CoridorLights = lights;
+
+        Player.OnFloorChange += PlayerChangedFloor;
+
+        Floor = floor; 
+
         GhostNoise = noise;
 
         Agent.speed = 1 + Game._HotelMadness * 4;
+    }
+
+    private void PlayerChangedFloor()
+    {
+
     }
 
     private void Update()
@@ -37,7 +46,6 @@ public class Ghost : MonoBehaviour
         {
             Game._HotelTime += Random.Range(300, 900);
             Player._Sanity += 0.25f - 0.25f * Game._HotelMadness;
-            CoridorLights._LightTime = Random.Range(60, 180f);
             Destroy(gameObject);
 
             GhostNoise.color = new Color(0.3f, 0.3f, 1, 0);
