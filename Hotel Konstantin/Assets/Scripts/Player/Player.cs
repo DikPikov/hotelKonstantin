@@ -34,14 +34,23 @@ public class Player : MonoBehaviour, ILiftable
 
     public Floor _Floor
     {
-
         get 
         { 
             return Floor;
         }
         set
         {
+            if (Floor != null)
+            {
+                Floor.gameObject.SetActive(false);
+            }
+            
             Floor = value;
+
+            if (Floor != null)
+            {
+                Floor.gameObject.SetActive(true);
+            }
         }
    }
 

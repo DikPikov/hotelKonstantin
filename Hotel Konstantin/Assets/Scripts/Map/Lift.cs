@@ -56,6 +56,7 @@ public class Lift : MonoBehaviour
         if (liftable != null)
         {
             liftable._Transform.parent = transform;
+            Objects = StaticTools.ExpandMassive(Objects, liftable);
         }
     }
     public void ObjectLeft(Transform object1)
@@ -64,6 +65,7 @@ public class Lift : MonoBehaviour
         if (liftable != null)
         {
             liftable._Transform.parent = null;
+            Objects = StaticTools.RemoveFromMassive(Objects, liftable);
         }
     }
 
