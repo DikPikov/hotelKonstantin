@@ -14,6 +14,15 @@ public class CoridorLights : MonoBehaviour
         {
             lighter._Value = state.GetHashCode();
         }
+
+        if (state)
+        {
+            Floor.SpawnGhost(true);
+        }
+        else
+        {
+            Floor.SpawnGhost(false);
+        }
     }
 
     public void DistortLight()

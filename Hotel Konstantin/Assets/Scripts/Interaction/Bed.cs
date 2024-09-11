@@ -32,11 +32,6 @@ public class Bed : MonoBehaviour, IAnimated
         }
     }
 
-    private void Start()
-    {
-        Room.AddBed(this);
-    }
-
     public void Interact()
     {
         _Cleared = !Cleared;

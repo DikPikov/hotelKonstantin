@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7414881448750924652}
   - component: {fileID: 1587135433797691465}
   - component: {fileID: 5539099066568874516}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: trash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.026728254
+  m_Radius: 0.05
   m_Center: {x: -0.0047276714, y: -0.001446463, z: 0.009849626}
 --- !u!114 &5539099066568874516
 MonoBehaviour:

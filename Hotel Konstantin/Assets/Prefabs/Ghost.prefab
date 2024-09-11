@@ -70,6 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Agent: {fileID: 7098974102771282284}
+  Animator: {fileID: 5078434280258543426}
 --- !u!195 &7098974102771282284
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -288,7 +289,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4658380703846425544}
-  - component: {fileID: 4930057680830436917}
   m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
@@ -313,16 +313,3 @@ Transform:
   - {fileID: 8345333626526190262}
   m_Father: {fileID: 4662366404316761813}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4930057680830436917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9206009785500100058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 233e771b380d4d14291fc1eda5f6b1fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerCamera: {fileID: 0}

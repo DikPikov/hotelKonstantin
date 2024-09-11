@@ -42,11 +42,6 @@ public class Towel : MonoBehaviour, IInteractable
 
     public bool _CanInteract => !Updated;
 
-    private void Start()
-    {
-        Room.SetTowel(this);
-    }
-
     public void Interact()
     {
         _Updated = !Updated;

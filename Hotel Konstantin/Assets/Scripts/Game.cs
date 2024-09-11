@@ -12,7 +12,7 @@ public class Game : MonoBehaviour
 
     private static Game Instance;
 
-    public static float _HotelMadness => Mathf.Clamp01(Instance.HotelTime / 3600);
+    public static float _HotelMadness => Mathf.Clamp01(Instance.HotelTime / 1800);
     public static float _HotelTime
     {
         get

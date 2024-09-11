@@ -11,7 +11,7 @@ public class Room : MonoBehaviour
     [SerializeField] private GameObject TrashPrefab;
     [SerializeField] private Vector3[] TrashSpawnRect;
     [SerializeField] private LayerMask LayerMask;
-    [SerializeField] private GameObject[] Presets;
+    [SerializeField] private RoomPattern[] Presets;
 
     [SerializeField] private RoomLightSwitch LightSwitch = null;
     [SerializeField] private Lighter Lighter;
@@ -74,9 +74,11 @@ public class Room : MonoBehaviour
         {
             if(i != preset)
             {
-                Destroy(Presets[i]);
+                Destroy(Presets[i].gameObject);
             }
         }
+
+        Presets[preset].GiveReferences();
 
         LightSwitch._Enabled = Random.value > 0.7f;
 
@@ -179,6 +181,9 @@ public class Room : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         yield return new WaitForEndOfFrame();
+
+        //Debug.DrawRay(transform.position + TrashSpawnRect[0], Vector2.up * 5, Color.red);
+        //Debug.DrawRay(transform.position + TrashSpawnRect[1], Vector2.up * 5, Color.green);
 
         int count = Random.Range(0, 5);
         Trash = new GameObject[count];

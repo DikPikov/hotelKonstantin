@@ -63,7 +63,6 @@ public class ComodLamp : MonoBehaviour, IInteractable
 
         Renderer = Model[random].GetComponent<MeshRenderer>();
 
-        Room.SetCommodLamp(this);
         _On = TurndOn;
     }
 

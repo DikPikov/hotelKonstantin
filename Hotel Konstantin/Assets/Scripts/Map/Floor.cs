@@ -5,19 +5,34 @@ using UnityEngine.Localization.Settings;
 public class Floor : MonoBehaviour
 {
     [SerializeField] private GameObject GhostPrefab;
+    private Ghost Ghost = null;
 
     [SerializeField] private TaskDisplayer TaskDisplayer;
     [SerializeField] private TaskInfo TaskInfo;
     [SerializeField] private Player Player;
 
+    [SerializeField] private int Index;
+
+    [SerializeField] private Vector3[] CoridorBorders;
+
     [SerializeField] private Room[] Rooms;
     [SerializeField] private CoridorLights CoridorLights;
 
-   public CoridorLights _Light => CoridorLights;
+    private bool Clear = false;
+
+    public Room[] _Rooms => Rooms;
+    public CoridorLights _Light => CoridorLights;
+    public int _Index => Index;
+    public bool _Clear => Clear;
 
     private void Start()
     {
+        Index = StaticTools.IndexOf(GameMap._Floors, this);
+
         UpdateTaskInfo();
+
+        //Debug.DrawRay(transform.position + FloorBorders[0], Vector3.up * 10, Color.red);
+        //Debug.DrawRay(transform.position + FloorBorders[1], Vector3.up * 10, Color.red);
     }
 
     public void AddRoom(Room room)
@@ -26,42 +41,34 @@ public class Floor : MonoBehaviour
         CoridorLights.AddLighter(room._RoomLight);
     }
 
-    //public void SpawnGhost(bool despawn)
-    //{
-    //    if (despawn)
-    //    {
-    //        if(Ghost != null)
-    //        {
-    //            Destroy(Ghost.gameObject);
-    //        }
-    //    }
-    //    else if(Ghost == null)
-    //    {
-    //        Ghost = Instantiate(GhostPrefab, GetSpawnPoint(15), transform.rotation).GetComponent<Ghost>();
-    //        Ghost.SetInfo(Player, CoridorLights, GhostNoise);
-    //    }
-    //}
+    public void SpawnGhost(bool despawn)
+    {
+        if (despawn)
+        {
+            if (Ghost != null)
+            {
+                Destroy(Ghost.gameObject);
+            }
+        }
+        else if (Ghost == null)
+        {
+            Ghost = Instantiate(GhostPrefab, GetSpawnPoint(15), transform.rotation).GetComponent<Ghost>();
+            Ghost.SetInfo(Player, this);
+        }
+    }
 
     public Vector3 GetSpawnPoint(float distance)
     {
-        Vector3 vector3 = new Vector3() ;
-
-        int times = 10;
-        while (times > 0)
+        int random = Random.Range(0, Rooms.Length + 4);
+        if(random >= Rooms.Length)
         {
-            vector3 = new Vector3(Random.Range(-9.25f, 5.25f), 1 + transform.position.y, Random.Range(-37.5f, 56.75f));
-
-            NavMeshPath path = new NavMeshPath();
-            NavMesh.CalculatePath(vector3, Player.transform.position, -1, path);
-            times--;
-
-            if(path.status != NavMeshPathStatus.PathInvalid && Vector3.Distance(Player.transform.position, vector3) > distance)
-            {
-                break;
-            }
+            return new Vector3(Random.Range(CoridorBorders[0].x, CoridorBorders[1].x), transform.position.y + 1, Random.Range(CoridorBorders[0].z, CoridorBorders[1].z));
+        }
+        else
+        {
+            return Rooms[random].transform.position + Vector3.up;
         }
 
-        return vector3;
     }
 
     public void UpdateTaskInfo()
@@ -70,6 +77,13 @@ public class Floor : MonoBehaviour
         foreach(Room room in Rooms)
         {
             roomClear += room._Clear.GetHashCode();
+        }
+
+        bool clear = roomClear == Rooms.Length;
+        if(clear != Clear)
+        {
+            Clear = clear;
+            GameMap.CheckClean();
         }
 
         TaskInfo.Info = $"{LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable","CorridorTaskText")} <b>{roomClear}/{Rooms.Length}</b>";

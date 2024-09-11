@@ -12,6 +12,7 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private float Distance;
 
     private Coroutine Interacting = null;
+    private IInteractable CurrentInteractable;
 
     private void Update()
     {
@@ -54,7 +55,17 @@ public class PlayerInteract : MonoBehaviour
     }
 
     private void Deinteract()
-    {
+    {   
+        if(CurrentInteractable != null)
+        {
+            if (CurrentInteractable is IAnimated)
+            {
+                (CurrentInteractable as IAnimated).Animate(false);
+            }
+
+            CurrentInteractable = null;
+        }
+
         if (Interacting != null)
         {
             StopCoroutine(Interacting);
@@ -74,6 +85,18 @@ public class PlayerInteract : MonoBehaviour
 
     private IEnumerator Interact(IInteractable interactable)
     {
+        if(CurrentInteractable != null)
+        {
+            if (CurrentInteractable is IAnimated)
+            {
+                (CurrentInteractable as IAnimated).Animate(false);
+            }
+
+            CurrentInteractable = null;
+        }
+
+        CurrentInteractable = interactable;
+
         float timer = interactable._BeforeTime;
         float time = interactable._BeforeTime;
 
