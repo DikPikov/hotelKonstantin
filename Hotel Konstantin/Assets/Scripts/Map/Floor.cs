@@ -52,12 +52,12 @@ public class Floor : MonoBehaviour
         }
         else if (Ghost == null)
         {
-            Ghost = Instantiate(GhostPrefab, GetSpawnPoint(15), transform.rotation).GetComponent<Ghost>();
+            Ghost = Instantiate(GhostPrefab, GetSpawnPoint(), transform.rotation).GetComponent<Ghost>();
             Ghost.SetInfo(Player, this);
         }
     }
 
-    public Vector3 GetSpawnPoint(float distance)
+    public Vector3 GetSpawnPoint()
     {
         int random = Random.Range(0, Rooms.Length + 4);
         if(random >= Rooms.Length)
@@ -66,7 +66,7 @@ public class Floor : MonoBehaviour
         }
         else
         {
-            return Rooms[random].transform.position + Vector3.up;
+            return Rooms[random].GetSpawnPoint() + Vector3.up;
         }
 
     }

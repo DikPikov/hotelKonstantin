@@ -5569,7 +5569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Room: {fileID: 800673483370139723}
-  Light: {fileID: 7156650742742347824}
+  Light: {fileID: 2198412535488869265}
   Animator: {fileID: 5050008350332488508}
   Enabled: 0
 --- !u!95 &5050008350332488508
@@ -10940,12 +10940,13 @@ GameObject:
   - component: {fileID: 4125354897471550279}
   - component: {fileID: 8913794473450403694}
   - component: {fileID: 2198412535488869265}
-  m_Layer: 6
+  - component: {fileID: 486004082555572701}
+  m_Layer: 7
   m_Name: RoomLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 125
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4125354897471550279
 Transform:
@@ -11039,9 +11040,31 @@ MonoBehaviour:
   Light: {fileID: 8913794473450403694}
   LampRenderer: {fileID: 5496423297333654740}
   LightMaterialIndex: 0
+  Enabled: 1
   Value: 1
   Intensity: 2.5
   Range: 6
+--- !u!65 &486004082555572701
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7156650742742347824}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7281567672585233919
 GameObject:
   m_ObjectHideFlags: 0

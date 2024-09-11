@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 using System.Collections;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
 
 public class Room : MonoBehaviour
 {
@@ -177,6 +178,8 @@ public class Room : MonoBehaviour
         TaskDisplayer.ApplyTask(TaskInfo, !state);
     }
 
+    public Vector3 GetSpawnPoint() => new Vector3(Random.Range(TrashSpawnRect[0].x, TrashSpawnRect[1].x), 0, Random.Range(TrashSpawnRect[0].z, TrashSpawnRect[1].z)) + transform.position;
+
     private IEnumerator SpawnOther()
     {
         yield return new WaitForEndOfFrame();
@@ -193,7 +196,7 @@ public class Room : MonoBehaviour
             trash.localScale = new Vector3(Random.Range(14f, 16f), Random.Range(14f, 16), Random.Range(14f, 16));
             trash.localEulerAngles = new Vector3(0, Random.Range(0, 360), 0);
 
-            Vector3 position = new Vector3(Random.Range(TrashSpawnRect[0].x, TrashSpawnRect[1].x), 2.7f, Random.Range(TrashSpawnRect[0].z, TrashSpawnRect[1].z));
+            Vector3 position = GetSpawnPoint() - transform.position + Vector3.up * 2.7f;
 
             RaycastHit hit;
             if (Physics.Raycast(position + transform.position, Vector3.down, out hit, 10, LayerMask))

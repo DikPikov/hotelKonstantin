@@ -10,12 +10,25 @@ public class Cosmare : MonoBehaviour
     [SerializeField] private LayerMask WallLayer;
     private bool Visioned = false;
 
-    private Lighter Lighter = null;
-    private float Intense = 0;
+    [SerializeField] private Lighter[] Lighters = new Lighter[0];
+    private float[] Intense = new float[0];
 
     private float SanitySpeed = 0.01f;
 
     private bool Killing = false;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Lighter lighter = other.GetComponent<Lighter>();
+
+        if (lighter != null)
+        {
+            Lighters = StaticTools.ExpandMassive(Lighters, lighter);
+
+            Intense = StaticTools.ExpandMassive(Intense, lighter._Intensity);
+            lighter._Intensity = 0;
+        }
+    }
 
     public void SetInfo(Player player, Image noise)
     {
@@ -23,22 +36,6 @@ public class Cosmare : MonoBehaviour
         CosmareNoise = noise;
 
         SanitySpeed = 0.01f + Game._HotelMadness * 0.24f;
-
-        foreach(Collider collider in Physics.OverlapSphere(transform.position, 5))
-        {
-            if (collider.GetComponent<Lighter>())
-            {
-                Lighter = collider.GetComponent<Lighter>();
-                break;
-            }
-        }
-
-        if(Lighter != null)
-        {
-            Intense = Lighter._Intensity;
-
-            Lighter._Intensity = 0;
-        }
     }
 
     private void OnDestroy()
@@ -46,20 +43,25 @@ public class Cosmare : MonoBehaviour
         Visioned = true;
         CosmareNoise.color = new Color(1, 0, 0, 0);
 
-        if (Lighter != null)
+        for(int i = 0; i < Lighters.Length; i++)
         {
-            Lighter._Intensity = Intense;
+            Lighters[i]._Intensity = Intense[i];
         }
     }
 
     private void Update()
     {
+        if (Pause._Paused)
+        {
+            return;
+        }
+
         transform.localEulerAngles = new Vector3(0, Quaternion.LookRotation(Player.transform.position - transform.position).eulerAngles.y, 0);
 
         if (Renderer.isVisible)
         {
             Transform camera = Camera.main.transform;
-            if (Physics.Raycast(camera.position, transform.position + new Vector3(0, 0.5f, 0) - camera.position, Vector3.Distance(camera.position, transform.position + new Vector3(0, 0.5f, 0)), WallLayer))
+            if (Physics.Raycast(camera.position, transform.position + new Vector3(0, 2, 0) - camera.position, Vector3.Distance(camera.position, transform.position + new Vector3(0, 2, 0)), WallLayer))
             {
                 if (Visioned)
                 {
@@ -74,6 +76,10 @@ public class Cosmare : MonoBehaviour
 
                 Player._Sanity -= 0.1f;
                 Visioned = true;
+            }
+            else if(Game._HotelMadness < 0.25f)
+            {
+                Destroy(gameObject);
             }
 
             Player._Sanity -= Time.deltaTime * 0.05f;

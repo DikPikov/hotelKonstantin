@@ -3,11 +3,11 @@ using UnityEngine;
 public class RoomLightSwitch : MonoBehaviour, IInteractable
 {
     [SerializeField] private Room Room;
-    [SerializeField] private GameObject Light;
+    [SerializeField] private Lighter Light;
     [SerializeField] private Animator Animator;
     [SerializeField] private bool Enabled;
 
-    public Lighter _Lighter => Light.GetComponent<Lighter>();
+    public Lighter _Lighter => Light;
     public float _BeforeTime => 0.1f;
     public bool _CanInteract => true;
     public bool _Enabled
@@ -21,7 +21,7 @@ public class RoomLightSwitch : MonoBehaviour, IInteractable
             Enabled = value;
 
             Animator.SetBool("On", Enabled);
-            Light.SetActive(Enabled);
+            Light._Enabled = value;
 
             Room.UpdateTaskInfo();
         }

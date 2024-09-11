@@ -10,24 +10,37 @@ public class Lighter : MonoBehaviour
     [SerializeField] private int LightMaterialIndex;
     private Material LampMaterial = null;
 
+    [SerializeField] private bool Enabled = true;
+
     [SerializeField] private float Value;
 
     [SerializeField] private float Intensity;
     [SerializeField] private float Range;
 
-    private void OnEnable()
+    public bool _Enabled
     {
-        if(_LampMaterial != null)
+        get
         {
-            _LampMaterial.color = Light.color * Mathf.Min(Intensity, Value);
+            return Enabled;
         }
-    }
-
-    private void OnDisable()
-    {
-        if (_LampMaterial != null)
+        set
         {
-            _LampMaterial.color = Color.black;
+            Enabled = value;
+
+            if (Enabled)
+            {
+                if (_LampMaterial != null)
+                {
+                    _LampMaterial.color = Light.color * Mathf.Min(Intensity, Value);
+                }
+            }
+            else
+            {
+                if (_LampMaterial != null)
+                {
+                    _LampMaterial.color = Color.black;
+                }
+            }
         }
     }
 
@@ -101,7 +114,7 @@ public class Lighter : MonoBehaviour
             {
                 if (_LampMaterial != null)
                 {
-                    _LampMaterial.color = value * Mathf.Min(Intensity, Value);
+                    _LampMaterial.color = value * Mathf.Min(Intensity, Value) * Enabled.GetHashCode();
                 }
             }
         }
@@ -115,13 +128,13 @@ public class Lighter : MonoBehaviour
         set
         {
             Intensity = value;
-            Light.intensity = Intensity * Value;
+            Light.intensity = Intensity * Value * Enabled.GetHashCode();
 
             if (gameObject.activeSelf)
             {
                 if (_LampMaterial != null)
                 {
-                    _LampMaterial.color = Light.color * Mathf.Min(Intensity, Value);
+                    _LampMaterial.color = Light.color * Mathf.Min(Intensity, Value) * Enabled.GetHashCode();
                 }
             }
         }
@@ -149,14 +162,14 @@ public class Lighter : MonoBehaviour
         {
             Value = value;
 
-            Light.intensity = Intensity * Value;
+            Light.intensity = Intensity * Value * Enabled.GetHashCode();
             Light.range = Range * Value;
 
             if (gameObject.activeSelf)
             {
                 if (_LampMaterial != null)
                 {
-                    _LampMaterial.color = Light.color * Mathf.Min(Intensity, Value);
+                    _LampMaterial.color = Light.color * Mathf.Min(Intensity, Value) * Enabled.GetHashCode();
                 }
             }
         }

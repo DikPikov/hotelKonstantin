@@ -37,6 +37,11 @@ public class Ghost : MonoBehaviour
 
     private void Update()
     {
+        if (Pause._Paused)
+        {
+            return;
+        }
+
         float distance = Vector3.Distance(transform.position, Player.transform.position);
 
       //  GhostNoise.color = new Color(0.3f, 0.3f, 1, 1 - Mathf.Clamp01(distance * 0.1f));
@@ -66,6 +71,7 @@ public class Ghost : MonoBehaviour
             int room = Random.Range(0, GameMap._Floors[floor]._Rooms.Length);
 
             Player.transform.position = GameMap._Floors[floor]._Rooms[room].transform.position + Vector3.up;
+            Player._Floor = GameMap._Floors[floor];
             FindObjectOfType<MapLights>().SetFloorState(floor, 0);
 
             Game._HotelTime += Random.Range(300, 900);

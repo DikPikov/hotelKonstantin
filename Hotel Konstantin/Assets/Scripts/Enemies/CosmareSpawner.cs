@@ -28,7 +28,7 @@ public class CosmareSpawner : MonoBehaviour
                 Destroy(Cosmare.gameObject);
             }
 
-            Cosmare = Instantiate(CosmarePrefab[Random.Range(0, CosmarePrefab.Length)], Player._Floor.GetSpawnPoint(5), transform.rotation).GetComponent<Cosmare>();
+            Cosmare = Instantiate(CosmarePrefab[Random.Range(0, CosmarePrefab.Length)], Player._Floor.GetSpawnPoint(), transform.rotation).GetComponent<Cosmare>();
             Cosmare.SetInfo(Player, CosmareNoise);
 
             SpawnTime = Random.Range(20, 70f - 40 * Game._HotelMadness);
