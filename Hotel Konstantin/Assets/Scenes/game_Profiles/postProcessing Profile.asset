@@ -176,14 +176,14 @@ MonoBehaviour:
     value: {fileID: 0}
     defaultState: 1
   tonemapper:
-    overrideState: 1
-    value: 2
+    overrideState: 0
+    value: 3
   toneCurveToeStrength:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 0.129
   toneCurveToeLength:
-    overrideState: 0
-    value: 0.5
+    overrideState: 1
+    value: 0.363
   toneCurveShoulderStrength:
     overrideState: 0
     value: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
     value: 0
   toneCurveGamma:
     overrideState: 0
-    value: 1
+    value: 1.1
   ldrLut:
     overrideState: 0
     value: {fileID: 0}
@@ -204,7 +204,7 @@ MonoBehaviour:
     overrideState: 0
     value: 1
   temperature:
-    overrideState: 0
+    overrideState: 1
     value: 0
   tint:
     overrideState: 0

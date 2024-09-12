@@ -50,6 +50,38 @@ public class PlayerInteract : MonoBehaviour
         }
         else
         {
+
+            foreach(Collider collider in Physics.OverlapSphere(Camera.transform.position, 0.25f, LayerMask))
+            {
+                IInteractable interactable = collider.GetComponentInParent<IInteractable>();
+
+                if(interactable != null)
+                {
+                    if (interactable._CanInteract)
+                    {
+                        InteractMarker.SetActive(true);
+
+                        if (Interacting == null)
+                        {
+                            Skobi[0].anchoredPosition = new Vector2(-50, 50);
+                            Skobi[1].anchoredPosition = new Vector2(50, 50);
+                            Skobi[2].anchoredPosition = new Vector2(50, -50);
+                            Skobi[3].anchoredPosition = new Vector2(-50, -50);
+
+                            if (InputManager.GetButtonDown(InputManager.ButtonEnum.Interact))
+                            {
+                                Interacting = StartCoroutine(Interact(interactable));
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Deinteract();
+                    }
+                    return;
+                }
+            }
+
             Deinteract();
         }
     }

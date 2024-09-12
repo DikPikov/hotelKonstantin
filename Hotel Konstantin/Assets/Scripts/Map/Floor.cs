@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Localization.Settings;
+using UnityEngine.UI;
 
 public class Floor : MonoBehaviour
 {
     [SerializeField] private GameObject GhostPrefab;
+    [SerializeField] private Image GhostNoise;
     private Ghost Ghost = null;
 
     [SerializeField] private TaskDisplayer TaskDisplayer;
@@ -53,7 +55,7 @@ public class Floor : MonoBehaviour
         else if (Ghost == null)
         {
             Ghost = Instantiate(GhostPrefab, GetSpawnPoint(), transform.rotation).GetComponent<Ghost>();
-            Ghost.SetInfo(Player, this);
+            Ghost.SetInfo(Player, this, GhostNoise);
         }
     }
 

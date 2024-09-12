@@ -7,32 +7,57 @@ public class Ghost : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent Agent;
     [SerializeField] private Animator Animator;
+    [SerializeField] private Transform Head;
+    private Transform Camera = null;
 
     private Player Player;
     private Floor Floor;
-   // private Image GhostNoise;
+    private Image GhostNoise;
 
     private void OnDestroy()
     {
-      //  GhostNoise.color = new Color(0.3f, 0.3f, 1, 0);
+       if(Player._Floor == Floor)
+        {
+            GhostNoise.color = new Color(0.3f, 0.3f, 1, 0);
+        }
+
+        Player.OnFloorChange -= PlayerChangedFloor;
     }
 
-    public void SetInfo(Player player, Floor floor)
+    public void SetInfo(Player player, Floor floor, Image noise)
     {
         Player = player;
+
+        Camera = Player.GetComponentInChildren<Camera>().transform;
 
         Player.OnFloorChange += PlayerChangedFloor;
 
         Floor = floor; 
 
-      //  GhostNoise = noise;
+        GhostNoise = noise;
 
         Agent.speed = 2 + Game._HotelMadness * 3;
+
+        PlayerChangedFloor();
     }
 
     private void PlayerChangedFloor()
     {
+        GhostNoise.color = new Color(0.3f, 0.3f, 1, 0);
 
+        if (Player._Floor != Floor)
+        {
+            Animator.SetBool("Moving", false);
+
+            if (Agent.isActiveAndEnabled)
+            {
+                Agent.isStopped = true;
+            }
+        }
+        else if (Agent.isActiveAndEnabled)
+        {
+            Agent.isStopped = false;
+        }
     }
 
     private void Update()
@@ -42,9 +67,16 @@ public class Ghost : MonoBehaviour
             return;
         }
 
+        if (Agent.isStopped)
+        {
+            return;
+        }
+
+        Head.LookAt(Camera);
+
         float distance = Vector3.Distance(transform.position, Player.transform.position);
 
-      //  GhostNoise.color = new Color(0.3f, 0.3f, 1, 1 - Mathf.Clamp01(distance * 0.1f));
+        GhostNoise.color = new Color(0.3f, 0.3f, 1, 1 - Mathf.Clamp01(distance * 0.1f));
 
         Agent.destination = Player.transform.position;
 
@@ -67,7 +99,7 @@ public class Ghost : MonoBehaviour
                 return;
             }
 
-            int floor = Random.Range(0, GameMap._Floors.Length);
+            int floor = Random.Range(1, GameMap._Floors.Length);
             int room = Random.Range(0, GameMap._Floors[floor]._Rooms.Length);
 
             Player.transform.position = GameMap._Floors[floor]._Rooms[room].transform.position + Vector3.up;
@@ -77,7 +109,7 @@ public class Ghost : MonoBehaviour
             Game._HotelTime += Random.Range(300, 900);
             Player._Sanity += 0.25f - 0.25f * Game._HotelMadness;
 
-         //   GhostNoise.color = new Color(0.3f, 0.3f, 1, 0);
+            GhostNoise.color = new Color(0.3f, 0.3f, 1, 0);
         }
     }
 

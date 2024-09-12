@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 using System.Collections;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
 
 public class Room : MonoBehaviour
 {

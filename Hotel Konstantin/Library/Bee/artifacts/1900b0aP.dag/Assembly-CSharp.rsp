@@ -356,6 +356,7 @@
 "Assets/Scripts/Map/Lighter.cs"
 "Assets/Scripts/Map/MapLights.cs"
 "Assets/Scripts/Map/Room.cs"
+"Assets/Scripts/Map/RoomPattern.cs"
 "Assets/Scripts/Map/Televizor.cs"
 "Assets/Scripts/Menu.cs"
 "Assets/Scripts/MyButton.cs"

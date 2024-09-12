@@ -31,6 +31,6 @@ public class SanityTemperature : MonoBehaviour
         Grain.intensity.value = Mathf.Lerp(0.5f, 0, Player._Sanity);
         Grain.size.value = Mathf.Lerp(1.5f, 0.3f, Player._Sanity);
 
-        ColorGrading.temperature.value = Mathf.Lerp(50, 0, Player._Sanity);
+        ColorGrading.temperature.value = Mathf.Lerp(30, 0, Player._Sanity);
     }
 }

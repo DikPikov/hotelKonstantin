@@ -53,7 +53,6 @@ MonoBehaviour:
   WallLayer:
     serializedVersion: 2
     m_Bits: 65
-  Lighters: []
 --- !u!135 &-5114714502546274812
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -73,7 +72,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 8
+  m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &277123330367136047
 Rigidbody:

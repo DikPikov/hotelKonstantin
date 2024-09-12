@@ -10,7 +10,7 @@ public class Cosmare : MonoBehaviour
     [SerializeField] private LayerMask WallLayer;
     private bool Visioned = false;
 
-    [SerializeField] private Lighter[] Lighters = new Lighter[0];
+     private Lighter[] Lighters = new Lighter[0];
     private float[] Intense = new float[0];
 
     private float SanitySpeed = 0.01f;

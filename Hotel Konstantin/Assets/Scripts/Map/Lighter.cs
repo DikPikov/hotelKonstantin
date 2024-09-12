@@ -41,6 +41,10 @@ public class Lighter : MonoBehaviour
                     _LampMaterial.color = Color.black;
                 }
             }
+
+
+            Light.intensity = Intensity * Value * Enabled.GetHashCode();
+            Light.range = Range * Value;
         }
     }
 

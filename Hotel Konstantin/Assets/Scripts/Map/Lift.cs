@@ -23,6 +23,12 @@ public class Lift : MonoBehaviour
 
     private Coroutine ElevateCoroutine = null;
 
+    private void Start()
+    {
+        IndicatorMaterial.SetTexture("_MainTex", IndicatorTextures[CurrentFloor]);
+        IndicatorMaterial.SetTexture("_EmissionMap", IndicatorTextures[CurrentFloor]);
+    }
+
     public void Elevate(int floor)
     {
         if(ElevateCoroutine == null)
@@ -82,7 +88,7 @@ public class Lift : MonoBehaviour
 
     private IEnumerator ElevateProcess(int targetFloor)
     {
-        float high = GameMap._Floors[targetFloor].transform.position.y + 1.1f;
+        float high = GameMap._Floors[targetFloor].transform.position.y + 1f;
         float sign = Mathf.Sign(high - transform.position.y);
         int floor = CurrentFloor;
 
