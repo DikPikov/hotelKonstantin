@@ -21,8 +21,10 @@ public class Room : MonoBehaviour
     private Towel Towel = null;
     private Televizor Televizor = null;
     private ComodLamp ComodLamp = null;
-    private OpenClose[] Cabinets= new OpenClose[0];
-     private GameObject[] Trash = new GameObject[0];
+    private Shkaf Shkaf = null;
+    private Comod Comod = null;
+
+    private GameObject[] Trash = new GameObject[0];
      private GameObject[] Dirt = new GameObject[0];
 
     private bool BedCleared;
@@ -34,6 +36,9 @@ public class Room : MonoBehaviour
     private bool TVOff;
 
     private bool Initialized = false;
+
+    public Shkaf _Shkaf => Shkaf;
+    public Comod _Comod => Comod;
 
     public Lighter _RoomLight => LightSwitch._Lighter;
     public bool _Clear => BedCleared && TrashRemoved && TowelUpdated && CabinetsClosed && DirtWashed && LightsOff && TVOff;
@@ -60,10 +65,15 @@ public class Room : MonoBehaviour
         ComodLamp = lamp;
         lamp._On = Random.value > 0.4f;
     }
-    public void AddCabinet(OpenClose openClose)
+    public void SetShkaf(Shkaf shkaf)
     {
-        Cabinets = StaticTools.ExpandMassive(Cabinets, openClose);
-        openClose._Opened = Random.value > 0.85f;
+        Shkaf = shkaf;
+        Shkaf.Initialize();
+    }
+    public void SetComod(Comod comod)
+    {
+        Comod = comod;
+        Comod.Initialize();
     }
 
     private void Start()
@@ -147,15 +157,7 @@ public class Room : MonoBehaviour
 
         DirtWashed = Dirt.Length == 0;
 
-        CabinetsClosed = true;
-        foreach(OpenClose openClose in Cabinets)
-        {
-            if (openClose._Opened)
-            {
-                CabinetsClosed = false;
-                break;
-            }
-        }
+        CabinetsClosed = Shkaf._Closed && Comod._Closed;
 
         TowelUpdated = Towel._Updated;
 

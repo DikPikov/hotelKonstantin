@@ -8,8 +8,10 @@ public class GameMap : MonoBehaviour
     [SerializeField] private TaskInfo Task;
     [SerializeField] private TaskDisplayer TaskDisplayer;
 
+    [SerializeField] private MapLights MapLights;
     [SerializeField] private Floor[] Floors;
 
+    public static MapLights _MapLights => Instance.MapLights; 
     public static Floor[] _Floors => Instance.Floors;
 
     private void Awake()

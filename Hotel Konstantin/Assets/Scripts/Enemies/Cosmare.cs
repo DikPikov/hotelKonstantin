@@ -13,7 +13,8 @@ public class Cosmare : MonoBehaviour
      private Lighter[] Lighters = new Lighter[0];
     private float[] Intense = new float[0];
 
-    private float SanitySpeed = 0.01f;
+    private float WatchTime = 0;
+    private float WatchTimer = 0;
 
     private bool Killing = false;
 
@@ -35,7 +36,8 @@ public class Cosmare : MonoBehaviour
         Player = player;
         CosmareNoise = noise;
 
-        SanitySpeed = 0.01f + Game._HotelMadness * 0.24f;
+        WatchTime = 10 - 8 * Game._HotelMadness;
+        WatchTimer = WatchTime;
     }
 
     private void OnDestroy()
@@ -72,18 +74,12 @@ public class Cosmare : MonoBehaviour
 
             if (!Visioned)
             {
-                CosmareNoise.color = new Color(1, 0, 0, 1 - Player._Sanity);
-
-                Player._Sanity -= 0.1f;
+                CosmareNoise.color = new Color(1, 0, 0, 1 - WatchTimer / WatchTime);
                 Visioned = true;
             }
-            else if(Game._HotelMadness < 0.25f)
-            {
-                Destroy(gameObject);
-            }
 
-            Player._Sanity -= Time.deltaTime * 0.05f;
-            CosmareNoise.color = new Color(1, 0, 0, 1 - Player._Sanity);
+            WatchTimer -= Time.deltaTime;
+            CosmareNoise.color = new Color(1, 0, 0, 1 - WatchTimer / WatchTime);
 
             if(Vector3.Distance(Player.transform.position, transform.position) < 0.25f && Game._HotelMadness > 0.5f)
             {
@@ -91,7 +87,7 @@ public class Cosmare : MonoBehaviour
                 StartCoroutine(Kill());
             }
 
-            if (Player._Sanity == 0)
+            if (WatchTimer <= 0)
             {
                 Killing = true;
                 StartCoroutine(Kill());

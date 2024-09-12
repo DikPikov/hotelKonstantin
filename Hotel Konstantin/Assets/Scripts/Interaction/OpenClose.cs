@@ -1,13 +1,29 @@
 using UnityEngine;
 
+public interface OpenCloseDetector
+{
+    public void OpenStateUpdate();
+}
+
 public class OpenClose : MonoBehaviour, IInteractable
 {
-    [SerializeField] protected Room Room;
+    protected OpenCloseDetector Detector;
 
     [SerializeField] protected Animator Animator;
     [SerializeField] protected float OpenTime;
     [SerializeField] protected bool Opened;
 
+    public OpenCloseDetector _Detector
+    {
+        get
+        {
+            return Detector;
+        }
+        set
+        {
+            Detector = value;
+        }
+    }
     public bool _Opened
     {
         get
@@ -34,9 +50,9 @@ public class OpenClose : MonoBehaviour, IInteractable
 
         Animator.SetBool("isOpen", Opened);
 
-        if(Room != null)
+        if(Detector != null)
         {
-            Room.UpdateTaskInfo();
+            Detector.OpenStateUpdate();
         }
     }
 }

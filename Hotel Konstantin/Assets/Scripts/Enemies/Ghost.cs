@@ -107,7 +107,6 @@ public class Ghost : MonoBehaviour
             FindObjectOfType<MapLights>().SetFloorState(floor, 0);
 
             Game._HotelTime += Random.Range(300, 900);
-            Player._Sanity += 0.25f - 0.25f * Game._HotelMadness;
 
             GhostNoise.color = new Color(0.3f, 0.3f, 1, 0);
         }

@@ -78,7 +78,7 @@ Material:
     - _SrcBlend: 1
     - _Strenght: 2000
     - _UVSec: 0
-    - _UnscaledTime: 18.0283
+    - _UnscaledTime: 137.01024
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

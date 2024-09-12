@@ -21,14 +21,9 @@ public class AlcoholObject : ItemObject
 
         yield return new WaitForSeconds(4);
 
-        Player._Sanity += 0.25f;
-
         Player.GetComponentInChildren<FOVEffect>().SetEffect(60, 3, 30);
         FindObjectOfType<LensDistortionEffect>().SetEffect(60, 3, 30);
 
         Player.ApplyItem(Item, true);
-
-        yield return new WaitForSeconds(1);
-        Player._CurrentItem = null;
     }
 }

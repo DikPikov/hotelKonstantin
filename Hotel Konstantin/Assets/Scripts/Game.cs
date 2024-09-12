@@ -5,6 +5,7 @@ using System.Collections;
 public class Game : MonoBehaviour
 {
     [SerializeField] private GameObject Panel;
+    [SerializeField] private SanityTemperature SanityTemperature;
     [SerializeField] private Text TimeIndicator;
     [SerializeField] private float HotelTime;
 
@@ -22,6 +23,8 @@ public class Game : MonoBehaviour
         set
         {
             Instance.HotelTime = value;
+
+            Instance.SanityTemperature.UpdateTemperature(_HotelMadness);
 
             int hours = (int)(value / 3600f);
             int minuts = (int)(value % 3600 / 60f);

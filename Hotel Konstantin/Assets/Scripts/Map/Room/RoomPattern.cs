@@ -8,7 +8,8 @@ public class RoomPattern : MonoBehaviour
     [SerializeField] private Towel Towel;
     [SerializeField] private Televizor Televizor;
     [SerializeField] private ComodLamp ComodLamp;
-    [SerializeField] private OpenClose[] Cabinets;
+    [SerializeField] private Shkaf Shkaf;
+    [SerializeField] private Comod Comod;
 
     public void GiveReferences()
     {
@@ -20,10 +21,7 @@ public class RoomPattern : MonoBehaviour
         Room.SetTowel(Towel);
         Room.SetTV(Televizor);
         Room.SetCommodLamp(ComodLamp);
-
-        foreach(OpenClose openClose in Cabinets)
-        {
-            Room.AddCabinet(openClose);
-        }
+        Room.SetShkaf(Shkaf);
+        Room.SetComod(Comod);
     }
 }

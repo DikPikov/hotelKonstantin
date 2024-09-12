@@ -8,29 +8,26 @@ public class SanityTemperature : MonoBehaviour
     private ColorGrading ColorGrading = null;
     private Grain Grain = null;
 
-    private void Start()
+    public void UpdateTemperature(float value)
     {
-        foreach (var setting in Profile.settings)
+        if(ColorGrading == null || Grain == null)
         {
-            if (setting is ColorGrading)
+            foreach (var setting in Profile.settings)
             {
-                ColorGrading = setting as ColorGrading;
-            }
-            if(setting is Grain)
-            {
-                Grain = setting as Grain;
+                if (setting is ColorGrading)
+                {
+                    ColorGrading = setting as ColorGrading;
+                }
+                if (setting is Grain)
+                {
+                    Grain = setting as Grain;
+                }
             }
         }
 
-        Player.OnChanges += UpdateTemperature;
-        UpdateTemperature();
-    }
+        Grain.intensity.value = Mathf.Lerp(0.5f, 0, 1- value);
+        Grain.size.value = Mathf.Lerp(1.5f, 0.3f, 1 - value);
 
-    public void UpdateTemperature()
-    {
-        Grain.intensity.value = Mathf.Lerp(0.5f, 0, Player._Sanity);
-        Grain.size.value = Mathf.Lerp(1.5f, 0.3f, Player._Sanity);
-
-        ColorGrading.temperature.value = Mathf.Lerp(30, 0, Player._Sanity);
+        ColorGrading.temperature.value = Mathf.Lerp(30, -5, 1 - value);
     }
 }

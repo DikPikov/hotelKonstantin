@@ -119,7 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66673ae91f962484eab86befd1e92229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 800673483370139723}
   Animator: {fileID: 1687002404590608509}
   OpenTime: 0.5
   Opened: 0
@@ -205,13 +204,8 @@ MonoBehaviour:
   Towel: {fileID: 4458928414289300006}
   Televizor: {fileID: 7883271853661237904}
   ComodLamp: {fileID: 957897702242460044}
-  Cabinets:
-  - {fileID: 6708617221288735198}
-  - {fileID: 1073776293749810489}
-  - {fileID: 7645711293423780096}
-  - {fileID: 2274985895452240215}
-  - {fileID: 3815014965966531243}
-  - {fileID: 1069457709223632917}
+  Shkaf: {fileID: 4584796123791519934}
+  Comod: {fileID: 5355099283652105363}
 --- !u!1 &25190335199664877
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +325,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66673ae91f962484eab86befd1e92229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 800673483370139723}
   Animator: {fileID: 767386045191836147}
   OpenTime: 0.5
   Opened: 0
@@ -869,13 +862,8 @@ MonoBehaviour:
   Towel: {fileID: 6996426494972345627}
   Televizor: {fileID: 5461686608540314867}
   ComodLamp: {fileID: 4512700318191626699}
-  Cabinets:
-  - {fileID: 4538024490853341273}
-  - {fileID: 7448170687122864742}
-  - {fileID: 5631228855441320895}
-  - {fileID: 4115762093500489326}
-  - {fileID: 448304891054082886}
-  - {fileID: 5326129687488573034}
+  Shkaf: {fileID: 8447335902260353754}
+  Comod: {fileID: 8445185947648970828}
 --- !u!1 &263570474404550957
 GameObject:
   m_ObjectHideFlags: 0
@@ -1102,6 +1090,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5260302177280775198}
+  - component: {fileID: 4584796123791519934}
   m_Layer: 0
   m_Name: Shkaf (1)
   m_TagString: Untagged
@@ -1127,6 +1116,45 @@ Transform:
   - {fileID: 1781358097311843685}
   m_Father: {fileID: 2470515954061258784}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &4584796123791519934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564611415685807280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d121eb353edc6ac418d583bfe805806a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Room: {fileID: 800673483370139723}
+  RomSpawns:
+  - Parent: {fileID: 5260302177280775198}
+    Position: {x: 0.528, y: 0.2099686, z: 0.158}
+    Rotation: {x: 0, y: 0, z: 0}
+  - Parent: {fileID: 5260302177280775198}
+    Position: {x: 0.528, y: 0.2099686, z: 0.158}
+    Rotation: {x: 42.207, y: -78.453, z: 7.815}
+  - Parent: {fileID: 5260302177280775198}
+    Position: {x: -0.345, y: 0.23, z: -0.165}
+    Rotation: {x: 84.212, y: 3.426, z: 50.797}
+  - Parent: {fileID: 5260302177280775198}
+    Position: {x: -0.287, y: 0.2099686, z: 0.126}
+    Rotation: {x: 0, y: 0, z: 0}
+  WinchesterSpawns:
+  - Parent: {fileID: 5260302177280775198}
+    Position: {x: -0.385, y: 0.2099687, z: 0.127}
+    Rotation: {x: 0, y: -238.385, z: 90}
+  - Parent: {fileID: 5260302177280775198}
+    Position: {x: 0.506, y: 0.608, z: 0.252}
+    Rotation: {x: -52.677, y: -274.715, z: 90}
+  - Parent: {fileID: 5260302177280775198}
+    Position: {x: -0.734, y: 0.668, z: 0.14}
+    Rotation: {x: -105.968, y: -274.715, z: 264.567}
+  OpenCloses:
+  - {fileID: 6708617221288735198}
+  - {fileID: 1073776293749810489}
 --- !u!1 &670263590087740191
 GameObject:
   m_ObjectHideFlags: 0
@@ -1788,7 +1816,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66673ae91f962484eab86befd1e92229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 800673483370139723}
   Animator: {fileID: 8174284343552910059}
   OpenTime: 0.2
   Opened: 0
@@ -1934,7 +1961,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66673ae91f962484eab86befd1e92229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 800673483370139723}
   Animator: {fileID: 2664324421055237708}
   OpenTime: 0.2
   Opened: 0
@@ -2172,7 +2198,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66673ae91f962484eab86befd1e92229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 800673483370139723}
   Animator: {fileID: 8698905471571673833}
   OpenTime: 0.2
   Opened: 0
@@ -2345,6 +2370,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8025148764050099198}
+  - component: {fileID: 8445185947648970828}
   m_Layer: 0
   m_Name: comod
   m_TagString: Untagged
@@ -2372,6 +2398,37 @@ Transform:
   - {fileID: 2108466723155815360}
   m_Father: {fileID: 380544217205299023}
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
+--- !u!114 &8445185947648970828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494201772099655512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 507a655e379130a4bb4d3fee03950e59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Room: {fileID: 800673483370139723}
+  SpawnPoints:
+  - Parent: {fileID: 7973883634797305870}
+    Position: {x: -0.493329, y: 0.03499997, z: 0.2970088}
+    Rotation: {x: 0, y: -89.999, z: 0}
+  - Parent: {fileID: 2976292388114351609}
+    Position: {x: -0.493329, y: 0.03499997, z: 0.2970088}
+    Rotation: {x: 0, y: -89.999, z: 0}
+  - Parent: {fileID: 2424319384875698365}
+    Position: {x: -0.493329, y: 0.03499997, z: 0.2970088}
+    Rotation: {x: 0, y: -89.999, z: 0}
+  - Parent: {fileID: 995493716210663187}
+    Position: {x: -0.493329, y: 0.03499997, z: 0.2970088}
+    Rotation: {x: 0, y: -89.999, z: 0}
+  OpenCloses:
+  - {fileID: 4538024490853341273}
+  - {fileID: 7448170687122864742}
+  - {fileID: 5631228855441320895}
+  - {fileID: 4115762093500489326}
 --- !u!1 &1516448307513391865
 GameObject:
   m_ObjectHideFlags: 0
@@ -2585,7 +2642,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66673ae91f962484eab86befd1e92229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 800673483370139723}
   Animator: {fileID: 145434978614410236}
   OpenTime: 0.5
   Opened: 0
@@ -2880,13 +2936,8 @@ MonoBehaviour:
   Towel: {fileID: 5180287164714760357}
   Televizor: {fileID: 7000923252376721634}
   ComodLamp: {fileID: 7498877649196388571}
-  Cabinets:
-  - {fileID: 7932680402759995945}
-  - {fileID: 543917040296878465}
-  - {fileID: 2091692892549700608}
-  - {fileID: 8544843094541029318}
-  - {fileID: 8937586453290726849}
-  - {fileID: 2456394063586544326}
+  Shkaf: {fileID: 6781489351617581151}
+  Comod: {fileID: 3955523285265003003}
 --- !u!1 &1701803535073849439
 GameObject:
   m_ObjectHideFlags: 0
@@ -3219,7 +3270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66673ae91f962484eab86befd1e92229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 800673483370139723}
   Animator: {fileID: 7451167560480331000}
   OpenTime: 0.2
   Opened: 0
@@ -3507,7 +3557,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66673ae91f962484eab86befd1e92229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 800673483370139723}
   Animator: {fileID: 8039785453787287940}
   OpenTime: 0.2
   Opened: 0
@@ -3648,6 +3697,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7960859737156235870}
+  - component: {fileID: 8447335902260353754}
   m_Layer: 0
   m_Name: Shkaf (1)
   m_TagString: Untagged
@@ -3673,6 +3723,45 @@ Transform:
   - {fileID: 6616356773778637420}
   m_Father: {fileID: 380544217205299023}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &8447335902260353754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2254643203067464101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d121eb353edc6ac418d583bfe805806a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Room: {fileID: 800673483370139723}
+  RomSpawns:
+  - Parent: {fileID: 7960859737156235870}
+    Position: {x: 0.528, y: 0.2099686, z: 0.158}
+    Rotation: {x: 0, y: 0, z: 0}
+  - Parent: {fileID: 7960859737156235870}
+    Position: {x: 0.528, y: 0.2099686, z: 0.158}
+    Rotation: {x: 42.207, y: -78.453, z: 7.815}
+  - Parent: {fileID: 7960859737156235870}
+    Position: {x: -0.345, y: 0.23, z: -0.165}
+    Rotation: {x: 84.212, y: 3.426, z: 50.797}
+  - Parent: {fileID: 7960859737156235870}
+    Position: {x: -0.287, y: 0.2099686, z: 0.126}
+    Rotation: {x: 0, y: 0, z: 0}
+  WinchesterSpawns:
+  - Parent: {fileID: 7960859737156235870}
+    Position: {x: -0.385, y: 0.2099687, z: 0.127}
+    Rotation: {x: 0, y: -238.385, z: 90}
+  - Parent: {fileID: 7960859737156235870}
+    Position: {x: 0.506, y: 0.608, z: 0.252}
+    Rotation: {x: -52.677, y: -274.715, z: 90}
+  - Parent: {fileID: 7960859737156235870}
+    Position: {x: -0.734, y: 0.668, z: 0.14}
+    Rotation: {x: -105.968, y: -274.715, z: 264.567}
+  OpenCloses:
+  - {fileID: 448304891054082886}
+  - {fileID: 5326129687488573034}
 --- !u!1 &2340135622588854738
 GameObject:
   m_ObjectHideFlags: 0
@@ -4194,7 +4283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66673ae91f962484eab86befd1e92229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 800673483370139723}
   Animator: {fileID: 8426422365394827811}
   OpenTime: 0.2
   Opened: 0
@@ -4596,6 +4684,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4660517701202317695}
+  - component: {fileID: 6781489351617581151}
   m_Layer: 0
   m_Name: Shkaf (1)
   m_TagString: Untagged
@@ -4621,6 +4710,45 @@ Transform:
   - {fileID: 22279677287399293}
   m_Father: {fileID: 9022402533684660203}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &6781489351617581151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2833725855521777392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d121eb353edc6ac418d583bfe805806a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Room: {fileID: 800673483370139723}
+  RomSpawns:
+  - Parent: {fileID: 4660517701202317695}
+    Position: {x: 0.528, y: 0.2099686, z: 0.158}
+    Rotation: {x: 0, y: 0, z: 0}
+  - Parent: {fileID: 4660517701202317695}
+    Position: {x: 0.528, y: 0.2099686, z: 0.158}
+    Rotation: {x: 42.207, y: -78.453, z: 7.815}
+  - Parent: {fileID: 4660517701202317695}
+    Position: {x: -0.345, y: 0.23, z: -0.165}
+    Rotation: {x: 84.212, y: 3.426, z: 50.797}
+  - Parent: {fileID: 4660517701202317695}
+    Position: {x: -0.287, y: 0.2099686, z: 0.126}
+    Rotation: {x: 0, y: 0, z: 0}
+  WinchesterSpawns:
+  - Parent: {fileID: 4660517701202317695}
+    Position: {x: -0.385, y: 0.2099687, z: 0.127}
+    Rotation: {x: 0, y: -238.385, z: 90}
+  - Parent: {fileID: 4660517701202317695}
+    Position: {x: 0.506, y: 0.608, z: 0.252}
+    Rotation: {x: -52.677, y: -274.715, z: 90}
+  - Parent: {fileID: 4660517701202317695}
+    Position: {x: -0.734, y: 0.668, z: 0.14}
+    Rotation: {x: -105.968, y: -274.715, z: 264.567}
+  OpenCloses:
+  - {fileID: 7932680402759995945}
+  - {fileID: 543917040296878465}
 --- !u!1 &3043850767659981650
 GameObject:
   m_ObjectHideFlags: 0
@@ -4736,6 +4864,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3232162585974032567}
+  - component: {fileID: 2634584117705868554}
   m_Layer: 0
   m_Name: Shkaf (1)
   m_TagString: Untagged
@@ -4761,6 +4890,45 @@ Transform:
   - {fileID: 9106332768147460212}
   m_Father: {fileID: 7595579413432242562}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &2634584117705868554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3131341124087073448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d121eb353edc6ac418d583bfe805806a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Room: {fileID: 800673483370139723}
+  RomSpawns:
+  - Parent: {fileID: 3232162585974032567}
+    Position: {x: 0.528, y: 0.2099686, z: 0.158}
+    Rotation: {x: 0, y: 0, z: 0}
+  - Parent: {fileID: 3232162585974032567}
+    Position: {x: 0.528, y: 0.2099686, z: 0.158}
+    Rotation: {x: 42.207, y: -78.453, z: 7.815}
+  - Parent: {fileID: 3232162585974032567}
+    Position: {x: -0.345, y: 0.23, z: -0.165}
+    Rotation: {x: 84.212, y: 3.426, z: 50.797}
+  - Parent: {fileID: 3232162585974032567}
+    Position: {x: -0.287, y: 0.2099686, z: 0.126}
+    Rotation: {x: 0, y: 0, z: 0}
+  WinchesterSpawns:
+  - Parent: {fileID: 3232162585974032567}
+    Position: {x: -0.385, y: 0.2099687, z: 0.127}
+    Rotation: {x: 0, y: -238.385, z: 90}
+  - Parent: {fileID: 3232162585974032567}
+    Position: {x: 0.506, y: 0.608, z: 0.252}
+    Rotation: {x: -52.677, y: -274.715, z: 90}
+  - Parent: {fileID: 3232162585974032567}
+    Position: {x: -0.734, y: 0.668, z: 0.14}
+    Rotation: {x: -105.968, y: -274.715, z: 264.567}
+  OpenCloses:
+  - {fileID: 5794758788593420495}
+  - {fileID: 6487770226171666596}
 --- !u!1 &3155007305506016835
 GameObject:
   m_ObjectHideFlags: 0
@@ -4853,6 +5021,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 473180875665166534}
+  - component: {fileID: 3955523285265003003}
   m_Layer: 0
   m_Name: comod
   m_TagString: Untagged
@@ -4880,6 +5049,37 @@ Transform:
   - {fileID: 2967252089518690714}
   m_Father: {fileID: 9022402533684660203}
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
+--- !u!114 &3955523285265003003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3168002472338880071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 507a655e379130a4bb4d3fee03950e59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Room: {fileID: 800673483370139723}
+  SpawnPoints:
+  - Parent: {fileID: 2176278513268345184}
+    Position: {x: -0.493329, y: 0.03499997, z: 0.2970088}
+    Rotation: {x: 0, y: -89.999, z: 0}
+  - Parent: {fileID: 3681834932360197422}
+    Position: {x: -0.493329, y: 0.03499997, z: 0.2970088}
+    Rotation: {x: 0, y: -89.999, z: 0}
+  - Parent: {fileID: 2024262827763371899}
+    Position: {x: -0.493329, y: 0.03499997, z: 0.2970088}
+    Rotation: {x: 0, y: -89.999, z: 0}
+  - Parent: {fileID: 6066147048664449863}
+    Position: {x: -0.493329, y: 0.03499997, z: 0.2970088}
+    Rotation: {x: 0, y: -89.999, z: 0}
+  OpenCloses:
+  - {fileID: 2091692892549700608}
+  - {fileID: 8544843094541029318}
+  - {fileID: 8937586453290726849}
+  - {fileID: 2456394063586544326}
 --- !u!1 &3181333262387375888
 GameObject:
   m_ObjectHideFlags: 0
@@ -5745,7 +5945,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66673ae91f962484eab86befd1e92229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 800673483370139723}
   Animator: {fileID: 2716964102719245794}
   OpenTime: 0.2
   Opened: 0
@@ -5966,7 +6165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66673ae91f962484eab86befd1e92229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 800673483370139723}
   Animator: {fileID: 4427829572517346086}
   OpenTime: 0.2
   Opened: 0
@@ -6544,7 +6742,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66673ae91f962484eab86befd1e92229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 800673483370139723}
   Animator: {fileID: 752472052246212274}
   OpenTime: 0.2
   Opened: 0
@@ -6901,7 +7098,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66673ae91f962484eab86befd1e92229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 800673483370139723}
   Animator: {fileID: 8312953693776071032}
   OpenTime: 0.2
   Opened: 0
@@ -7259,7 +7455,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66673ae91f962484eab86befd1e92229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 800673483370139723}
   Animator: {fileID: 8951619546578973166}
   OpenTime: 0.2
   Opened: 0
@@ -7496,7 +7691,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66673ae91f962484eab86befd1e92229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 800673483370139723}
   Animator: {fileID: 8855956729580001539}
   OpenTime: 0.5
   Opened: 0
@@ -7714,7 +7908,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66673ae91f962484eab86befd1e92229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 800673483370139723}
   Animator: {fileID: 272116978479197828}
   OpenTime: 0.5
   Opened: 0
@@ -8915,7 +9108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66673ae91f962484eab86befd1e92229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 800673483370139723}
   Animator: {fileID: 176388873963206652}
   OpenTime: 0.5
   Opened: 0
@@ -9239,7 +9431,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66673ae91f962484eab86befd1e92229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 800673483370139723}
   Animator: {fileID: 1641767213621731196}
   OpenTime: 0.5
   Opened: 0
@@ -9459,7 +9650,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66673ae91f962484eab86befd1e92229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 800673483370139723}
   Animator: {fileID: 3516141525061385232}
   OpenTime: 0.2
   Opened: 0
@@ -9884,13 +10074,8 @@ MonoBehaviour:
   Towel: {fileID: 4902245493798677684}
   Televizor: {fileID: 1738274221426340202}
   ComodLamp: {fileID: 4835923879964085577}
-  Cabinets:
-  - {fileID: 5794758788593420495}
-  - {fileID: 6487770226171666596}
-  - {fileID: 5653225471455178788}
-  - {fileID: 2327856111352432543}
-  - {fileID: 8519540907997086627}
-  - {fileID: 7400146972624060830}
+  Shkaf: {fileID: 2634584117705868554}
+  Comod: {fileID: 7226680391177191923}
 --- !u!1 &6028815404847368502
 GameObject:
   m_ObjectHideFlags: 0
@@ -10310,6 +10495,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1939468256263481280}
+  - component: {fileID: 7226680391177191923}
   m_Layer: 0
   m_Name: comod
   m_TagString: Untagged
@@ -10337,6 +10523,37 @@ Transform:
   - {fileID: 9203344989588742487}
   m_Father: {fileID: 7595579413432242562}
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
+--- !u!114 &7226680391177191923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6389089729306023988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 507a655e379130a4bb4d3fee03950e59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Room: {fileID: 800673483370139723}
+  SpawnPoints:
+  - Parent: {fileID: 2563808633859808237}
+    Position: {x: -0.493329, y: 0.03499997, z: 0.2970088}
+    Rotation: {x: 0, y: -89.999, z: 0}
+  - Parent: {fileID: 4493445051038670114}
+    Position: {x: -0.493329, y: 0.03499997, z: 0.2970088}
+    Rotation: {x: 0, y: -89.999, z: 0}
+  - Parent: {fileID: 1192315817960282703}
+    Position: {x: -0.493329, y: 0.03499997, z: 0.2970088}
+    Rotation: {x: 0, y: -89.999, z: 0}
+  - Parent: {fileID: 8806984175517840187}
+    Position: {x: -0.493329, y: 0.03499997, z: 0.2970088}
+    Rotation: {x: 0, y: -89.999, z: 0}
+  OpenCloses:
+  - {fileID: 5653225471455178788}
+  - {fileID: 2327856111352432543}
+  - {fileID: 8519540907997086627}
+  - {fileID: 7400146972624060830}
 --- !u!1 &6505791358885593389
 GameObject:
   m_ObjectHideFlags: 0
@@ -10346,6 +10563,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8824519586070049901}
+  - component: {fileID: 5355099283652105363}
   m_Layer: 0
   m_Name: comod
   m_TagString: Untagged
@@ -10373,6 +10591,37 @@ Transform:
   - {fileID: 7702992272617685385}
   m_Father: {fileID: 2470515954061258784}
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
+--- !u!114 &5355099283652105363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6505791358885593389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 507a655e379130a4bb4d3fee03950e59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Room: {fileID: 800673483370139723}
+  SpawnPoints:
+  - Parent: {fileID: 5650920778908270430}
+    Position: {x: -0.493329, y: 0.03499997, z: 0.2970088}
+    Rotation: {x: 0, y: -89.999, z: 0}
+  - Parent: {fileID: 8926190620115528304}
+    Position: {x: -0.493329, y: 0.03499997, z: 0.2970088}
+    Rotation: {x: 0, y: -89.999, z: 0}
+  - Parent: {fileID: 1455392995723729263}
+    Position: {x: -0.493329, y: 0.03499997, z: 0.2970088}
+    Rotation: {x: 0, y: -89.999, z: 0}
+  - Parent: {fileID: 6970125771096502626}
+    Position: {x: -0.493329, y: 0.03499997, z: 0.2970088}
+    Rotation: {x: 0, y: -89.999, z: 0}
+  OpenCloses:
+  - {fileID: 7645711293423780096}
+  - {fileID: 2274985895452240215}
+  - {fileID: 3815014965966531243}
+  - {fileID: 1069457709223632917}
 --- !u!1 &6600811503899118717
 GameObject:
   m_ObjectHideFlags: 0
@@ -10524,7 +10773,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66673ae91f962484eab86befd1e92229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 800673483370139723}
   Animator: {fileID: 8929535804990184327}
   OpenTime: 0.5
   Opened: 0
@@ -11629,7 +11877,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66673ae91f962484eab86befd1e92229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 800673483370139723}
   Animator: {fileID: 4724112615839222515}
   OpenTime: 0.2
   Opened: 0
@@ -13568,7 +13815,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66673ae91f962484eab86befd1e92229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 800673483370139723}
   Animator: {fileID: 3028638653609884462}
   OpenTime: 0.2
   Opened: 0
@@ -13797,7 +14043,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66673ae91f962484eab86befd1e92229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 800673483370139723}
   Animator: {fileID: 3085958178525807249}
   OpenTime: 0.2
   Opened: 0
@@ -14049,7 +14294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66673ae91f962484eab86befd1e92229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 800673483370139723}
   Animator: {fileID: 2562308791399162421}
   OpenTime: 0.2
   Opened: 0

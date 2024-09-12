@@ -4,7 +4,6 @@ public class Player : MonoBehaviour, ILiftable
 {
     [SerializeField] private Floor Floor;
 
-    [SerializeField] private float Sanity;
     [SerializeField] private float Stamina;
 
     private ItemObject CurrentItem = null;
@@ -65,23 +64,6 @@ public class Player : MonoBehaviour, ILiftable
         }
    }
 
-    public float _Sanity
-    {
-        get
-        {
-            return Sanity;
-        }
-        set
-        {
-            Sanity = Mathf.Clamp01(value);
-
-            if(OnChanges != null)
-            {
-                OnChanges.Invoke();
-            }
-        }
-    }
-
     public float _Stamina
     {
         get
@@ -111,6 +93,11 @@ public class Player : MonoBehaviour, ILiftable
             }
             else
             {
+                if(CurrentItem._Item == Items[index])
+                {
+                    _CurrentItem = null;
+                }
+
                 Items = StaticTools.ReduceMassive(Items, index);
             }
         }

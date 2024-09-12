@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class PlayerStats : MonoBehaviour
 {
     [SerializeField] private Image StaminaBar;
-    [SerializeField] private Image SanityBar;
 
     [SerializeField] private Player Player;
 
@@ -26,7 +25,5 @@ public class PlayerStats : MonoBehaviour
         {
             StaminaBar.gameObject.SetActive(true);
         }
-        
-        SanityBar.fillAmount = Player._Sanity;
     }
 }

@@ -65,10 +65,10 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0
+    value: 0.009166658
   size:
     overrideState: 1
-    value: 0.3
+    value: 0.322
   lumContrib:
     overrideState: 0
     value: 0.8
@@ -176,7 +176,7 @@ MonoBehaviour:
     value: {fileID: 0}
     defaultState: 1
   tonemapper:
-    overrideState: 0
+    overrideState: 1
     value: 3
   toneCurveToeStrength:
     overrideState: 1
@@ -205,7 +205,7 @@ MonoBehaviour:
     value: 1
   temperature:
     overrideState: 1
-    value: 0
+    value: -4.358334
   tint:
     overrideState: 0
     value: 0

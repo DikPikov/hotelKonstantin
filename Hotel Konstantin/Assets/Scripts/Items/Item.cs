@@ -35,6 +35,18 @@ public class Bullet : Item
     public override string _Prefab => "Patron";
 }
 
+public abstract class Fuse : Item { }
+
+public class DamagedFuse : Fuse
+{
+    public override string _Prefab => "DamagedFuse";
+}
+
+public class StableFuse : Fuse
+{
+    public override string _Prefab => "StableFuse";
+}
+
 [System.Serializable]
 public class Winchester : Item
 {

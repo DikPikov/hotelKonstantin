@@ -36,24 +36,30 @@ public class ItemManager : MonoBehaviour
             {
                 Item item = Player._CurrentItem._Item;
 
-                ItemPick pick = new GameObject().AddComponent<ItemPick>();
+                Transform pick = SpawnItem(item).transform;
                 pick.transform.position = Player.transform.position;
                 pick.transform.rotation = Player.transform.rotation;
-                pick.SetInfo(item);
-
-                foreach (GameObject gameObject in ItemModelPrefab)
-                {
-                    if(gameObject.name == item._Prefab + "Model")
-                    {
-                        Instantiate(gameObject, pick.transform);
-                        break;
-                    }
-                }
 
                 Player.ApplyItem(item, true);
-                Player._CurrentItem = null;
             }
         }
+    }
+
+    public ItemPick SpawnItem(Item item)
+    {
+        ItemPick pick = new GameObject().AddComponent<ItemPick>();
+        pick.SetInfo(item);
+
+        foreach (GameObject gameObject in ItemModelPrefab)
+        {
+            if (gameObject.name == item._Prefab + "Model")
+            {
+                Instantiate(gameObject, pick.transform);
+                break;
+            }
+        }
+        Debug.Log(pick.name);
+        return pick;
     }
 
     private void SetPlayerCurrentItem(Item item)

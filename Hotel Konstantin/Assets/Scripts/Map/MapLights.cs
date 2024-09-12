@@ -1,9 +1,11 @@
+
 using UnityEngine;
 
 public class MapLights : MonoBehaviour
 {
     [SerializeField] private float[] FloorsLightTime;
     [SerializeField] private byte[] FloorsState; // 0 - on, 1 - distort, 2 - off
+    [SerializeField] private FuseSwitch[] FloorsFuses;
 
     private void Start()
     {
@@ -31,6 +33,21 @@ public class MapLights : MonoBehaviour
                 GameMap._Floors[i]._Light.Enable(false);
             }
         }
+
+        FloorsFuses[1].SetFuseNoNotify(new DamagedFuse());
+
+        int[] used = new int[] { 0, 1 };
+        for(int i = 0; i < 3; i++)
+        {
+            int random = Random.Range(0, FloorsFuses.Length);
+            while(StaticTools.IndexOf(used, random) > -1)
+            {
+                random = Random.Range(0, FloorsFuses.Length);
+            }
+
+            used = StaticTools.ExpandMassive(used, random);
+            FloorsFuses[random].SetFuseNoNotify(new DamagedFuse());
+        }
     }
 
     public void SetFloorState(int index, byte state)
@@ -50,9 +67,31 @@ public class MapLights : MonoBehaviour
                 GameMap._Floors[index]._Light.DistortLight();
                 break;
             case 2:
-                FloorsLightTime[index] = Time.time + Random.Range(90f, 90f + 60 * Game._HotelMadness);
+                FloorsLightTime[index] = Time.time + Random.Range(60f, 120f - 60 * Game._HotelMadness);
 
                 GameMap._Floors[index]._Light.Enable(false);
+                break;
+        }
+    }
+
+    public void FloorFuseUpdate(int floor)
+    {
+        switch (FloorsFuses[floor]._State)
+        {
+            case 0:
+                FloorsLightTime[floor] = Mathf.Infinity;
+
+                FloorsState[floor] = 2;
+                GameMap._Floors[floor]._Light.Enable(false);
+                break;
+            case 1:
+                SetFloorState(floor, 1);
+                break;
+            case 2:
+                FloorsLightTime[floor] = Mathf.Infinity;
+
+                FloorsState[floor] = 0;
+                GameMap._Floors[floor]._Light.Enable(true);
                 break;
         }
     }
