@@ -99,12 +99,12 @@ public class Ghost : MonoBehaviour
                 return;
             }
 
-            int floor = Random.Range(1, GameMap._Floors.Length);
-            int room = Random.Range(0, GameMap._Floors[floor]._Rooms.Length);
+            int floor = Random.Range(0, GameMap._RoomFloors.Length);
+            int room = Random.Range(0, GameMap._RoomFloors[floor]._Rooms.Length);
 
-            Player.transform.position = GameMap._Floors[floor]._Rooms[room].transform.position + Vector3.up;
-            Player._Floor = GameMap._Floors[floor];
-            FindObjectOfType<MapLights>().SetFloorState(floor, 0);
+            Player.transform.position = GameMap._RoomFloors[floor]._Rooms[room].transform.position + Vector3.up;
+            Player._Floor = GameMap._RoomFloors[floor];
+            FindObjectOfType<MapLights>().SetFloorState(GameMap._RoomFloors[floor], 0);
 
             Game._HotelTime += Random.Range(300, 900);
 

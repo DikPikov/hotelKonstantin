@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CoridorLights : MonoBehaviour
 {
-    [SerializeField] private Floor Floor;
+    [SerializeField] private RoomsFloor Floor;
     [SerializeField] private Lighter[] Lighters;
 
     public void Enable(bool state)

@@ -58,7 +58,7 @@ public class ItemManager : MonoBehaviour
                 break;
             }
         }
-        Debug.Log(pick.name);
+
         return pick;
     }
 

@@ -6,7 +6,7 @@ public class Room : MonoBehaviour
 {
     [SerializeField] private TaskDisplayer TaskDisplayer;
     [SerializeField] private TaskInfo TaskInfo;
-    [SerializeField] private Floor Floor;
+    [SerializeField] private RoomsFloor Floor;
 
     [SerializeField] private GameObject TrashPrefab;
     [SerializeField] private Vector3[] TrashSpawnRect;

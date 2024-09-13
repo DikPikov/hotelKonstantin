@@ -5,7 +5,7 @@ public class FuseSwitch : MonoBehaviour, IInteractable
 {
     [SerializeField] private Player Player;
     [SerializeField] private GameObject[] FuseObjects;
-    [SerializeField] private int Floor;
+    [SerializeField] private RoomsFloor Floor;
     private Fuse Fuse = null;
 
     public Fuse _Fuse

@@ -24,17 +24,17 @@ public class ItemSpawner : MonoBehaviour
 
         for (int i = 0; i < WinchesterCount; i++)
         {
-            int randomFloor = Random.Range(1, GameMap._Floors.Length);
-            int randomRoom = Random.Range(0, GameMap._Floors[randomFloor]._Rooms.Length);
+            int randomFloor = Random.Range(0, GameMap._RoomFloors.Length);
+            int randomRoom = Random.Range(0, GameMap._RoomFloors[randomFloor]._Rooms.Length);
 
-            Shkaf shkaf1 = GameMap._Floors[randomFloor]._Rooms[randomRoom]._Shkaf;
+            Shkaf shkaf1 = GameMap._RoomFloors[randomFloor]._Rooms[randomRoom]._Shkaf;
 
             while (StaticTools.Contains(shkafs, shkaf1))
             {
-                randomFloor = Random.Range(1, GameMap._Floors.Length);
-                randomRoom = Random.Range(0, GameMap._Floors[randomFloor]._Rooms.Length);
+                randomFloor = Random.Range(0, GameMap._RoomFloors.Length);
+                randomRoom = Random.Range(0, GameMap._RoomFloors[randomFloor]._Rooms.Length);
 
-                shkaf1 = GameMap._Floors[randomFloor]._Rooms[randomRoom]._Shkaf;
+                shkaf1 = GameMap._RoomFloors[randomFloor]._Rooms[randomRoom]._Shkaf;
             }
 
             Transform item = ItemManager.SpawnItem(new Winchester()).transform;
@@ -51,17 +51,17 @@ public class ItemSpawner : MonoBehaviour
 
         for (int i = 0; i < RomCount; i++)
         {
-            int randomFloor = Random.Range(1, GameMap._Floors.Length);
-            int randomRoom = Random.Range(0, GameMap._Floors[randomFloor]._Rooms.Length);
+            int randomFloor = Random.Range(0, GameMap._RoomFloors.Length);
+            int randomRoom = Random.Range(0, GameMap._RoomFloors[randomFloor]._Rooms.Length);
 
-            Shkaf shkaf1 = GameMap._Floors[randomFloor]._Rooms[randomRoom]._Shkaf;
+            Shkaf shkaf1 = GameMap._RoomFloors[randomFloor]._Rooms[randomRoom]._Shkaf;
 
             while (StaticTools.Contains(shkafs, shkaf1))
             {
-                randomFloor = Random.Range(1, GameMap._Floors.Length);
-                randomRoom = Random.Range(0, GameMap._Floors[randomFloor]._Rooms.Length);
+                randomFloor = Random.Range(0, GameMap._RoomFloors.Length);
+                randomRoom = Random.Range(0, GameMap._RoomFloors[randomFloor]._Rooms.Length);
 
-                shkaf1 = GameMap._Floors[randomFloor]._Rooms[randomRoom]._Shkaf;
+                shkaf1 = GameMap._RoomFloors[randomFloor]._Rooms[randomRoom]._Shkaf;
             }
 
             Transform item = ItemManager.SpawnItem(new Alcohol()).transform;
@@ -80,17 +80,17 @@ public class ItemSpawner : MonoBehaviour
 
         for (int i = 0; i < FuseCount; i++)
         {
-            int randomFloor = Random.Range(1, GameMap._Floors.Length);
-            int randomRoom = Random.Range(0, GameMap._Floors[randomFloor]._Rooms.Length);
+            int randomFloor = Random.Range(0, GameMap._RoomFloors.Length);
+            int randomRoom = Random.Range(0, GameMap._RoomFloors[randomFloor]._Rooms.Length);
 
-            Comod comod = GameMap._Floors[randomFloor]._Rooms[randomRoom]._Comod;
+            Comod comod = GameMap._RoomFloors[randomFloor]._Rooms[randomRoom]._Comod;
 
             while (StaticTools.Contains(comods, comod))
             {
-                randomFloor = Random.Range(1, GameMap._Floors.Length);
-                randomRoom = Random.Range(0, GameMap._Floors[randomFloor]._Rooms.Length);
+                randomFloor = Random.Range(0, GameMap._RoomFloors.Length);
+                randomRoom = Random.Range(0, GameMap._RoomFloors[randomFloor]._Rooms.Length);
 
-                comod = GameMap._Floors[randomFloor]._Rooms[randomRoom]._Comod;
+                comod = GameMap._RoomFloors[randomFloor]._Rooms[randomRoom]._Comod;
             }
 
             Transform item = ItemManager.SpawnItem(new StableFuse()).transform;
@@ -106,17 +106,17 @@ public class ItemSpawner : MonoBehaviour
 
         for (int i = 0; i < PatronCount; i++)
         {
-            int randomFloor = Random.Range(1, GameMap._Floors.Length);
-            int randomRoom = Random.Range(0, GameMap._Floors[randomFloor]._Rooms.Length);
+            int randomFloor = Random.Range(0, GameMap._RoomFloors.Length);
+            int randomRoom = Random.Range(0, GameMap._RoomFloors[randomFloor]._Rooms.Length);
 
-            Comod comod = GameMap._Floors[randomFloor]._Rooms[randomRoom]._Comod;
+            Comod comod = GameMap._RoomFloors[randomFloor]._Rooms[randomRoom]._Comod;
 
             while (StaticTools.Contains(comods, comod))
             {
-                randomFloor = Random.Range(1, GameMap._Floors.Length);
-                randomRoom = Random.Range(0, GameMap._Floors[randomFloor]._Rooms.Length);
+                randomFloor = Random.Range(0, GameMap._RoomFloors.Length);
+                randomRoom = Random.Range(0, GameMap._RoomFloors[randomFloor]._Rooms.Length);
 
-                comod = GameMap._Floors[randomFloor]._Rooms[randomRoom]._Comod;
+                comod = GameMap._RoomFloors[randomFloor]._Rooms[randomRoom]._Comod;
             }
 
             Transform item = ItemManager.SpawnItem(new Bullet()).transform;

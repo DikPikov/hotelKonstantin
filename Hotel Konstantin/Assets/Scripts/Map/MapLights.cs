@@ -7,15 +7,16 @@ public class MapLights : MonoBehaviour
     [SerializeField] private byte[] FloorsState; // 0 - on, 1 - distort, 2 - off
     [SerializeField] private FuseSwitch[] FloorsFuses;
 
+    private int Index(RoomsFloor floor) => StaticTools.IndexOf(GameMap._RoomFloors, floor);
+
     private void Start()
     {
-        FloorsLightTime = new float[GameMap._Floors.Length];
+        FloorsLightTime = new float[GameMap._RoomFloors.Length];
         FloorsState = new byte[FloorsLightTime.Length];
 
-        FloorsLightTime[0] = Mathf.Infinity;
-        FloorsLightTime[1] = Time.time + Random.Range(60f, 120f - 60 * Game._HotelMadness);
+        FloorsLightTime[0] = Time.time + Random.Range(60f, 120f - 60 * Game._HotelMadness);
 
-        for (int i = 2; i < FloorsLightTime.Length; i++)
+        for (int i = 1; i < FloorsLightTime.Length; i++)
         {
             float random = Random.Range(-90f, 120);
 
@@ -24,19 +25,19 @@ public class MapLights : MonoBehaviour
             {
                 FloorsState[i] = 0;
 
-                GameMap._Floors[i]._Light.Enable(true);
+                GameMap._RoomFloors[i]._Light.Enable(true);
             }
             else
             {
                 FloorsState[i] = 2;
 
-                GameMap._Floors[i]._Light.Enable(false);
+                GameMap._RoomFloors[i]._Light.Enable(false);
             }
         }
 
         FloorsFuses[1].SetFuseNoNotify(new DamagedFuse());
 
-        int[] used = new int[] { 0, 1 };
+        int[] used = new int[] { 0 };
         for(int i = 0; i < 3; i++)
         {
             int random = Random.Range(0, FloorsFuses.Length);
@@ -48,50 +49,58 @@ public class MapLights : MonoBehaviour
             used = StaticTools.ExpandMassive(used, random);
             FloorsFuses[random].SetFuseNoNotify(new DamagedFuse());
         }
+
+        for(int i = 0; i < GameMap._RoomFloors.Length; i++)
+        {
+            if(!StaticTools.Contains(used, i))
+            {
+                FloorsFuses[i]._Fuse = null;
+            }
+        }
     }
 
-    public void SetFloorState(int index, byte state)
+    public void SetFloorState(RoomsFloor floor, byte state)
     {
-        FloorsState[index] = state;
+        FloorsState[Index(floor)] = state;
 
         switch (state)
         {
             case 0:
-                FloorsLightTime[index] = Time.time + Random.Range(60f, 120f - 60 * Game._HotelMadness);
+                FloorsLightTime[Index(floor)] = Time.time + Random.Range(60f, 120f - 60 * Game._HotelMadness);
 
-                GameMap._Floors[index]._Light.Enable(true);
+                GameMap._RoomFloors[Index(floor)]._Light.Enable(true);
                 break;
             case 1:
-                FloorsLightTime[index] = Time.time + Random.Range(10f, 30 - 15 * Game._HotelMadness);
+                FloorsLightTime[Index(floor)] = Time.time + Random.Range(10f, 30 - 15 * Game._HotelMadness);
 
-                GameMap._Floors[index]._Light.DistortLight();
+                GameMap._RoomFloors[Index(floor)]._Light.DistortLight();
                 break;
             case 2:
-                FloorsLightTime[index] = Time.time + Random.Range(60f, 120f - 60 * Game._HotelMadness);
+                FloorsLightTime[Index(floor)] = Time.time + Random.Range(60f, 120f - 60 * Game._HotelMadness);
 
-                GameMap._Floors[index]._Light.Enable(false);
+                GameMap._RoomFloors[Index(floor)]._Light.Enable(false);
                 break;
         }
     }
 
-    public void FloorFuseUpdate(int floor)
+    public void FloorFuseUpdate(RoomsFloor floor)
     {
-        switch (FloorsFuses[floor]._State)
+        switch (FloorsFuses[StaticTools.IndexOf(GameMap._RoomFloors, floor)]._State)
         {
             case 0:
-                FloorsLightTime[floor] = Mathf.Infinity;
+                FloorsLightTime[Index(floor)] = Mathf.Infinity;
 
-                FloorsState[floor] = 2;
-                GameMap._Floors[floor]._Light.Enable(false);
+                FloorsState[Index(floor)] = 2;
+                GameMap._RoomFloors[Index(floor)]._Light.Enable(false);
                 break;
             case 1:
                 SetFloorState(floor, 1);
                 break;
             case 2:
-                FloorsLightTime[floor] = Mathf.Infinity;
+                FloorsLightTime[Index(floor)] = Mathf.Infinity;
 
-                FloorsState[floor] = 0;
-                GameMap._Floors[floor]._Light.Enable(true);
+                FloorsState[Index(floor)] = 0;
+                GameMap._RoomFloors[Index(floor)]._Light.Enable(true);
                 break;
         }
     }
@@ -105,13 +114,13 @@ public class MapLights : MonoBehaviour
                 switch (FloorsState[i])
                 {
                     case 0:
-                        SetFloorState(i, 1);
+                        SetFloorState(GameMap._RoomFloors[i], 1);
                         break;
                     case 1:
-                        SetFloorState(i, 2);
+                        SetFloorState(GameMap._RoomFloors[i], 2);
                         break;
                     case 2:
-                        SetFloorState(i, 0);
+                        SetFloorState(GameMap._RoomFloors[i], 0);
                         break;
                 }
             }

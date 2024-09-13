@@ -425,6 +425,7 @@
 "Assets/Scripts/Map/Room/Televizor.cs"
 "Assets/Scripts/Map/Room/Towel.cs"
 "Assets/Scripts/Map/Room/Trash.cs"
+"Assets/Scripts/Map/RoomsFloor.cs"
 "Assets/Scripts/Menu.cs"
 "Assets/Scripts/MyButton.cs"
 "Assets/Scripts/NoiseEffect.cs"
