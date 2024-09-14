@@ -5,7 +5,6 @@ public class MapLights : MonoBehaviour
 {
     [SerializeField] private float[] FloorsLightTime;
     [SerializeField] private byte[] FloorsState; // 0 - on, 1 - distort, 2 - off
-    [SerializeField] private FuseSwitch[] FloorsFuses;
 
     private int Index(RoomsFloor floor) => StaticTools.IndexOf(GameMap._RoomFloors, floor);
 
@@ -35,28 +34,7 @@ public class MapLights : MonoBehaviour
             }
         }
 
-        FloorsFuses[1].SetFuseNoNotify(new DamagedFuse());
-
-        int[] used = new int[] { 0 };
-        for(int i = 0; i < 3; i++)
-        {
-            int random = Random.Range(0, FloorsFuses.Length);
-            while(StaticTools.IndexOf(used, random) > -1)
-            {
-                random = Random.Range(0, FloorsFuses.Length);
-            }
-
-            used = StaticTools.ExpandMassive(used, random);
-            FloorsFuses[random].SetFuseNoNotify(new DamagedFuse());
-        }
-
-        for(int i = 0; i < GameMap._RoomFloors.Length; i++)
-        {
-            if(!StaticTools.Contains(used, i))
-            {
-                FloorsFuses[i]._Fuse = null;
-            }
-        }
+        GameMap._BasementFloor.InitializeFuses();
     }
 
     public void SetFloorState(RoomsFloor floor, byte state)
@@ -83,9 +61,9 @@ public class MapLights : MonoBehaviour
         }
     }
 
-    public void FloorFuseUpdate(RoomsFloor floor)
+    public void FloorFuseUpdate(RoomsFloor floor, byte state)
     {
-        switch (FloorsFuses[StaticTools.IndexOf(GameMap._RoomFloors, floor)]._State)
+        switch (state)
         {
             case 0:
                 FloorsLightTime[Index(floor)] = Mathf.Infinity;

@@ -1,4 +1,4 @@
-
+using System.Collections;
 using UnityEngine;
 
 public class GameMap : MonoBehaviour
@@ -11,9 +11,11 @@ public class GameMap : MonoBehaviour
     [SerializeField] private MapLights MapLights;
     [SerializeField] private Floor[] Floors;
 
+    private BasementFloor Basement = null;
     private RoomsFloor[] RoomFloors;
 
-    public static MapLights _MapLights => Instance.MapLights; 
+    public static MapLights _MapLights => Instance.MapLights;
+    public static BasementFloor _BasementFloor => Instance.Basement;
     public static RoomsFloor[] _RoomFloors => Instance.RoomFloors;
     public static Floor[] _Floors => Instance.Floors;
 
@@ -28,9 +30,13 @@ public class GameMap : MonoBehaviour
             {
                 RoomFloors = StaticTools.ExpandMassive(RoomFloors, floor as RoomsFloor);
             }
+            else if(floor is BasementFloor)
+            {
+                Basement = floor as BasementFloor;
+            }
         }
 
-        TaskDisplayer.ApplyTask(Task, false);
+        StartCoroutine(Initialize());
     }
 
     public static void CheckClean()
@@ -42,5 +48,15 @@ public class GameMap : MonoBehaviour
         }
 
         Instance.Task.Info = $"Убрать номера во всех этажах <b>{cleanFloors}/{Instance.RoomFloors.Length}</b>\nИли\nИзбавиться от монстров в отеле";
+    }
+
+    private IEnumerator Initialize()
+    {
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+
+        CheckClean();
+        TaskDisplayer.ApplyTask(Task, false);
     }
 }

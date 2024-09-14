@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
+using System.Collections;
 
 public class RoomsFloor : Floor
 {
@@ -19,8 +20,8 @@ public class RoomsFloor : Floor
 
     protected override void Start()
     {
-        UpdateTaskInfo();
 
+        StartCoroutine(Initialize());
         //Debug.DrawRay(transform.position + FloorBorders[0], Vector3.up * 10, Color.red);
         //Debug.DrawRay(transform.position + FloorBorders[1], Vector3.up * 10, Color.red);
     }
@@ -79,5 +80,13 @@ public class RoomsFloor : Floor
         TaskInfo.Info = $"{LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable","CorridorTaskText")} <b>{roomClear}/{Rooms.Length}</b>";
 
         TaskDisplayer.UpdateInfo();
+    }
+
+    private IEnumerator Initialize()
+    {
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+
+        UpdateTaskInfo();
     }
 }

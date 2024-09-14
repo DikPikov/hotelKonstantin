@@ -17,11 +17,11 @@ public class FuseSwitch : MonoBehaviour, IInteractable
         set
         {
             SetFuseNoNotify(value);
-            GameMap._MapLights.FloorFuseUpdate(Floor);
+            GameMap._MapLights.FloorFuseUpdate(Floor, _State);
         }
     }
     public float _BeforeTime => 1;
-    public int _State
+    public byte _State
     {
         get
         {
