@@ -59,16 +59,20 @@ public class Settings : MonoBehaviour
     {
         StartCoroutine(SetMixerVolume(Config.Audio));
 
+#if !UNITY_ANDROID
         Screen.SetResolution(Config.XResolution, Config.YResolution, Config.FullScreen);
+#endif
 
-        if(Rotation != null)
+        Application.targetFrameRate = Config.FrameRate;
+
+        if (Rotation != null)
         {
             Rotation._Sensitivity = Config.Sensitivity;
         }
 
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[Config.LanguageID];
 
-        PostProcess.weight = Config.PostProcessing ? 1 : 0;
+        PostProcess.enabled = Config.PostProcessing;
 
         QualitySettings.SetQualityLevel(Config.Quality, true);
 
@@ -97,6 +101,8 @@ public class Settings : MonoBehaviour
 
 public class Config
 {
+    public int FrameRate;
+
     public int XResolution;
     public int YResolution;
     public bool FullScreen;
@@ -143,14 +149,16 @@ public class Config
             }
         }
 
+        FrameRate = 100;
+
         XResolution = Screen.resolutions[high].width;
         YResolution = Screen.resolutions[high].height;
         FullScreen = true;
 
         Sensitivity = 1;
         Audio = 0.5f;
-        Quality = 1;
-        PostProcessing = true;
+        Quality = 0;
+        PostProcessing = false;
         LanguageID = LocalizationSettings.AvailableLocales.Locales.IndexOf(LocalizationSettings.SelectedLocale);
         AlwaysShowInterface = false;
     }
