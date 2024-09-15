@@ -1,9 +1,11 @@
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Televizor : MonoBehaviour, IInteractable
 {
     [SerializeField] private Room Room;
+    [SerializeField] private AudioSource Noise;
     [SerializeField] private MeshRenderer Renderer;
     [SerializeField] private int DisplayMaterialIndex;
     [SerializeField] private Material[] Materials;
@@ -21,6 +23,8 @@ public class Televizor : MonoBehaviour, IInteractable
         set
         {
             TurnedOn = value;
+
+            Noise.volume = value.GetHashCode();
 
             List<Material> materials = new List<Material>();
             Renderer.GetMaterials(materials);

@@ -6,6 +6,8 @@ public class ItemManager : MonoBehaviour
     [SerializeField] private GameObject[] ItemObjectPrefab;
     [SerializeField] private GameObject[] ItemModelPrefab;
 
+    [SerializeField] private AudioSource DropSound;
+
     [SerializeField] private GameObject DropButton;
 
     [SerializeField] private Player Player;
@@ -52,6 +54,9 @@ public class ItemManager : MonoBehaviour
             Transform pick = SpawnItem(item).transform;
             pick.transform.position = Player.transform.position;
             pick.transform.rotation = Player.transform.rotation;
+
+            DropSound.pitch = Random.Range(0.9f, 1.1f);
+            DropSound.Play();
 
             Player.ApplyItem(item, true);
         }

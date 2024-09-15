@@ -4,11 +4,15 @@ using System.Collections;
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private LayerMask LayerMask;
+
+    [SerializeField] private AudioSource[] WalkSounds;
+
     [SerializeField] private PlayerRotation Rotation;
     [SerializeField] private Transform Camera;
     [SerializeField] private Player Player;
     [SerializeField] private float Speed;
     private float CameraShake = 0;
+    private float WalkNoise = 0;
 
     private float Fall = 0;
 
@@ -65,8 +69,40 @@ public class PlayerMove : MonoBehaviour
 #else
             float speed = (Speed + Game._HotelMadness + 2) * Time.deltaTime;
 #endif
-
             CameraShake = (CameraShake + speed * 120) % 360;
+
+            WalkNoise += speed;
+            if (WalkNoise > 2)
+            {
+                WalkNoise -= 2;
+
+
+                RaycastHit hit;
+                if(Physics.Raycast(transform.position + Vector3.up * 0.1f, Vector3.down, out hit, 1, LayerMask))
+                {
+                    Ground ground = hit.transform.GetComponent<Ground>();
+                    if (ground != null)
+                    {
+                        int sound = 0;
+
+                        switch (ground._Material)
+                        {
+                            case Ground.GroundMaterial.Wood:
+                                sound = Random.Range(0, 2);
+                                break;
+                            case Ground.GroundMaterial.Metal:
+                                sound = Random.Range(2, 4);
+                                break;
+                            case Ground.GroundMaterial.Beton:
+                                sound = Random.Range(4, 6);
+                                break;
+                        }
+
+                        WalkSounds[sound].pitch = Random.Range(0.9f, 1.1f);
+                        WalkSounds[sound].Play();
+                    }
+                }
+            }
 
            // Camera.localPosition = new Vector3(0, 1.6f + Mathf.Sin(CameraShake * Mathf.Deg2Rad) * 0.05f, 0);
 

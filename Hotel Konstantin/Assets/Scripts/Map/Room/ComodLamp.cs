@@ -7,6 +7,8 @@ public class ComodLamp : MonoBehaviour, IInteractable
     [SerializeField] private GameObject Light;
     [SerializeField] private Room Room;
 
+    [SerializeField] private AudioSource Sound;
+
     [SerializeField] private MeshRenderer Renderer;
     [SerializeField] private int MaterialIndex;
     [SerializeField] private Material LightMaterial;
@@ -28,6 +30,9 @@ public class ComodLamp : MonoBehaviour, IInteractable
             Light.SetActive(TurndOn);
 
             Room.UpdateTaskInfo();
+
+            Sound.pitch = Random.Range(0.9f, 1.1f);
+            Sound.Play();
 
             if (TurndOn)
             {

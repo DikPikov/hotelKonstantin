@@ -11,6 +11,8 @@ public class Lift : MonoBehaviour
 {
     [SerializeField] private Animator Animator;
 
+    [SerializeField] private AudioSource LiftingNoise;
+    [SerializeField] private AudioSource[] Source;
     [SerializeField] private GameObject[] ControlPanels;
 
     [SerializeField] private Material IndicatorMaterial;
@@ -27,8 +29,15 @@ public class Lift : MonoBehaviour
 
     private void Start()
     {
+        LiftingNoise.volume = 0;
+
         IndicatorMaterial.SetTexture("_MainTex", IndicatorTextures[CurrentFloor]);
         IndicatorMaterial.SetTexture("_EmissionMap", IndicatorTextures[CurrentFloor]);
+    }
+
+    public void PlaySource(int index)
+    {
+        Source[index].Play();
     }
 
     public void SetControlPanel(int index)
@@ -105,6 +114,8 @@ public class Lift : MonoBehaviour
         Animator.SetBool("Open", false);
         yield return new WaitForSeconds(2);
 
+        LiftingNoise.volume = 1;
+
         WaitForEndOfFrame waitForEndOfFrame = new WaitForEndOfFrame();
         while (true)
         {
@@ -134,6 +145,8 @@ public class Lift : MonoBehaviour
         }
 
         Animator.SetBool("Open", true);
+
+        LiftingNoise.volume = 0;
 
         yield return new WaitForSeconds(2);
 

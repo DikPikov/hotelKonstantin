@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class MapLights : MonoBehaviour
 {
+    [SerializeField] private Player Player;
+    [SerializeField] private AudioSource LightDistorting;
+
     [SerializeField] private float[] FloorsLightTime;
     [SerializeField] private byte[] FloorsState; // 0 - on, 1 - distort, 2 - off
 
@@ -37,6 +40,16 @@ public class MapLights : MonoBehaviour
         GameMap._BasementFloor.InitializeFuses();
     }
 
+    public int GetFloorState(Floor floor)
+    {
+        if(floor is RoomsFloor)
+        {
+            return FloorsState[Index(floor as RoomsFloor)];
+        }
+
+        return -1;
+    }
+
     public void SetFloorState(RoomsFloor floor, byte state)
     {
         FloorsState[Index(floor)] = state;
@@ -47,16 +60,31 @@ public class MapLights : MonoBehaviour
                 FloorsLightTime[Index(floor)] = Time.time + Random.Range(60f, 120f - 60 * Game._HotelMadness);
 
                 GameMap._RoomFloors[Index(floor)]._Light.Enable(true);
+
+                if (Player._Floor == floor)
+                {
+                    LightDistorting.volume = 0;
+                }
                 break;
             case 1:
                 FloorsLightTime[Index(floor)] = Time.time + Random.Range(10f, 30 - 15 * Game._HotelMadness);
 
                 GameMap._RoomFloors[Index(floor)]._Light.DistortLight();
+
+                if (Player._Floor == floor)
+                {
+                    LightDistorting.volume = 1;
+                }
                 break;
             case 2:
                 FloorsLightTime[Index(floor)] = Time.time + Random.Range(60f, 120f - 60 * Game._HotelMadness);
 
                 GameMap._RoomFloors[Index(floor)]._Light.Enable(false);
+
+                if(Player._Floor == floor)
+                {
+                    LightDistorting.volume = 0;
+                }
                 break;
         }
     }

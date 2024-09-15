@@ -7,6 +7,7 @@ public class Cosmare : MonoBehaviour
     [SerializeField] private Player Player;
     [SerializeField] private SpriteRenderer Renderer;
     [SerializeField] private Image CosmareNoise;
+    [SerializeField] private AudioSource CosmareNoiseSource;
     [SerializeField] private LayerMask WallLayer;
     private bool Visioned = false;
 
@@ -76,6 +77,9 @@ public class Cosmare : MonoBehaviour
             {
                 CosmareNoise.color = new Color(1, 0, 0, 1 - WatchTimer / WatchTime);
                 Visioned = true;
+
+                CosmareNoiseSource.Play();
+                CosmareNoiseSource.time = Random.Range(0, CosmareNoiseSource.clip.length - 3);
             }
 
             WatchTimer -= Time.deltaTime;

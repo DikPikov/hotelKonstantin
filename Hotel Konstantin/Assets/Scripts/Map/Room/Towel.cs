@@ -5,6 +5,8 @@ public class Towel : MonoBehaviour, IInteractable
     [SerializeField] private Room Room;
     [SerializeField] private Animator Animator;
 
+    [SerializeField] private AudioSource Sound;
+
     [SerializeField] private MeshRenderer Renderer;
     [SerializeField] private Material[] Materials;
 
@@ -23,6 +25,7 @@ public class Towel : MonoBehaviour, IInteractable
 
             if (Updated)
             {
+                Sound.Play();
                 Animator.Play("update");
             }
 

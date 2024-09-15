@@ -6,6 +6,7 @@ public class FuseSwitch : MonoBehaviour, IInteractable
     [SerializeField] private Player Player;
     [SerializeField] private GameObject[] FuseObjects;
     [SerializeField] private RoomsFloor Floor;
+    [SerializeField] private AudioSource Sound;
     private Fuse Fuse = null;
 
     public Fuse _Fuse
@@ -16,6 +17,7 @@ public class FuseSwitch : MonoBehaviour, IInteractable
         }
         set
         {
+            Sound.Play();
             SetFuseNoNotify(value);
             GameMap._MapLights.FloorFuseUpdate(Floor, _State);
         }

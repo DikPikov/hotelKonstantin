@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Runtime.CompilerServices;
+using UnityEngine.UIElements.Experimental;
 
 public class Game : MonoBehaviour
 {
     [SerializeField] private GameObject Panel;
+    [SerializeField] private GameObject Fading;
     [SerializeField] private SanityTemperature SanityTemperature;
     [SerializeField] private Text TimeIndicator;
     [SerializeField] private float HotelTime;
@@ -48,11 +51,28 @@ public class Game : MonoBehaviour
         StartCoroutine(Timer());
     }
 
+    public void RunEnding(int index)
+    {
+        PlayerPrefs.SetInt("End", index);
+        PlayerPrefs.Save();
+
+        StartCoroutine(OpenEnding());
+    }
+
     public static void Over()
     {
         Instance.GameOver = true;
         Instance.Panel.SetActive(true);
         Pause._Paused = true;
+    }
+
+    private IEnumerator OpenEnding()
+    {
+        Fading.SetActive(true);
+
+        yield return new WaitForSecondsRealtime(1);
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene(2);
     }
 
     private IEnumerator Timer()

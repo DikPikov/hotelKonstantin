@@ -5,6 +5,7 @@ public class Bed : MonoBehaviour, IAnimated
 {
     [SerializeField] private Room Room;
     [SerializeField] private Animator Animator;
+    [SerializeField] private AudioSource Sound;
     [SerializeField] private float Timer;
     [SerializeField] private bool Cleared; 
 
@@ -48,10 +49,16 @@ public class Bed : MonoBehaviour, IAnimated
         {
             StartCoroutine(DeTime());
         }
+        else
+        {
+            Sound.Stop();
+        }
     }
 
     private IEnumerator DeTime()
     {
+        Sound.Play();
+
         WaitForEndOfFrame waitForEndOfFrame = new WaitForEndOfFrame();
 
         while(Timer > 0)
@@ -60,5 +67,7 @@ public class Bed : MonoBehaviour, IAnimated
 
             yield return waitForEndOfFrame;
         }
+
+        Sound.Stop();
     }
 }

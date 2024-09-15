@@ -13,6 +13,7 @@ public class Floor : MonoBehaviour
 
     [SerializeField] protected Vector3[] CoridorBorders;
 
+    public Player _Player => Player;
     public int _Index => Index;
 
     protected virtual void Start()

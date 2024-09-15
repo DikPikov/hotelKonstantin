@@ -8,6 +8,8 @@ public class Ghost : MonoBehaviour
     [SerializeField] private NavMeshAgent Agent;
     [SerializeField] private Animator Animator;
     [SerializeField] private Transform Head;
+    [SerializeField] private AudioSource[] Walks;
+
     private Transform Camera = null;
 
     private Player Player;
@@ -22,6 +24,14 @@ public class Ghost : MonoBehaviour
         }
 
         Player.OnFloorChange -= PlayerChangedFloor;
+    }
+
+    public void PlayWalkSound()
+    {
+        int sound = Random.Range(0, Walks.Length);
+
+        Walks[sound].pitch = Random.Range(0.9f, 1.1f);
+        Walks[sound].Play();
     }
 
     public void SetInfo(Player player, Floor floor, Image noise)

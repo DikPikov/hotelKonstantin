@@ -3,6 +3,7 @@ using UnityEngine;
 public class Player : MonoBehaviour, ILiftable
 {
     [SerializeField] private Floor Floor;
+    [SerializeField] private AudioSource LightDistorting;
 
     [SerializeField] private float Stamina;
 
@@ -29,7 +30,7 @@ public class Player : MonoBehaviour, ILiftable
 
             CurrentItem = value;
 
-            if (OnItemChanges != null)
+            if (OnItemChanges != null) 
             {
                 OnItemChanges.Invoke();
             }
@@ -57,6 +58,14 @@ public class Player : MonoBehaviour, ILiftable
 
             Floor = value;
 
+            if(GameMap._MapLights.GetFloorState(Floor) == 1)
+            {
+                LightDistorting.volume = 1;
+            }
+            else
+            {
+                LightDistorting.volume = 0;
+            }
             //if (Floor != null)
             //{
             //    Floor.gameObject.SetActive(true);

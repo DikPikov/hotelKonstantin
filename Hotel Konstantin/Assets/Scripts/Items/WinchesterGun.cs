@@ -6,6 +6,10 @@ public class WinchesterGun : ItemObject
     [SerializeField] private GameObject EffectPrefab;
     [SerializeField] private GameObject GilzaPrefab;
 
+    [SerializeField] private AudioSource PatronSound;
+    [SerializeField] private AudioSource ShotSound;
+    [SerializeField] private AudioSource PickupSound;
+
     [SerializeField] private Transform ShotPoint;
     [SerializeField] private Transform GilzaPoint;
 
@@ -92,6 +96,9 @@ public class WinchesterGun : ItemObject
     {
         Winchester._Ammo++;
 
+        PatronSound.pitch = Random.Range(0.9f, 1.1f);
+        PatronSound.Play();
+
         int index = StaticTools.ContainsType(Player._Items, typeof(Bullet));
         Player.ApplyItem(Player._Items[index], true);
 
@@ -107,6 +114,8 @@ public class WinchesterGun : ItemObject
 
     public void SetReady()
     {
+        PickupSound.pitch = Random.Range(0.9f, 1.1f);
+        PickupSound.Play();
         Winchester._Ready = true;
 
         if (Winchester._Shooted)
@@ -123,6 +132,8 @@ public class WinchesterGun : ItemObject
         {
             return;
         }
+
+        ShotSound.Play();
 
         Winchester._Shooted = true;
 

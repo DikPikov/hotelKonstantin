@@ -5,6 +5,7 @@ public class RoomLightSwitch : MonoBehaviour, IInteractable
     [SerializeField] private Room Room;
     [SerializeField] private Lighter Light;
     [SerializeField] private Animator Animator;
+    [SerializeField] private AudioSource Sound;
     [SerializeField] private bool Enabled;
 
     public Lighter _Lighter => Light;
@@ -18,6 +19,9 @@ public class RoomLightSwitch : MonoBehaviour, IInteractable
         }
         set
         {
+            Sound.pitch = Random.Range(0.9f, 1.1f);
+            Sound.Play();
+
             Enabled = value;
 
             Animator.SetBool("On", Enabled);
