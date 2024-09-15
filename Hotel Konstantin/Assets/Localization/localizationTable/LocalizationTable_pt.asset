@@ -170,6 +170,10 @@ MonoBehaviour:
     m_Localized: IDIOMA
     m_Metadata:
       m_Items: []
+  - m_Id: 2678987580891136
+    m_Localized: LIMPAR OS QUARTOS EM TODOS OS ANDARES
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

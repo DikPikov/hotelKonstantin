@@ -171,6 +171,10 @@ MonoBehaviour:
     m_Localized: BAHASA
     m_Metadata:
       m_Items: []
+  - m_Id: 2678987580891136
+    m_Localized: BERSIHKAN KAMAR DI SEMUA LANTAI
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

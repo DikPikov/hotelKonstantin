@@ -176,6 +176,10 @@ MonoBehaviour:
     m_Localized: "D\u0130L"
     m_Metadata:
       m_Items: []
+  - m_Id: 2678987580891136
+    m_Localized: "T\xDCM KATLARDA ODALARI TEM\u0130ZLE"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

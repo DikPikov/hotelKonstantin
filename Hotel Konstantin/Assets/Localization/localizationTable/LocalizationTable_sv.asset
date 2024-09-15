@@ -170,6 +170,10 @@ MonoBehaviour:
     m_Localized: "SPR\xC5K"
     m_Metadata:
       m_Items: []
+  - m_Id: 2678987580891136
+    m_Localized: "ST\xC4DA RUMMEN P\xC5 ALLA V\xC5NINGAR"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

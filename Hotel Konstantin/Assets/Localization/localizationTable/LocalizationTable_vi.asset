@@ -177,6 +177,10 @@ MonoBehaviour:
     m_Localized: "NG\xD4N NG\u1EEE"
     m_Metadata:
       m_Items: []
+  - m_Id: 2678987580891136
+    m_Localized: "D\u1ECCN D\u1EB8P PH\xD2NG \u1EDE T\u1EA4T C\u1EA2 C\xC1C T\u1EA6NG"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

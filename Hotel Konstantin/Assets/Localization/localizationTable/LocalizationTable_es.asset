@@ -170,6 +170,10 @@ MonoBehaviour:
     m_Localized: IDIOMA
     m_Metadata:
       m_Items: []
+  - m_Id: 2678987580891136
+    m_Localized: LIMPIAR HABITACIONES EN TODOS LOS PISOS
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

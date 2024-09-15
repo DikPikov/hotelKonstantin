@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-
+using UnityEngine.Localization.Settings;
 public class GameMap : MonoBehaviour
 {
     private static GameMap Instance;
@@ -64,7 +64,7 @@ public class GameMap : MonoBehaviour
                 lift.SetControlPanel(0);
             }
 
-            Instance.Task.Info = $"Убрать номера во всех этажах <b>{cleanFloors}/{Instance.RoomFloors.Length}</b>";
+            Instance.Task.Info = $"{LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable", "CleanNumbersText")} <b>{cleanFloors}/{Instance.RoomFloors.Length}</b>";
         }
     }
 

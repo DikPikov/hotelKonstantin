@@ -169,6 +169,10 @@ MonoBehaviour:
     m_Localized: LANGUAGE
     m_Metadata:
       m_Items: []
+  - m_Id: 2678987580891136
+    m_Localized: CLEAN ROOMS ON ALL FLOORS
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

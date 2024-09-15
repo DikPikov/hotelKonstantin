@@ -163,6 +163,10 @@ MonoBehaviour:
     m_Key: LanguageText
     m_Metadata:
       m_Items: []
+  - m_Id: 2678987580891136
+    m_Key: CleanNumbersText
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

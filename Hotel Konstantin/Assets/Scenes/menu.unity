@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 254.00952, y: -530.9527}
+  m_AnchoredPosition: {x: 254.00952, y: -560.00104}
   m_SizeDelta: {x: 320, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &30484968
@@ -1724,7 +1724,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 426.99988, y: -205.95047}
+  m_AnchoredPosition: {x: 426.99988, y: -180.9505}
   m_SizeDelta: {x: 665.7076, y: 100.36212}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &373015701
@@ -2578,7 +2578,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 254.8595, y: -640.9527}
+  m_AnchoredPosition: {x: 254.8595, y: -670.0011}
   m_SizeDelta: {x: 320, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &493265082
@@ -4048,7 +4048,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 254.8595, y: -420.95166}
+  m_AnchoredPosition: {x: 254.8595, y: -450}
   m_SizeDelta: {x: 320, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &820590845
@@ -15141,7 +15141,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 510.23996, y: -353.5205}
+  m_AnchoredPosition: {x: 510.23996, y: -328.52054}
   m_SizeDelta: {x: 830.4719, y: 194.77808}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2083304652
@@ -15178,6 +15178,12 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u0414\u041D\u0401\u041C \u041E\u0422\u0415\u041B\u042C \u0421\u041A\u0420\u042B\u0412\u0410\u0415\u0422
+    \u0411\u0415\u0417\u0423\u041C\u0418\u0415 \u041D\u041E\u0427\u0418\n\u0414\u041D\u0401\u041C
+    \u041E\u0422\u0415\u041B\u042C \u0421\u041A\u0420\u042B\u0412\u0410\u0415\u0422
+    \u0411\u0415\u0417\u0423\u041C\u0418\u0415 \u041D\u041E\u0427\u0418\n\u0414\u041D\u0401\u041C
+    \u041E\u0422\u0415\u041B\u042C \u0421\u041A\u0420\u042B\u0412\u0410\u0415\u0422
+    \u0411\u0415\u0417\u0423\u041C\u0418\u0415 \u041D\u041E\u0427\u0418\n\u0414\u041D\u0401\u041C
+    \u041E\u0422\u0415\u041B\u042C \u0421\u041A\u0420\u042B\u0412\u0410\u0415\u0422
     \u0411\u0415\u0417\u0423\u041C\u0418\u0415 \u041D\u041E\u0427\u0418"
 --- !u!222 &2083304653
 CanvasRenderer:
@@ -15835,7 +15841,7 @@ Animator:
   m_GameObject: {fileID: 253701033913764629}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2fcaf191f6dbd8e409deabd38276c570, type: 2}
+  m_Controller: {fileID: 9100000, guid: 97f7f40379fdeb94793b862281b8270a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -172,6 +172,10 @@ MonoBehaviour:
     m_Localized: LANGUE
     m_Metadata:
       m_Items: []
+  - m_Id: 2678987580891136
+    m_Localized: "NETTOYER LES CHAMBRES \xC0 TOUS LES \xC9TAGES"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
