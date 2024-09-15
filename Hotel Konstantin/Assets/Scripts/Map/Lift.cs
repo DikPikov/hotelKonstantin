@@ -11,6 +11,8 @@ public class Lift : MonoBehaviour
 {
     [SerializeField] private Animator Animator;
 
+    [SerializeField] private GameObject[] ControlPanels;
+
     [SerializeField] private Material IndicatorMaterial;
     [SerializeField] private Texture2D[] IndicatorTextures;
 
@@ -27,6 +29,14 @@ public class Lift : MonoBehaviour
     {
         IndicatorMaterial.SetTexture("_MainTex", IndicatorTextures[CurrentFloor]);
         IndicatorMaterial.SetTexture("_EmissionMap", IndicatorTextures[CurrentFloor]);
+    }
+
+    public void SetControlPanel(int index)
+    {
+        for(int i = 0; i < ControlPanels.Length; i++)
+        {
+            ControlPanels[i].SetActive(i == index);
+        }
     }
 
     public void Elevate(int floor)

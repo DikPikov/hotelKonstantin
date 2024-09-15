@@ -31,4 +31,9 @@ public class BasementFloor : Floor
             }
         }
     }
+
+    public void UpdateInfo()
+    {
+        TaskInfo.Info = $"";
+    }
 }

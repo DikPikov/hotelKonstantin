@@ -10,6 +10,7 @@ public class GameMap : MonoBehaviour
 
     [SerializeField] private MapLights MapLights;
     [SerializeField] private Floor[] Floors;
+    [SerializeField] private Lift[] Lifts;
 
     private BasementFloor Basement = null;
     private RoomsFloor[] RoomFloors;
@@ -47,7 +48,24 @@ public class GameMap : MonoBehaviour
             cleanFloors += floor._Clear.GetHashCode();
         }
 
-        Instance.Task.Info = $"Убрать номера во всех этажах <b>{cleanFloors}/{Instance.RoomFloors.Length}</b>\nИли\nИзбавиться от монстров в отеле";
+        if (cleanFloors == Instance.RoomFloors.Length)
+        {
+            foreach(Lift lift in Instance.Lifts)
+            {
+                lift.SetControlPanel(1);
+            }
+
+            Instance.Task.Info = $"РџРѕРґРЅСЏС‚СЊСЃСЏ РЅР° 8 СЌС‚Р°Р¶";
+        }
+        else
+        {
+            foreach (Lift lift in Instance.Lifts)
+            {
+                lift.SetControlPanel(0);
+            }
+
+            Instance.Task.Info = $"РЈР±СЂР°С‚СЊ РЅРѕРјРµСЂР° РІРѕ РІСЃРµС… СЌС‚Р°Р¶Р°С… <b>{cleanFloors}/{Instance.RoomFloors.Length}</b>";
+        }
     }
 
     private IEnumerator Initialize()

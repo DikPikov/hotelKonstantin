@@ -20,9 +20,11 @@ public class PlayerMove : MonoBehaviour
         {
             return;
         }
-
+#if !UNITY_ANDROID
         Vector3 direction = transform.forward * InputManager.GetAxis(InputManager.AxisEnum.Vertical) + transform.right * InputManager.GetAxis(InputManager.AxisEnum.Horizontal);
-
+#else
+        Vector3 direction = transform.forward * SimpleInput.GetAxis("Vertical") + transform.right * SimpleInput.GetAxis("Horizontal");
+#endif
         if(direction != Vector3.zero)
         {
             direction.y = 0;

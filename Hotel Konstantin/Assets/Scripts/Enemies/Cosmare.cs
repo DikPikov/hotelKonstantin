@@ -36,7 +36,7 @@ public class Cosmare : MonoBehaviour
         Player = player;
         CosmareNoise = noise;
 
-        WatchTime = 10 - 8 * Game._HotelMadness;
+        WatchTime = 4 - 3 * Game._HotelMadness;
         WatchTimer = WatchTime;
     }
 

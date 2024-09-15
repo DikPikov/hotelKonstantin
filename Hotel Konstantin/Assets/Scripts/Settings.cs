@@ -1,14 +1,12 @@
 using System.IO;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.Localization.Settings;
 using System.Collections;
 
 public class Settings : MonoBehaviour
 {
     [SerializeField] private AudioMixer Mixer;
-    [SerializeField] private PostProcessVolume PostProcess;
     [SerializeField] private PlayerRotation Rotation;
     private Config Config;
 
@@ -61,10 +59,6 @@ public class Settings : MonoBehaviour
 
 #if !UNITY_ANDROID
         Screen.SetResolution(Config.XResolution, Config.YResolution, Config.FullScreen);
-        
-        PostProcess.enabled = Config.PostProcessing;
-#else
-        PostProcess.enabled = false;
 #endif
 
         Application.targetFrameRate = Config.FrameRate;
