@@ -99,12 +99,36 @@ public class Ghost : MonoBehaviour
                 return;
             }
 
-            int floor = Random.Range(0, GameMap._RoomFloors.Length);
-            int room = Random.Range(0, GameMap._RoomFloors[floor]._Rooms.Length);
+            bool hasFloor = false;
+            for(int i = 0; i < GameMap._RoomFloors.Length; i++)
+            {
+                if(GameMap._BasementFloor._Fuses[i]._State != 0)
+                {
+                    hasFloor = true;
+                    break;
+                }
+            }
 
-            Player.transform.position = GameMap._RoomFloors[floor]._Rooms[room].transform.position + Vector3.up;
-            Player._Floor = GameMap._RoomFloors[floor];
-            FindObjectOfType<MapLights>().SetFloorState(GameMap._RoomFloors[floor], 0);
+            if (hasFloor)
+            {
+                int floor = Random.Range(0, GameMap._RoomFloors.Length);
+
+                while (GameMap._BasementFloor._Fuses[floor]._State == 0)
+                {
+                    floor = Random.Range(0, GameMap._RoomFloors.Length);
+                }
+
+                int room = Random.Range(0, GameMap._RoomFloors[floor]._Rooms.Length);
+
+                Player.transform.position = GameMap._RoomFloors[floor]._Rooms[room].transform.position + Vector3.up;
+                Player._Floor = GameMap._RoomFloors[floor];
+                FindObjectOfType<MapLights>().SetFloorState(GameMap._RoomFloors[floor], 0);
+            }
+            else
+            {
+                Player.transform.position = GameMap._BasementFloor.transform.position + Vector3.up;
+                Player._Floor = GameMap._BasementFloor;
+            }
 
             Game._HotelTime += Random.Range(300, 900);
 

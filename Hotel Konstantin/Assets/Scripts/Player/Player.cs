@@ -28,6 +28,11 @@ public class Player : MonoBehaviour, ILiftable
             }
 
             CurrentItem = value;
+
+            if (OnItemChanges != null)
+            {
+                OnItemChanges.Invoke();
+            }
         }
     }
     public Item[] _Items => Items;

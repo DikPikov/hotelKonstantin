@@ -4,6 +4,8 @@ public class BasementFloor : Floor
 {
     [SerializeField] private FuseSwitch[] FloorsFuses;
      
+    public FuseSwitch[] _Fuses => FloorsFuses;
+
     public void InitializeFuses()
     {
         FloorsFuses[0].SetFuseNoNotify(new DamagedFuse());

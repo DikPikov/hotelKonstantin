@@ -61,6 +61,10 @@ public class Settings : MonoBehaviour
 
 #if !UNITY_ANDROID
         Screen.SetResolution(Config.XResolution, Config.YResolution, Config.FullScreen);
+        
+        PostProcess.enabled = Config.PostProcessing;
+#else
+        PostProcess.enabled = false;
 #endif
 
         Application.targetFrameRate = Config.FrameRate;
@@ -71,8 +75,6 @@ public class Settings : MonoBehaviour
         }
 
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[Config.LanguageID];
-
-        PostProcess.enabled = Config.PostProcessing;
 
         QualitySettings.SetQualityLevel(Config.Quality, true);
 
@@ -166,6 +168,8 @@ public class Config
     public Config Clone()
     {
         Config config = new Config();
+
+        config.FrameRate = FrameRate;
 
         config.XResolution = XResolution;
         config.YResolution = YResolution; 

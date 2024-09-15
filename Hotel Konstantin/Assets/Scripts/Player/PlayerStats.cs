@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class PlayerStats : MonoBehaviour
 
     [SerializeField] private Player Player;
 
+#if !UNITY_ANDROID
     private void Start()
     {
         Player.OnChanges += UpdateInfo;
@@ -26,4 +28,5 @@ public class PlayerStats : MonoBehaviour
             StaminaBar.gameObject.SetActive(true);
         }
     }
+#endif
 }

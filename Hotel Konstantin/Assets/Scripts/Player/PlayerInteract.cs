@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PlayerInteract : MonoBehaviour
 {
+    [SerializeField] private GameObject InteractButton;
+
     [SerializeField] private GameObject InteractMarker;
     [SerializeField] private RectTransform[] Skobi;
 
@@ -28,6 +30,23 @@ public class PlayerInteract : MonoBehaviour
 
             if (interactable != null && interactable._CanInteract)
             {
+                if(CurrentInteractable != interactable)
+                {
+                    if (CurrentInteractable is IAnimated)
+                    {
+                        (CurrentInteractable as IAnimated).Animate(false);
+                    }
+
+                    if (Interacting != null)
+                    {
+                        StopCoroutine(Interacting);
+                        Interacting = null;
+                    }
+                }
+
+                CurrentInteractable = interactable;
+
+                InteractButton.SetActive(true);
                 InteractMarker.SetActive(true);
 
                 if(Interacting == null)
@@ -39,7 +58,7 @@ public class PlayerInteract : MonoBehaviour
 
                     if (InputManager.GetButtonDown(InputManager.ButtonEnum.Interact))
                     {
-                        Interacting = StartCoroutine(Interact(interactable));
+                        Interact(true);
                     }
                 }
             }
@@ -57,8 +76,25 @@ public class PlayerInteract : MonoBehaviour
 
                 if(interactable != null)
                 {
+                    if (CurrentInteractable != interactable)
+                    {
+                        if (CurrentInteractable is IAnimated)
+                        {
+                            (CurrentInteractable as IAnimated).Animate(false);
+                        }
+
+                        if (Interacting != null)
+                        {
+                            StopCoroutine(Interacting);
+                            Interacting = null;
+                        }
+                    }
+
                     if (interactable._CanInteract)
                     {
+                        CurrentInteractable = interactable;
+
+                        InteractButton.SetActive(true);
                         InteractMarker.SetActive(true);
 
                         if (Interacting == null)
@@ -70,7 +106,7 @@ public class PlayerInteract : MonoBehaviour
 
                             if (InputManager.GetButtonDown(InputManager.ButtonEnum.Interact))
                             {
-                                Interacting = StartCoroutine(Interact(interactable));
+                                Interact(true);
                             }
                         }
                     }
@@ -106,40 +142,67 @@ public class PlayerInteract : MonoBehaviour
 
         InteractMarker.SetActive(false);
 
-        if (InputManager.GetButtonDown(InputManager.ButtonEnum.Interact))
+        if (Player._CurrentItem != null && Player._CurrentItem._Interactable)
         {
-            if (Player._CurrentItem != null)
+            InteractButton.SetActive(true);
+
+            if (InputManager.GetButtonDown(InputManager.ButtonEnum.Interact))
             {
-                Player._CurrentItem.Use();
+                Player._CurrentItem.Use(true);
             }
+        }
+        else
+        {
+            InteractButton.SetActive(false);
         }
     }
 
-    private IEnumerator Interact(IInteractable interactable)
+    public void Interact(bool state)
     {
-        if(CurrentInteractable != null)
+        if (state)
         {
-            if (CurrentInteractable is IAnimated)
+            if(CurrentInteractable == null)
             {
-                (CurrentInteractable as IAnimated).Animate(false);
+                if(Player._CurrentItem != null)
+                {
+                    Player._CurrentItem.Use(true);
+                }
+                return;
             }
 
-            CurrentInteractable = null;
+            if(Interacting == null)
+            {
+                Interacting = StartCoroutine(Interact());
+            }
         }
+        else
+        {
+            if (Player._CurrentItem != null)
+            {
+                Player._CurrentItem.Use(false);
+            }
 
-        CurrentInteractable = interactable;
+            Deinteract();
+        }
+    }
 
-        float timer = interactable._BeforeTime;
-        float time = interactable._BeforeTime;
+    private IEnumerator Interact()
+    {
+        float timer = CurrentInteractable._BeforeTime;
+        float time = CurrentInteractable._BeforeTime;
 
         WaitForEndOfFrame waitForEndOfFrame = new WaitForEndOfFrame();
 
-        if(interactable is IAnimated)
+        if(CurrentInteractable is IAnimated)
         {
-            (interactable as IAnimated).Animate(true);
+            (CurrentInteractable as IAnimated).Animate(true);
         }
 
+#if UNITY_ANDROID
+        while (CurrentInteractable != null)
+#else
         while (InputManager.GetButton(InputManager.ButtonEnum.Interact))
+#endif
         {
             timer -= Time.deltaTime;
 
@@ -151,11 +214,11 @@ public class PlayerInteract : MonoBehaviour
 
             if (timer <= 0)
             {
-                interactable.Interact();
+                CurrentInteractable.Interact();
 
-                if (interactable is IAnimated)
+                if (CurrentInteractable is IAnimated)
                 {
-                    (interactable as IAnimated).Animate(false);
+                    (CurrentInteractable as IAnimated).Animate(false);
                 }
 
                 Interacting = null;
@@ -165,9 +228,9 @@ public class PlayerInteract : MonoBehaviour
             yield return waitForEndOfFrame;
         }
 
-        if (interactable is IAnimated)
+        if (CurrentInteractable is IAnimated)
         {
-            (interactable as IAnimated).Animate(false);
+            (CurrentInteractable as IAnimated).Animate(false);
         }
 
         Interacting = null;

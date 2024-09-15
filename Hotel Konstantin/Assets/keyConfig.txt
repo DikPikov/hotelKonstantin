@@ -7,6 +7,5 @@
 "Item3":"Alpha3",
 "DropItem":"Q G",
 "Run":"LeftShift RightShift",
-"Interact":"E F Mouse0",
-"Shoot":"Mouse0",
+"Interact":"E F",
 "Reload":"R"}

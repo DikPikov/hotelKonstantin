@@ -7,6 +7,7 @@ public class ItemObject : MonoBehaviour
     protected Item Item;
 
     public Item _Item => Item;
+    public bool _Interactable => Item is IUsable;
 
     public virtual void SetInfo(Player player, Item item)
     {
@@ -14,7 +15,7 @@ public class ItemObject : MonoBehaviour
         Item = item;
     }
 
-    public virtual void Use()
+    public virtual void Use(bool state)
     {
 
     }

@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class ExtraInfoPanel : MonoBehaviour
     [SerializeField] private Settings Settings;
     private bool AlwaysShow = true;
 
+#if !UNITY_ANDROID
     private void Start()
     {
         Settings.OnChanges += CheckAlwaysShow;
@@ -29,4 +31,5 @@ public class ExtraInfoPanel : MonoBehaviour
             Panel.SetActive(InputManager.GetButton(InputManager.ButtonEnum.OpenExtraInfo));
         }
     }
+#endif
 }

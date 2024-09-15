@@ -6,6 +6,8 @@ public class ItemManager : MonoBehaviour
     [SerializeField] private GameObject[] ItemObjectPrefab;
     [SerializeField] private GameObject[] ItemModelPrefab;
 
+    [SerializeField] private GameObject DropButton;
+
     [SerializeField] private Player Player;
     [SerializeField] private Image[] ItemsIcons;
     [SerializeField] private Text[] ItemsBinds;
@@ -20,28 +22,38 @@ public class ItemManager : MonoBehaviour
     {
         if (InputManager.GetButtonDown(InputManager.ButtonEnum.Item1))
         {
-            SetPlayerCurrentItem(Player._Items.Length > 0 ? Player._Items[0] : null);
+            SelectItem(0);
         }
         else if (InputManager.GetButtonDown(InputManager.ButtonEnum.Item2))
         {
-            SetPlayerCurrentItem(Player._Items.Length > 1 ? Player._Items[1] : null);
+            SelectItem(1);
         }
         else if (InputManager.GetButtonDown(InputManager.ButtonEnum.Item3))
         {
-            SetPlayerCurrentItem(Player._Items.Length > 2 ? Player._Items[2] : null);
+            SelectItem(2);
         }
         else if (InputManager.GetButtonDown(InputManager.ButtonEnum.DropItem))
         {
-            if(Player._CurrentItem != null)
-            {
-                Item item = Player._CurrentItem._Item;
+            DropItem();
+        }
+    }
 
-                Transform pick = SpawnItem(item).transform;
-                pick.transform.position = Player.transform.position;
-                pick.transform.rotation = Player.transform.rotation;
+    public void SelectItem(int index)
+    {
+        SetPlayerCurrentItem(Player._Items.Length > index ? Player._Items[index] : null);
+    }
 
-                Player.ApplyItem(item, true);
-            }
+    public void DropItem()
+    {
+        if (Player._CurrentItem != null)
+        {
+            Item item = Player._CurrentItem._Item;
+
+            Transform pick = SpawnItem(item).transform;
+            pick.transform.position = Player.transform.position;
+            pick.transform.rotation = Player.transform.rotation;
+
+            Player.ApplyItem(item, true);
         }
     }
 
@@ -95,6 +107,8 @@ public class ItemManager : MonoBehaviour
 
     public void UpdateItemInfo()
     {
+        DropButton.SetActive(Player._CurrentItem != null);
+
         ItemsBinds[0].text = InputManager._Instance._KeyMap.Item1.Replace("Alpha", "");
         ItemsBinds[1].text = InputManager._Instance._KeyMap.Item2.Replace("Alpha", "");
         ItemsBinds[2].text = InputManager._Instance._KeyMap.Item3.Replace("Alpha", "");

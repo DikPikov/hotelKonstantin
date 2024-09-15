@@ -1,5 +1,7 @@
 using UnityEngine;
 
+public interface IUsable { }
+
 public abstract class Item
 {
     protected Sprite Icon;
@@ -25,7 +27,7 @@ public abstract class Item
     }
 }
 
-public class Alcohol : Item
+public class Alcohol : Item, IUsable
 {
     public override string _Prefab => "Alcohol";
 }
@@ -48,7 +50,7 @@ public class StableFuse : Fuse
 }
 
 [System.Serializable]
-public class Winchester : Item
+public class Winchester : Item, IUsable
 {
     [SerializeField] private int Ammo = 0;
     [SerializeField] private bool Ready = false;

@@ -53,7 +53,11 @@ public class PlayerRotation : MonoBehaviour
             return;
         }
 
+#if UNITY_ANDROID && !UNITY_EDITOR
+        _Rotation += Sensibility * new Vector3(-Input.GetAxis("mouseY"), Input.GetAxis("mouseX"), 0);
+#else
         _Rotation += Sensibility * new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0);
+#endif
     }
 
     private void NormalizeRotation()

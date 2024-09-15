@@ -38,7 +38,10 @@ public class PlayerMove : MonoBehaviour
             }
 
 
+
+#if !UNITY_ANDROID
             float speed = (Speed + Game._HotelMadness) * Time.deltaTime;
+
             if (InputManager.GetButton(InputManager.ButtonEnum.Run) && direction != Vector3.zero && Player._Stamina > 0)
             {
                 if (RecoverCoroutine != null)
@@ -57,6 +60,9 @@ public class PlayerMove : MonoBehaviour
                     RecoverCoroutine = StartCoroutine(RecoverStamina());
                 }
             }
+#else
+            float speed = (Speed + Game._HotelMadness + 2) * Time.deltaTime;
+#endif
 
             CameraShake = (CameraShake + speed * 120) % 360;
 

@@ -5,7 +5,7 @@ public class AlcoholObject : ItemObject
 {
     private bool Drinking = false;
 
-    public override void Use()
+    public override void Use(bool state)
     {
         if (!Drinking)
         {
