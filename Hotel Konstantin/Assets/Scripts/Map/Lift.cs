@@ -11,14 +11,15 @@ public class Lift : MonoBehaviour
 {
     [SerializeField] private Animator Animator;
 
-    [SerializeField] private AudioSource LiftingNoise;
-    [SerializeField] private AudioSource[] Source;
+    [SerializeField] private LiftSound Sounds;
+
     [SerializeField] private GameObject[] ControlPanels;
 
     [SerializeField] private Material IndicatorMaterial;
     [SerializeField] private Texture2D[] IndicatorTextures;
 
     [SerializeField] private int CurrentFloor;
+    [SerializeField] private bool Moving;
     [SerializeField] private float Speed;
 
     [SerializeField] private int[] Order = new int[0];
@@ -27,17 +28,13 @@ public class Lift : MonoBehaviour
 
     private Coroutine ElevateCoroutine = null;
 
+    public int _Floor => CurrentFloor;
+    public bool _Moves => Moving;
+
     private void Start()
     {
-        LiftingNoise.volume = 0;
-
         IndicatorMaterial.SetTexture("_MainTex", IndicatorTextures[CurrentFloor]);
         IndicatorMaterial.SetTexture("_EmissionMap", IndicatorTextures[CurrentFloor]);
-    }
-
-    public void PlaySource(int index)
-    {
-        Source[index].Play();
     }
 
     public void SetControlPanel(int index)
@@ -92,6 +89,11 @@ public class Lift : MonoBehaviour
         }
     }
 
+    public void AnimateBreaking()
+    {
+        Animator.Play("Breaking");
+    }
+
     private int CheckFloor(float high)
     {
         for(int i = 0; i < GameMap._Floors.Length - 1; i++)
@@ -114,7 +116,9 @@ public class Lift : MonoBehaviour
         Animator.SetBool("Open", false);
         yield return new WaitForSeconds(2);
 
-        LiftingNoise.volume = 1;
+        Moving = true;
+
+        Sounds._Volume = 1;
 
         WaitForEndOfFrame waitForEndOfFrame = new WaitForEndOfFrame();
         while (true)
@@ -146,9 +150,11 @@ public class Lift : MonoBehaviour
 
         Animator.SetBool("Open", true);
 
-        LiftingNoise.volume = 0;
+        Sounds._Volume = 0;
 
-        yield return new WaitForSeconds(2);
+        Moving = false;
+
+        yield return new WaitForSeconds(3);
 
         Order = StaticTools.ReduceMassive(Order, 0);
 

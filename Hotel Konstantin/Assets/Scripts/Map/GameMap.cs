@@ -10,7 +10,9 @@ public class GameMap : MonoBehaviour
 
     [SerializeField] private MapLights MapLights;
     [SerializeField] private Floor[] Floors;
+
     [SerializeField] private Lift[] Lifts;
+    [SerializeField] private GameObject Manager;
 
     private BasementFloor Basement = null;
     private RoomsFloor[] RoomFloors;
@@ -19,6 +21,7 @@ public class GameMap : MonoBehaviour
     public static BasementFloor _BasementFloor => Instance.Basement;
     public static RoomsFloor[] _RoomFloors => Instance.RoomFloors;
     public static Floor[] _Floors => Instance.Floors;
+    public static Lift[] _Lifts => Instance.Lifts;
 
     private void Awake()
     {
@@ -55,6 +58,8 @@ public class GameMap : MonoBehaviour
                 lift.SetControlPanel(1);
             }
 
+            Instance.Manager.SetActive(true);
+
             Instance.Task.Info = $"Подняться на 8 этаж";
         }
         else
@@ -65,6 +70,9 @@ public class GameMap : MonoBehaviour
             }
 
             Instance.Task.Info = $"{LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable", "CleanNumbersText")} <b>{cleanFloors}/{Instance.RoomFloors.Length}</b>";
+            Instance.Manager.SetActive(false);
+
+            Instance.Task.Info = $"Убрать номера во всех этажах <b>{cleanFloors}/{Instance.RoomFloors.Length}</b>";
         }
     }
 

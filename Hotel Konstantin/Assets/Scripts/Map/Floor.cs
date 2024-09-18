@@ -16,11 +16,6 @@ public class Floor : MonoBehaviour
     public Player _Player => Player;
     public int _Index => Index;
 
-    protected virtual void Start()
-    {
-        Index = StaticTools.IndexOf(GameMap._Floors, this);
-    }
-
     public virtual Vector3 GetSpawnPoint()
     {
         return new Vector3(Random.Range(CoridorBorders[0].x, CoridorBorders[1].x), transform.position.y + 1, Random.Range(CoridorBorders[0].z, CoridorBorders[1].z));

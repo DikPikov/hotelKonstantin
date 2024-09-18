@@ -1,9 +1,17 @@
 {
+<<<<<<< Updated upstream
 "Date": "15.09.2024 22:40:21",
+=======
+"Date": "19.09.2024 0:44:40",
+>>>>>>> Stashed changes
 "UnityVersion": "2022.3.38f1",
 "com.unity.scriptablebuildpipeline": "1.21.23",
 "com.unity.addressables": "1.21.21",
 "traceEvents": [
+<<<<<<< Updated upstream
 {"name": "Building Use Asset Database (fastest)", "ph": "X", "dur": 776, "tid": 1, "ts": 8436, "pid": 1}
+=======
+{"name": "Building Use Asset Database (fastest)", "ph": "X", "dur": 899.4, "tid": 1, "ts": 7520, "pid": 1}
+>>>>>>> Stashed changes
 ]
 }

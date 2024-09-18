@@ -37,7 +37,7 @@ public class Cosmare : MonoBehaviour
         Player = player;
         CosmareNoise = noise;
 
-        WatchTime = 4 - 3 * Game._HotelMadness;
+        WatchTime = 5 - 3 * Game._HotelMadness;
         WatchTimer = WatchTime;
     }
 
@@ -66,12 +66,17 @@ public class Cosmare : MonoBehaviour
             Transform camera = Camera.main.transform;
             if (Physics.Raycast(camera.position, transform.position + new Vector3(0, 2, 0) - camera.position, Vector3.Distance(camera.position, transform.position + new Vector3(0, 2, 0)), WallLayer))
             {
-                if (Visioned)
+                if (Visioned && Game._HotelMadness < 0.5f)
                 {
                     Destroy(gameObject);
                 }
+
+                CosmareNoise.color = new Color(1, 0, 0, 0);
+                CosmareNoiseSource.volume = 0;
                 return;
             }
+
+            CosmareNoiseSource.volume = 1;
 
             if (!Visioned)
             {
@@ -79,7 +84,7 @@ public class Cosmare : MonoBehaviour
                 Visioned = true;
 
                 CosmareNoiseSource.Play();
-                CosmareNoiseSource.time = Random.Range(0, CosmareNoiseSource.clip.length - 3);
+                CosmareNoiseSource.time = Random.Range(0, 3);
             }
 
             WatchTimer -= Time.deltaTime;
@@ -101,11 +106,18 @@ public class Cosmare : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        else
+        {
+            CosmareNoise.color = new Color(1, 0, 0, 0);
+            CosmareNoiseSource.volume = 0;
+        }
     }
 
     private IEnumerator Kill()
     {
         CosmareNoise.color = new Color(1, 0, 0, 1);
+        FindObjectOfType<CosmareKill>().Active();
+        CosmareNoiseSource.Stop();
 
         yield return new WaitForSecondsRealtime(1);
 

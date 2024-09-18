@@ -18,9 +18,8 @@ public class RoomsFloor : Floor
     public CoridorLights _Light => CoridorLights;
     public bool _Clear => Clear;
 
-    protected override void Start()
+    protected void Start()
     {
-
         StartCoroutine(Initialize());
         //Debug.DrawRay(transform.position + FloorBorders[0], Vector3.up * 10, Color.red);
         //Debug.DrawRay(transform.position + FloorBorders[1], Vector3.up * 10, Color.red);
