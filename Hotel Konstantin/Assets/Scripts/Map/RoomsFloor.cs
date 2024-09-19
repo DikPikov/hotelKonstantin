@@ -28,7 +28,7 @@ public class RoomsFloor : Floor
     public void AddRoom(Room room)
     {
         Rooms = StaticTools.ExpandMassive(Rooms, room);
-        CoridorLights.AddLighter(room._RoomLight);
+        CoridorLights.AddLighter(room._RoomLight._Lighter);
     }
 
     public void SpawnGhost(bool despawn)

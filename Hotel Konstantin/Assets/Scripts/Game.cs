@@ -9,6 +9,7 @@ public class Game : MonoBehaviour
     [SerializeField] private GameObject Panel;
     [SerializeField] private GameObject Fading;
     [SerializeField] private SanityTemperature SanityTemperature;
+    [SerializeField] private Player Player;
     [SerializeField] private Text TimeIndicator;
     [SerializeField] private float HotelTime;
 
@@ -42,6 +43,12 @@ public class Game : MonoBehaviour
         {
             return Instance.GameOver;
         }
+        set
+        {
+            Instance.GameOver = value;
+
+            Instance.Player.AnimateDeath(value);
+        }
     }
 
     private void Awake()
@@ -49,6 +56,51 @@ public class Game : MonoBehaviour
         Instance = this;
 
         StartCoroutine(Timer());
+    }
+
+    public void Revive()
+    {
+        _GameOver = false;
+
+        Instance.Panel.SetActive(false);
+        Pause._Paused = false;
+
+        bool hasFloor = false;
+        for (int i = 0; i < GameMap._RoomFloors.Length; i++)
+        {
+            if (GameMap._BasementFloor._Fuses[i]._State != 0)
+            {
+                hasFloor = true;
+                break;
+            }
+        }
+
+        if (hasFloor)
+        {
+            int floor = Random.Range(0, GameMap._RoomFloors.Length);
+
+            while (GameMap._BasementFloor._Fuses[floor]._State == 0 || GameMap._RoomFloors[floor]._Rooms.Length <= 0)
+            {
+                floor = Random.Range(0, GameMap._RoomFloors.Length);
+            }
+
+            int room = Random.Range(0, GameMap._RoomFloors[floor]._Rooms.Length);
+
+            GameMap._RoomFloors[floor]._Rooms[room]._RoomLight._Enabled = true;
+            Player.transform.position = GameMap._RoomFloors[floor]._Rooms[room].transform.position + Vector3.up;
+            Player._Floor = GameMap._RoomFloors[floor];
+            FindObjectOfType<MapLights>().SetFloorState(GameMap._RoomFloors[floor], 0);
+        }
+        else
+        {
+            Player.transform.position = GameMap._BasementFloor.transform.position + Vector3.up;
+            Player._Floor = GameMap._BasementFloor;
+        }
+
+        _HotelTime += Random.Range(300, 900);
+
+        Monster monster = FindObjectOfType<Monster>();
+        monster.SetupBehavior(monster.RandomWalk());
     }
 
     public void RunEnding(int index)

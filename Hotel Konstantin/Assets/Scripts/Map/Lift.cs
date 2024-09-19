@@ -3,6 +3,7 @@ using System.Collections;
 
 public interface ILiftable 
 { 
+    public Lift _Lift { get; set; }
     public Floor _Floor { get; set; }
     public Transform _Transform { get; }
 }
@@ -29,7 +30,9 @@ public class Lift : MonoBehaviour
     private Coroutine ElevateCoroutine = null;
 
     public int _Floor => CurrentFloor;
+    public int _TargetFloor => Order.Length > 0 ? Order[0] : -1;
     public bool _Moves => Moving;
+    public bool _Open => Animator.GetBool("Open");
 
     private void Start()
     {
@@ -76,6 +79,7 @@ public class Lift : MonoBehaviour
         if (liftable != null)
         {
             liftable._Transform.parent = transform;
+            liftable._Lift = this;
             Objects = StaticTools.ExpandMassive(Objects, liftable);
         }
     }
@@ -85,6 +89,7 @@ public class Lift : MonoBehaviour
         if (liftable != null)
         {
             liftable._Transform.parent = null;
+            liftable._Lift = null;
             Objects = StaticTools.RemoveFromMassive(Objects, liftable);
         }
     }
@@ -92,6 +97,22 @@ public class Lift : MonoBehaviour
     public void AnimateBreaking()
     {
         Animator.Play("Breaking");
+
+        if(ElevateCoroutine != null)
+        {
+            StopCoroutine(ElevateCoroutine);
+            ElevateCoroutine = null;
+        }
+
+        Order = new int[0];
+
+        transform.position = new Vector3(transform.position.x, GameMap._Floors[CurrentFloor].transform.position.y + 1, transform.position.z);
+
+        Animator.SetBool("Open", true);
+
+        Sounds._Volume = 0;
+
+        Moving = false;
     }
 
     private int CheckFloor(float high)

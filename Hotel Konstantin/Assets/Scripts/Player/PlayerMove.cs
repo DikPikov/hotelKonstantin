@@ -20,7 +20,7 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        if (Pause._Paused)
+        if (Pause._Paused || Game._GameOver)
         {
             return;
         }

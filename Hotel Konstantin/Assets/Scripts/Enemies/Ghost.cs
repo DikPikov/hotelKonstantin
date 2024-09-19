@@ -130,6 +130,7 @@ public class Ghost : MonoBehaviour
 
                 int room = Random.Range(0, GameMap._RoomFloors[floor]._Rooms.Length);
 
+                GameMap._RoomFloors[floor]._Rooms[room]._RoomLight._Enabled = true;
                 Player.transform.position = GameMap._RoomFloors[floor]._Rooms[room].transform.position + Vector3.up;
                 Player._Floor = GameMap._RoomFloors[floor];
                 FindObjectOfType<MapLights>().SetFloorState(GameMap._RoomFloors[floor], 0);

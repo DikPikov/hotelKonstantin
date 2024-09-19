@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Localization.Settings;
+
 public class GameMap : MonoBehaviour
 {
     private static GameMap Instance;
@@ -13,6 +13,7 @@ public class GameMap : MonoBehaviour
 
     [SerializeField] private Lift[] Lifts;
     [SerializeField] private GameObject Manager;
+    [SerializeField] private Monster Monster;
 
     private BasementFloor Basement = null;
     private RoomsFloor[] RoomFloors;
@@ -69,7 +70,6 @@ public class GameMap : MonoBehaviour
                 lift.SetControlPanel(0);
             }
 
-            Instance.Task.Info = $"{LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable", "CleanNumbersText")} <b>{cleanFloors}/{Instance.RoomFloors.Length}</b>";
             Instance.Manager.SetActive(false);
 
             Instance.Task.Info = $"Убрать номера во всех этажах <b>{cleanFloors}/{Instance.RoomFloors.Length}</b>";
@@ -84,5 +84,9 @@ public class GameMap : MonoBehaviour
 
         CheckClean();
         TaskDisplayer.ApplyTask(Task, false);
+
+        yield return new WaitForEndOfFrame();
+
+        Monster.SetupBehavior(Monster.RandomWalk());
     }
 }

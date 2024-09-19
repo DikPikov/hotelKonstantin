@@ -40,7 +40,7 @@ public class Room : MonoBehaviour
     public Shkaf _Shkaf => Shkaf;
     public Comod _Comod => Comod;
 
-    public Lighter _RoomLight => LightSwitch._Lighter;
+    public RoomLightSwitch _RoomLight => LightSwitch;
     public bool _Clear => BedCleared && TrashRemoved && TowelUpdated && CabinetsClosed && DirtWashed && LightsOff && TVOff;
 
     [SerializeField] private string[] localizedStrings;

@@ -8,6 +8,7 @@ public class ItemPick : MonoBehaviour, IInteractable, ILiftable
     private Floor Floor = null;
 
     public Transform _Transform => transform;
+    public Lift _Lift { get; set; }
     public Floor _Floor
     {
         get

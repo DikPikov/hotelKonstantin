@@ -78,11 +78,7 @@ Material:
     - _SrcBlend: 1
     - _Strenght: 2000
     - _UVSec: 0
-<<<<<<< Updated upstream
-    - _UnscaledTime: 32.234863
-=======
-    - _UnscaledTime: 58.65181
->>>>>>> Stashed changes
+    - _UnscaledTime: 25.896822
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
