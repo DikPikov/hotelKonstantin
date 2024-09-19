@@ -209,7 +209,7 @@ public class Monster : MonoBehaviour, ILiftable
             Floor = floor;
             Room = room;
 
-            Info = $"Прийти на {floor} этаж, {room} комнату";
+            Info = $"РџСЂРёР№С‚Рё РЅР° {floor} СЌС‚Р°Р¶, {room} РєРѕРјРЅР°С‚Сѓ";
         }
 
         public override void Start()
@@ -331,7 +331,7 @@ public class Monster : MonoBehaviour, ILiftable
 
         public OrderLiftBehavior(Monster monster, Lift lift, int floor, int room)
         {
-            Info = $"Подняться на {floor} этаж";
+            Info = $"РџРѕРґРЅСЏС‚СЊСЃСЏ РЅР° {floor} СЌС‚Р°Р¶";
 
             Lift = lift ;
             Monster = monster;
@@ -599,7 +599,7 @@ public class Monster : MonoBehaviour, ILiftable
 
         public RunAfterBehavior(Monster monster)
         {
-            Info = $"Преследовать игрока";
+            Info = $"РџСЂРµСЃР»РµРґРѕРІР°С‚СЊ РёРіСЂРѕРєР°";
             Monster = monster;
 
         }

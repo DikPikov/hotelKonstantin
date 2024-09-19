@@ -176,6 +176,35 @@ MonoBehaviour:
     m_Localized: "POSPRZ\u0104TAJ POKOJE NA WSZYSTKICH PI\u0118TRACH"
     m_Metadata:
       m_Items: []
+  - m_Id: 4115051927429120
+    m_Localized: "WEJD\u0179 NA 8. PI\u0118TRO"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4116068161150976
+    m_Localized: "ODRODZI\u0106 SI\u0118"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4117147846303744
+    m_Localized: "DOSTA\u0106 WYP\u0141AT\u0118"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4117627272028160
+    m_Localized: "<b>HOTEL KONSTANTYN</b>\n<i>On b\u0119dzie czeka\u0142 na tw\xF3j
+      powr\xF3t</i>\n\nPo otrzymaniu wyp\u0142aty kierujesz si\u0119 w stron\u0119
+      wyj\u015Bcia.\nCo dziwne, hotel wygl\u0105da ca\u0142kiem normalnie, by\u0107
+      mo\u017Ce dzi\u0119ki twojej pracy, albo te pi\u0119tra ci\u0119 wypuszczaj\u0105.\nNa
+      pierwszym pi\u0119trze pojawi\u0142o si\u0119 lobby, gdzie byli ju\u017C regularni
+      pracownicy.\nZ u\u015Bmiechem ci\u0119 odprowadzili.\n\nMin\u0119\u0142o du\u017Co
+      czasu od twojej pracy w hotelu,\nale nadal czujesz strach.\n\n<i>Mamy nadziej\u0119,\n\u017Ce
+      podoba\u0142a ci si\u0119 gra,\nzrobili\u015Bmy, co mogli\u015Bmy\n\nNasza
+      przysz\u0142o\u015B\u0107 jest w twoich r\u0119kach,\ni b\u0119dziemy wdzi\u0119czni
+      za twoje wsparcie</i>\n\nby ZtiFox\n2024"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4119079310712832
+    m_Localized: "KLIKNIJ, ABY KONTYNUOWA\u0106"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

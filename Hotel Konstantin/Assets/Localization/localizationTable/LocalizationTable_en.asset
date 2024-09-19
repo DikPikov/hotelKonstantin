@@ -173,6 +173,67 @@ MonoBehaviour:
     m_Localized: CLEAN ROOMS ON ALL FLOORS
     m_Metadata:
       m_Items: []
+  - m_Id: 4115051927429120
+    m_Localized: GO UP TO THE 8TH FLOOR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4116068161150976
+    m_Localized: RESPAWN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4117147846303744
+    m_Localized: GET PAID
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4117627272028160
+    m_Localized: '<b>HOTEL CONSTANTINE</b>
+
+      <i>He will be waiting for your
+      return</i>
+
+
+      After receiving your paycheck, you head toward the exit.
+
+      Strangely,
+      the hotel looks quite normal, perhaps thanks to your work, or maybe these floors
+      are letting you go.
+
+      A lobby appeared on the first floor, where the regular
+      staff was already present.
+
+      They smiled and escorted you out.
+
+
+      A
+      long time has passed since your work at the hotel,
+
+      but you still feel
+      fear.
+
+
+      <i>We hope
+
+      you enjoyed the game,
+
+      we did our best
+
+
+      Our
+      future is in your hands,
+
+      and we will appreciate your support</i>
+
+
+      by
+      ZtiFox
+
+      2024'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4119079310712832
+    m_Localized: CLICK TO CONTINUE
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -180,6 +180,35 @@ MonoBehaviour:
     m_Localized: "T\xDCM KATLARDA ODALARI TEM\u0130ZLE"
     m_Metadata:
       m_Items: []
+  - m_Id: 4115051927429120
+    m_Localized: "8. KATA \xC7IK"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4116068161150976
+    m_Localized: "YEN\u0130DEN DO\u011EMAK"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4117147846303744
+    m_Localized: "MAA\u015E ALMAK"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4117627272028160
+    m_Localized: "<b>KONSTANT\u0130N OTEL\u0130</b>\n<i>D\xF6n\xFC\u015F\xFCn\xFCz\xFC
+      bekliyor olacak</i>\n\nMaa\u015F\u0131n\u0131z\u0131 ald\u0131ktan sonra \xE7\u0131k\u0131\u015Fa
+      y\xF6neliyorsunuz.\nTuhaf bir \u015Fekilde, otel olduk\xE7a normal g\xF6r\xFCn\xFCyor,
+      belki de sizin \xE7al\u0131\u015Fman\u0131z sayesinde ya da belki de bu katlar
+      sizi b\u0131rak\u0131yor.\nBirinci katta bir lobi belirdi ve normal personel
+      orada haz\u0131rd\u0131.\nSize g\xFCl\xFCmseyerek e\u015Flik ettiler.\n\nOtelde
+      \xE7al\u0131\u015Ft\u0131\u011F\u0131n\u0131z zamandan bu yana uzun zaman ge\xE7ti,\nama
+      h\xE2l\xE2 korkuyu hissediyorsunuz.\n\n<i>Umar\u0131z\noyunun keyfini \xE7\u0131kard\u0131n\u0131z,\nen
+      iyisini yapmaya \xE7al\u0131\u015Ft\u0131k\n\nGelece\u011Fimiz sizin ellerinizde,\nve
+      deste\u011Finiz i\xE7in minnettar oluruz</i>\n\nby ZtiFox\n2024"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4119079310712832
+    m_Localized: "DEVAM ETMEK \u0130\xC7\u0130N TIKLAYIN"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

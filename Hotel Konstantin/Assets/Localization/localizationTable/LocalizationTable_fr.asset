@@ -176,6 +176,35 @@ MonoBehaviour:
     m_Localized: "NETTOYER LES CHAMBRES \xC0 TOUS LES \xC9TAGES"
     m_Metadata:
       m_Items: []
+  - m_Id: 4115051927429120
+    m_Localized: "MONTER AU 8E \xC9TAGE"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4116068161150976
+    m_Localized: RESSUSCITER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4117147846303744
+    m_Localized: OBTENIR UN SALAIRE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4117627272028160
+    m_Localized: "<b>H\xD4TEL CONSTANTIN</b>\n<i>Il attendra votre retour</i>\n\nApr\xE8s
+      avoir re\xE7u votre salaire, vous vous dirigez vers la sortie.\n\xC9trangement,
+      l'h\xF4tel semble tout \xE0 fait normal, peut-\xEAtre gr\xE2ce \xE0 votre travail
+      ou peut-\xEAtre que ces \xE9tages vous laissent partir.\nUn hall est apparu
+      au rez-de-chauss\xE9e, o\xF9 le personnel r\xE9gulier \xE9tait d\xE9j\xE0 pr\xE9sent.\nIls
+      vous ont souri et vous ont accompagn\xE9.\n\nBeaucoup de temps s'est \xE9coul\xE9
+      depuis que vous avez travaill\xE9 \xE0 l'h\xF4tel,\nmais vous ressentez toujours
+      de la peur.\n\n<i>Nous esp\xE9rons\nque vous avez appr\xE9ci\xE9 le jeu,\nnous
+      avons fait de notre mieux\n\nNotre avenir est entre vos mains,\net nous appr\xE9cierions
+      votre soutien</i>\n\nby ZtiFox\n2024"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4119079310712832
+    m_Localized: CLIQUEZ POUR CONTINUER
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

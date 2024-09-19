@@ -167,6 +167,26 @@ MonoBehaviour:
     m_Key: CleanNumbersText
     m_Metadata:
       m_Items: []
+  - m_Id: 4115051927429120
+    m_Key: Goto8StageText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4116068161150976
+    m_Key: ReviveButtonText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4117147846303744
+    m_Key: GetCashText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4117627272028160
+    m_Key: FinalTitlesText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4119079310712832
+    m_Key: ExitTitlesText
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

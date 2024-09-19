@@ -174,6 +174,34 @@ MonoBehaviour:
     m_Localized: "ST\xC4DA RUMMEN P\xC5 ALLA V\xC5NINGAR"
     m_Metadata:
       m_Items: []
+  - m_Id: 4115051927429120
+    m_Localized: "G\xC5 UPP TILL V\xC5NING 8"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4116068161150976
+    m_Localized: "\xC5TERUPPST\xC5"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4117147846303744
+    m_Localized: "F\xC5 L\xD6N"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4117627272028160
+    m_Localized: "<b>HOTELL KONSTANTIN</b>\n<i>Han v\xE4ntar p\xE5 att du ska komma
+      tillbaka</i>\n\nEfter att ha f\xE5tt din l\xF6n g\xE5r du mot utg\xE5ngen.\nKonstigt
+      nog ser hotellet helt normalt ut, kanske tack vare ditt arbete eller s\xE5
+      sl\xE4pper dessa v\xE5ningar dig.\nEn lobby d\xF6k upp p\xE5 f\xF6rsta v\xE5ningen,
+      d\xE4r den vanliga personalen redan fanns.\nDe log och visade dig ut.\n\nDet
+      har g\xE5tt l\xE5ng tid sedan ditt arbete p\xE5 hotellet,\nmen du k\xE4nner
+      fortfarande r\xE4dsla.\n\n<i>Vi hoppas\natt du gillade spelet,\nvi gjorde v\xE5rt
+      b\xE4sta\n\nV\xE5r framtid \xE4r i dina h\xE4nder,\noch vi kommer att uppskatta
+      ditt st\xF6d</i>\n\nby ZtiFox\n2024"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4119079310712832
+    m_Localized: "KLICKA F\xD6R ATT FORTS\xC4TTA"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

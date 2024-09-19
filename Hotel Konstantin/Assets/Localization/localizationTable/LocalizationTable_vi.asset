@@ -181,6 +181,41 @@ MonoBehaviour:
     m_Localized: "D\u1ECCN D\u1EB8P PH\xD2NG \u1EDE T\u1EA4T C\u1EA2 C\xC1C T\u1EA6NG"
     m_Metadata:
       m_Items: []
+  - m_Id: 4115051927429120
+    m_Localized: "L\xCAN T\u1EA6NG 8"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4116068161150976
+    m_Localized: "T\xC1I SINH"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4117147846303744
+    m_Localized: "NH\u1EACN L\u01AF\u01A0NG"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4117627272028160
+    m_Localized: "<b>KH\xC1CH S\u1EA0N CONSTANTINE</b>\n<i>\xD4ng s\u1EBD \u0111\u1EE3i
+      b\u1EA1n tr\u1EDF l\u1EA1i</i>\n\nNh\u1EADn \u0111\u01B0\u1EE3c ti\u1EC1n l\u01B0\u01A1ng,
+      b\u1EA1n h\u01B0\u1EDBng v\u1EC1 ph\xEDa l\u1ED1i ra.\nTh\u1EADt k\u1EF3 l\u1EA1,
+      kh\xE1ch s\u1EA1n tr\xF4ng c\xF3 v\u1EBB ho\xE0n to\xE0n b\xECnh th\u01B0\u1EDDng,
+      c\xF3 l\u1EBD nh\u1EDD c\xF4ng vi\u1EC7c c\u1EE7a b\u1EA1n, ho\u1EB7c c\xF3
+      th\u1EC3 nh\u1EEFng t\u1EA7ng n\xE0y \u0111ang \u0111\u1EC3 b\u1EA1n ra \u0111i.\nT\u1EA7ng
+      m\u1ED9t xu\u1EA5t hi\u1EC7n m\u1ED9t s\u1EA3nh, v\xE0 c\xE1c nh\xE2n vi\xEAn
+      th\u01B0\u1EDDng tr\u1EF1c \u0111\xE3 \u1EDF \u0111\xF3.\nH\u1ECD m\u1EC9m
+      c\u01B0\u1EDDi v\xE0 ti\u1EC5n b\u1EA1n.\n\n\u0110\xE3 r\u1EA5t l\xE2u k\u1EC3
+      t\u1EEB khi b\u1EA1n l\xE0m vi\u1EC7c t\u1EA1i kh\xE1ch s\u1EA1n,\nnh\u01B0ng
+      b\u1EA1n v\u1EABn c\u1EA3m th\u1EA5y s\u1EE3 h\xE3i.\n\n<i>Ch\xFAng t\xF4i
+      hy v\u1ECDng\nb\u1EA1n \u0111\xE3 t\u1EADn h\u01B0\u1EDFng tr\xF2 ch\u01A1i,\nch\xFAng
+      t\xF4i \u0111\xE3 c\u1ED1 g\u1EAFng h\u1EBFt s\u1EE9c\n\nT\u01B0\u01A1ng lai
+      c\u1EE7a ch\xFAng t\xF4i n\u1EB1m trong tay b\u1EA1n,\nv\xE0 ch\xFAng t\xF4i
+      s\u1EBD r\u1EA5t bi\u1EBFt \u01A1n s\u1EF1 \u1EE7ng h\u1ED9 c\u1EE7a b\u1EA1n</i>\n\nby
+      ZtiFox\n2024"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4119079310712832
+    m_Localized: "NH\u1EA4P \u0110\u1EC2 TI\u1EBEP T\u1EE4C"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

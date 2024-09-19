@@ -174,6 +174,33 @@ MonoBehaviour:
     m_Localized: PULISCI LE STANZE SU TUTTI I PIANI
     m_Metadata:
       m_Items: []
+  - m_Id: 4115051927429120
+    m_Localized: SALIRE AL PIANO 8
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4116068161150976
+    m_Localized: RINASCERE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4117147846303744
+    m_Localized: RICEVERE LO STIPENDIO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4117627272028160
+    m_Localized: "<b>HOTEL CONSTANTIN</b>\n<i>Lui aspetter\xE0 il tuo ritorno</i>\n\nDopo
+      aver ricevuto il tuo stipendio, ti dirigi verso l'uscita.\nStranamente, l'hotel
+      sembra del tutto normale, forse grazie al tuo lavoro, o forse questi piani
+      ti lasciano andare.\nAl piano terra \xE8 apparso un atrio, e lo staff regolare
+      era gi\xE0 l\xEC.\nTi hanno sorriso e accompagnato.\n\n\xC8 passato molto tempo
+      dal tuo lavoro in hotel,\nma senti ancora paura.\n\n<i>Speriamo\nche ti sia
+      piaciuto il gioco,\nabbiamo fatto del nostro meglio\n\nIl nostro futuro \xE8
+      nelle tue mani,\ne apprezzeremo il tuo supporto</i>\n\nby ZtiFox\n2024"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4119079310712832
+    m_Localized: FAI CLIC PER CONTINUARE
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

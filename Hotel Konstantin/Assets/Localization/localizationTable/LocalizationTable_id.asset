@@ -175,6 +175,67 @@ MonoBehaviour:
     m_Localized: BERSIHKAN KAMAR DI SEMUA LANTAI
     m_Metadata:
       m_Items: []
+  - m_Id: 4115051927429120
+    m_Localized: NAIK KE LANTAI 8
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4116068161150976
+    m_Localized: BANGKIT KEMBALI
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4117147846303744
+    m_Localized: MENERIMA GAJI
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4117627272028160
+    m_Localized: '<b>HOTEL KONSTANTIN</b>
+
+      <i>Dia akan menunggu kembalinya
+      Anda</i>
+
+
+      Setelah menerima gaji Anda, Anda menuju ke pintu keluar.
+
+      Anehnya,
+      hotel tampak sangat normal, mungkin berkat pekerjaan Anda, atau mungkin lantai-lantai
+      ini melepaskan Anda.
+
+      Lobi muncul di lantai pertama, dan staf reguler
+      sudah ada di sana.
+
+      Mereka tersenyum dan mengantar Anda.
+
+
+      Sudah
+      lama sejak Anda bekerja di hotel,
+
+      tetapi Anda masih merasakan ketakutan.
+
+
+      <i>Kami
+      berharap
+
+      Anda menikmati permainannya,
+
+      kami telah melakukan yang
+      terbaik
+
+
+      Masa depan kami ada di tangan Anda,
+
+      dan kami akan berterima
+      kasih atas dukungan Anda</i>
+
+
+      by ZtiFox
+
+      2024'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4119079310712832
+    m_Localized: KLIK UNTUK MELANJUTKAN
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -174,6 +174,34 @@ MonoBehaviour:
     m_Localized: "R\xC4UME AUF ALLEN ETAGEN REINIGEN"
     m_Metadata:
       m_Items: []
+  - m_Id: 4115051927429120
+    m_Localized: GEHEN SIE IN DEN 8. STOCK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4116068161150976
+    m_Localized: WIEDERGEBOREN WERDEN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4117147846303744
+    m_Localized: GEHALT ERHALTEN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4117627272028160
+    m_Localized: "<b>HOTEL KONSTANTIN</b>\n<i>Er wird auf deine R\xFCckkehr warten</i>\n\nNachdem
+      du deinen Lohn erhalten hast, gehst du zum Ausgang.\nSeltsamerweise sieht das
+      Hotel ganz normal aus, vielleicht dank deiner Arbeit, oder vielleicht lassen
+      dich diese Stockwerke los.\nIn der ersten Etage erschien eine Lobby, und das
+      regul\xE4re Personal war bereits dort.\nSie l\xE4chelten und begleiteten dich
+      hinaus.\n\nEs ist viel Zeit vergangen, seit du im Hotel gearbeitet hast,\naber
+      du f\xFChlst immer noch Angst.\n\n<i>Wir hoffen,\ndass dir das Spiel gefallen
+      hat,\nwir haben unser Bestes gegeben\n\nUnsere Zukunft liegt in deinen H\xE4nden,\nund
+      wir w\xFCrden deine Unterst\xFCtzung sehr sch\xE4tzen</i>\n\nby ZtiFox\n2024"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4119079310712832
+    m_Localized: KLICKEN, UM FORTZUFAHREN
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
