@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Localization.Settings;
 
 public class GameMap : MonoBehaviour
 {
@@ -62,7 +61,7 @@ public class GameMap : MonoBehaviour
 
             Instance.Manager.SetActive(true);
 
-            Instance.Task.Info = $"{LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable","Goto8StageText")}";
+            Instance.Task.Info = $"Подняться на 8 этаж";
         }
         else
         {
@@ -72,7 +71,8 @@ public class GameMap : MonoBehaviour
             }
 
             Instance.Manager.SetActive(false);
-            Instance.Task.Info = $"{LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable","CleanNumbersText")} <b>{cleanFloors}/{Instance.RoomFloors.Length}</b>";
+
+            Instance.Task.Info = $"Убрать номера во всех этажах <b>{cleanFloors}/{Instance.RoomFloors.Length}</b>";
         }
     }
 

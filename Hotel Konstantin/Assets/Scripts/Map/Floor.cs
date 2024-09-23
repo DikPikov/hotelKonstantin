@@ -21,10 +21,5 @@ public class Floor : MonoBehaviour
         return new Vector3(Random.Range(CoridorBorders[0].x, CoridorBorders[1].x), transform.position.y + 1, Random.Range(CoridorBorders[0].z, CoridorBorders[1].z));
     }
 
-    public void LocalizeText(string localizedText)
-    {
-        TaskInfo.Info = localizedText;
-    }
-
     public void ShowTask(bool state) => TaskDisplayer.ApplyTask(TaskInfo, !state);
 }
