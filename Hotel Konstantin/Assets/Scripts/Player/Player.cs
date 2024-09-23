@@ -7,6 +7,7 @@ public class Player : MonoBehaviour, ILiftable
     [SerializeField] private Lift Lift;
 
     [SerializeField] private AudioSource LightDistorting;
+    [SerializeField] private AudioSource DeadSound;
     [SerializeField] private Transform Camera;
 
     [SerializeField] private float Stamina;
@@ -114,6 +115,8 @@ public class Player : MonoBehaviour, ILiftable
     public void AnimateDeath(bool state)
     {
         StopAllCoroutines();
+
+        DeadSound.Play();
 
         if (state)
         {

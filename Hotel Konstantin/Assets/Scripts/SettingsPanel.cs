@@ -7,11 +7,13 @@ public class SettingsPanel : MonoBehaviour
     [SerializeField] private Text ResolutionInfo;
     [SerializeField] private Text QualityInfo;
     [SerializeField] private Text SensitivityInfo;
+    [SerializeField] private Text GammaInfo;
     [SerializeField] private Toggle FullScreen;
     [SerializeField] private Toggle PostProcessing;
     [SerializeField] private Toggle AlwaysShowInterface;
     [SerializeField] private Slider Audio;
     [SerializeField] private Slider Sensitivity;
+    [SerializeField] private Slider Gamma;
 
     [SerializeField] private Settings Settings;
 
@@ -52,12 +54,14 @@ public class SettingsPanel : MonoBehaviour
                 break;
         }
 
+        GammaInfo.text = $"Яркость: {Config.Gamma}";
         SensitivityInfo.text = $"{LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable", "SensitivityText")}: {Config.Sensitivity}";
         FullScreen.isOn = Config.FullScreen;
         PostProcessing.isOn = Config.PostProcessing;
         AlwaysShowInterface.isOn = Config.AlwaysShowInterface;
         Audio.value = Config.Audio;
         Sensitivity.value = Config.Sensitivity / 4f;
+        Gamma.value = Config.Gamma;
 
         for(int i = 0; i < Resolutions.Length; i++)
         {
@@ -166,6 +170,12 @@ public class SettingsPanel : MonoBehaviour
     {
         Config.Sensitivity = value * 4;
         SensitivityInfo.text = $"{LocalizationSettings.StringDatabase.GetLocalizedString("LocalizationTable", "SensitivityText")}: {Config.Sensitivity}";
+    }
+
+    public void SetGamma(float value)
+    {
+        Config.Gamma = value;
+        GammaInfo.text = $"Яркость: {Config.Gamma}";
     }
 
     public void SetAudio(float value)

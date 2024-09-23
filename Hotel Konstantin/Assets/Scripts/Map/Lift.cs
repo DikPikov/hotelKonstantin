@@ -14,6 +14,8 @@ public class Lift : MonoBehaviour
 
     [SerializeField] private LiftSound Sounds;
 
+    [SerializeField] private GameObject RedLight;
+
     [SerializeField] private GameObject[] ControlPanels;
 
     [SerializeField] private Material IndicatorMaterial;
@@ -39,6 +41,8 @@ public class Lift : MonoBehaviour
         IndicatorMaterial.SetTexture("_MainTex", IndicatorTextures[CurrentFloor]);
         IndicatorMaterial.SetTexture("_EmissionMap", IndicatorTextures[CurrentFloor]);
     }
+
+    public void RedLightOn(bool state) => RedLight.SetActive(state);
 
     public void SetControlPanel(int index)
     {

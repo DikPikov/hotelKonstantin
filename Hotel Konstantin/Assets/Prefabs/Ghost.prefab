@@ -206,6 +206,9 @@ MonoBehaviour:
   Walks:
   - {fileID: 849168767971617472}
   - {fileID: 3240569380939335312}
+  WallMask:
+    serializedVersion: 2
+    m_Bits: 65
 --- !u!195 &7098974102771282284
 NavMeshAgent:
   m_ObjectHideFlags: 0

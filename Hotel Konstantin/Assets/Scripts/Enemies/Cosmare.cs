@@ -37,7 +37,7 @@ public class Cosmare : MonoBehaviour
         Player = player;
         CosmareNoise = noise;
 
-        WatchTime = 5 - 3 * Game._HotelMadness;
+        WatchTime = 7 - 3 * Game._HotelMadness;
         WatchTimer = WatchTime;
     }
 
@@ -61,6 +61,14 @@ public class Cosmare : MonoBehaviour
 
         transform.localEulerAngles = new Vector3(0, Quaternion.LookRotation(Player.transform.position - transform.position).eulerAngles.y, 0);
 
+        if (Vector3.Distance(Player.transform.position, transform.position) < 0.25f)
+        {
+            Destroy(gameObject); 
+            CosmareNoise.color = new Color(1, 0, 0, 0);
+            CosmareNoiseSource.volume = 0;
+            return;
+        }
+
         if (Renderer.isVisible)
         {
             Transform camera = Camera.main.transform;
@@ -83,18 +91,14 @@ public class Cosmare : MonoBehaviour
                 CosmareNoise.color = new Color(1, 0, 0, 1 - WatchTimer / WatchTime);
                 Visioned = true;
 
+                FindObjectOfType<CosmareImages>().Show(0.3f);
+
                 CosmareNoiseSource.Play();
                 CosmareNoiseSource.time = Random.Range(0, 3);
             }
 
             WatchTimer -= Time.deltaTime;
             CosmareNoise.color = new Color(1, 0, 0, 1 - WatchTimer / WatchTime);
-
-            if(Vector3.Distance(Player.transform.position, transform.position) < 0.25f && Game._HotelMadness > 0.5f)
-            {
-                Killing = true;
-                StartCoroutine(Kill());
-            }
 
             if (WatchTimer <= 0)
             {
@@ -116,10 +120,13 @@ public class Cosmare : MonoBehaviour
     private IEnumerator Kill()
     {
         CosmareNoise.color = new Color(1, 0, 0, 1);
-        FindObjectOfType<CosmareKill>().Active();
+        FindObjectOfType<CosmareImages>().Show(5);
         CosmareNoiseSource.Stop();
 
-        yield return new WaitForSecondsRealtime(1);
+        Game._GameOver = true;
+        Pause._Paused = true;
+
+        yield return new WaitForSecondsRealtime(4);
 
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;

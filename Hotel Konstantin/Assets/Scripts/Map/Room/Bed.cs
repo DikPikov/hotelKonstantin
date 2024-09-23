@@ -41,7 +41,7 @@ public class Bed : MonoBehaviour, IAnimated
 
     public void Animate(bool state)
     {
-        Animator.SetFloat("Clearing", state.GetHashCode());
+        Animator.SetFloat("Clearing", state.GetHashCode() * 1.5f);
 
         StopAllCoroutines();
 

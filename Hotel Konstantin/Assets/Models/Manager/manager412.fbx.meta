@@ -38,11 +38,40 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|animation
-      takeName: Armature|animation
+      name: Armature|Manager_Idle (1)
+      takeName: Armature|Manager_Idle
       internalID: 901616958262699073
       firstFrame: 0
-      lastFrame: 365
+      lastFrame: 51
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Idle
+      takeName: Armature|Idle
+      internalID: -8945691123924629249
+      firstFrame: 0
+      lastFrame: 0
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -111,7 +140,7 @@ ModelImporter:
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 1
     weldVertices: 1
@@ -351,16 +380,6 @@ ModelImporter:
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: Body
-      parentName: manager412(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Head
-      parentName: manager412(Clone)
-      position: {x: -0.00037417212, y: 3.7233856, z: 0.20312206}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 0.8817789, y: 0.8817789, z: 0.8817789}
     - name: Armature
       parentName: manager412(Clone)
       position: {x: -0, y: 0, z: 0}
@@ -429,7 +448,7 @@ ModelImporter:
     - name: Neck.007
       parentName: Neck.006
       position: {x: 0.000000018257213, y: 0.13280082, z: 0.000000077299774}
-      rotation: {x: -0.081114, y: -0.000000054421275, z: 0.000000077481296, w: 0.9967048}
+      rotation: {x: -0.08111401, y: -0.000000054421278, z: 0.0000000774813, w: 0.9967049}
       scale: {x: 1, y: 1.0000004, z: 1.0000001}
     - name: Neck.009
       parentName: Chest
@@ -464,7 +483,7 @@ ModelImporter:
     - name: Neck.014
       parentName: Neck.012
       position: {x: 0.000000033527613, y: 0.17675221, z: -0.00000010151416}
-      rotation: {x: -0.70167917, y: 0.000000018992319, z: 0.0000011644869, w: 0.712493}
+      rotation: {x: -0.7016792, y: 0.00000001899232, z: 0.000001164487, w: 0.71249306}
       scale: {x: 1.0000006, y: 1.0000011, z: 1.000001}
     - name: Neck.015
       parentName: Neck.014
@@ -501,6 +520,16 @@ ModelImporter:
       position: {x: 0.000000009964339, y: 1.0529964, z: 8.949428e-10}
       rotation: {x: 0.68192405, y: 0.0014457696, z: 0.0016121106, w: 0.73141986}
       scale: {x: 1.0000017, y: 1.0000006, z: 1.0000004}
+    - name: Body
+      parentName: manager412(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Head
+      parentName: manager412(Clone)
+      position: {x: -0.00037417212, y: 3.7233856, z: 0.20312206}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.8817789, y: 0.8817789, z: 0.8817789}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5

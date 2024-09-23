@@ -68,6 +68,8 @@ public class Settings : MonoBehaviour
             Rotation._Sensitivity = Config.Sensitivity;
         }
 
+        RenderSettings.ambientLight = new Color(0.25f, 0.25f, 0.25f) * Config.Gamma;
+
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[Config.LanguageID];
 
         QualitySettings.SetQualityLevel(Config.Quality, true);
@@ -109,6 +111,7 @@ public class Config
 
     public int Quality;
     public bool PostProcessing;
+    public float Gamma;
 
     public bool AlwaysShowInterface;
 
@@ -175,6 +178,8 @@ public class Config
 
         config.Quality = Quality;
         config.PostProcessing = PostProcessing;
+
+        config.Gamma = Gamma;
 
         config.AlwaysShowInterface = AlwaysShowInterface;
         

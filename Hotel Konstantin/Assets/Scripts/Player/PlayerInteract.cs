@@ -204,7 +204,7 @@ public class PlayerInteract : MonoBehaviour
         while (InputManager.GetButton(InputManager.ButtonEnum.Interact))
 #endif
         {
-            timer -= Time.deltaTime;
+            timer -= Time.deltaTime * 1.5f;
 
             Skobi[0].anchoredPosition = new Vector2(-7 - 43 * (timer/ time), 7 + 43 * (timer / time));
             Skobi[1].anchoredPosition = new Vector2(7 + 43 * (timer / time), 7 + 43 * (timer / time));

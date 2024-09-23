@@ -8,6 +8,8 @@ public class Monster : MonoBehaviour, ILiftable
     [SerializeField] private Animator Animator;
     [SerializeField] private Player Player;
 
+    [SerializeField] private MonsterSounds Sounds;
+
     [SerializeField] private LayerMask LayerMask;
     [SerializeField] private LayerMask PlayerMask;
 
@@ -27,11 +29,25 @@ public class Monster : MonoBehaviour, ILiftable
         set
         {
             Floor = value;
+
+            if(Floor == Player._Floor)
+            {
+                Sounds.SetHelloSound(1);
+            }
+            else
+            {
+                Sounds.SetHelloSound(0);
+            }
         }
     }
     public Transform _Transform => transform;
 
     public int _WalkAnimation => Game._HotelMadness > 0.25f ? 2 : 1;
+
+    private void Start()
+    {
+        Player.OnFloorChange += CheckFloor;
+    }
 
     private void Update()
     {
@@ -47,6 +63,18 @@ public class Monster : MonoBehaviour, ILiftable
         else
         {
             SetupBehavior(RandomWalk());
+        }
+    }
+
+    public void CheckFloor()
+    {
+        if(Player._Floor == Floor)
+        {
+            Sounds.SetHelloSound(1);
+        }
+        else
+        {
+            Sounds.SetHelloSound(0);
         }
     }
 
@@ -132,7 +160,7 @@ public class Monster : MonoBehaviour, ILiftable
             floor = Random.Range(0, GameMap._RoomFloors.Length);
         }
 
-        if (GameMap._Floors[floor] is RoomsFloor)
+        if (GameMap._Floors[floor] is RoomsFloor && Game._HotelMadness > 0.25f)
         {
             room = Random.Range(0, (GameMap._Floors[floor] as RoomsFloor)._Rooms.Length);
             while (StaticTools.Contains(CheckedRooms, room))
@@ -209,12 +237,12 @@ public class Monster : MonoBehaviour, ILiftable
             Floor = floor;
             Room = room;
 
-            Info = $"Прийти на {floor} этаж, {room} комнату";
+            Info = $"пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ {floor} пїЅпїЅпїЅпїЅ, {room} пїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         }
 
         public override void Start()
         {
-            Monster.NavMeshAgent.speed = 2.5f + 2.5f * Game._HotelMadness;
+            Monster.NavMeshAgent.speed = 1.5f + 2 * Game._HotelMadness;
             Monster.NavMeshAgent.angularSpeed = 120;
 
             if (Floor != Monster.Floor._Index)
@@ -233,6 +261,29 @@ public class Monster : MonoBehaviour, ILiftable
                     Lift = GameMap._Lifts[1];
                 }
             }
+            else
+            {
+                if (Room == -1)
+                {
+                    Floor = Random.Range(0, GameMap._RoomFloors.Length);
+
+                    Vector3 lift1 = GameMap._Lifts[0].transform.position;
+                    Vector3 lift2 = GameMap._Lifts[1].transform.position;
+                    lift1.y = Monster.transform.position.y;
+                    lift2.y = Monster.transform.position.y;
+
+                    if (Vector3.Distance(Monster.transform.position, lift1) > Vector3.Distance(Monster.transform.position, lift2))
+                    {
+                        Lift = GameMap._Lifts[0];
+                    }
+                    else
+                    {
+                        Lift = GameMap._Lifts[1];
+                    }
+                }
+            }
+
+            Monster.NavMeshAgent.enabled = true;
 
             if (Lift == null)
             {
@@ -259,6 +310,7 @@ public class Monster : MonoBehaviour, ILiftable
             }
             else
             {
+                Lift.RedLightOn(true);
                 Monster.NavMeshAgent.SetDestination(Lift.transform.position + Lift.transform.forward * 2);
             }
         }
@@ -311,6 +363,11 @@ public class Monster : MonoBehaviour, ILiftable
         {
             base.Stop();
 
+            if(Lift != null)
+            {
+                Lift.RedLightOn(false);
+            }
+
             Monster.NavMeshAgent.velocity = Vector3.zero;
             Monster.NavMeshAgent.destination = Monster.transform.position;
 
@@ -331,7 +388,7 @@ public class Monster : MonoBehaviour, ILiftable
 
         public OrderLiftBehavior(Monster monster, Lift lift, int floor, int room)
         {
-            Info = $"Подняться на {floor} этаж";
+            Info = $"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ {floor} пїЅпїЅпїЅпїЅ";
 
             Lift = lift ;
             Monster = monster;
@@ -341,6 +398,8 @@ public class Monster : MonoBehaviour, ILiftable
 
         public override void Start()
         {
+            Lift.RedLightOn(true);
+
             if (Monster.GetComponentInParent<Lift>() == Lift)
             {
                 BehaviorState = 2;
@@ -472,6 +531,8 @@ public class Monster : MonoBehaviour, ILiftable
         {
             base.Stop();
 
+            Lift.RedLightOn(false);
+
             switch (BehaviorState)
             {
                 case 0:
@@ -599,16 +660,17 @@ public class Monster : MonoBehaviour, ILiftable
 
         public RunAfterBehavior(Monster monster)
         {
-            Info = $"Преследовать игрока";
+            Info = $"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ";
             Monster = monster;
 
         }
 
         public override void Start()
         {
-            Monster.NavMeshAgent.speed = 3f + 5f * Game._HotelMadness;
+            Monster.NavMeshAgent.speed = 2f + 3f * Game._HotelMadness;
             Monster.NavMeshAgent.angularSpeed = 360;
 
+            Monster.Sounds.PlaySeekSound();
         }
 
         public override void Tick()
@@ -667,12 +729,7 @@ public class Monster : MonoBehaviour, ILiftable
 
                     Monster.transform.position = Monster.Player._Lift.transform.position + Monster.Player._Lift.transform.forward * 0.8f;
 
-                    Monster.Animator.Play($"Attack{Random.Range(1, 4)}");
-
-                    Game._GameOver = true;
-
-                    Monster.SetupBehavior(new StayBehavior(Monster));
-
+                    Kill();
                     return;
                 }
             }
@@ -690,12 +747,7 @@ public class Monster : MonoBehaviour, ILiftable
                 }
                 else if (hit.transform.GetComponent<Player>() && hit.distance < 0.8f)
                 {
-                    Monster.NavMeshAgent.isStopped = true;
-                    Monster.Animator.Play($"Attack{Random.Range(1, 4)}");
-
-                    Game._GameOver = true;
-
-                    Monster.SetupBehavior(new StayBehavior(Monster));
+                    Kill();
                 }
             }
             else
@@ -704,17 +756,28 @@ public class Monster : MonoBehaviour, ILiftable
                 {
                     if (collider.transform.GetComponent<Player>())
                     {
-                        Monster.NavMeshAgent.isStopped = true;
-                        Monster.Animator.Play($"Attack{Random.Range(1, 4)}");
-
-                        Game._GameOver = true;
-
-                        Monster.SetupBehavior(new StayBehavior(Monster));
+                        Kill();
 
                         break;
                     }
                 }
             }
+        }
+
+        private void Kill()
+        {
+            Monster.NavMeshAgent.isStopped = true;
+            Monster.Animator.Play($"Attack{Random.Range(1, 4)}");
+
+            Game._GameOver = true;
+
+            PlayerRotation playerRotation = Monster.Player.GetComponent<PlayerRotation>();
+            Vector3 rotation = playerRotation._Rotation;
+            rotation.y = Quaternion.LookRotation(Monster.transform.position - Monster.Player.transform.position).eulerAngles.y;
+            rotation.x = 0;
+            playerRotation._Rotation = rotation;
+
+            Monster.SetupBehavior(new StayBehavior(Monster));
         }
 
         public override void Stop()

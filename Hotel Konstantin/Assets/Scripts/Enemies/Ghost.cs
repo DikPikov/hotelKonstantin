@@ -9,6 +9,7 @@ public class Ghost : MonoBehaviour
     [SerializeField] private Animator Animator;
     [SerializeField] private Transform Head;
     [SerializeField] private AudioSource[] Walks;
+    [SerializeField] private LayerMask WallMask;
 
     private Transform Camera = null;
 
@@ -46,15 +47,13 @@ public class Ghost : MonoBehaviour
 
         GhostNoise = noise;
 
-        Agent.speed = 2 + Game._HotelMadness * 3;
+        Agent.speed = 1.5f + Game._HotelMadness * 1.5f;
 
         PlayerChangedFloor();
     }
 
     private void PlayerChangedFloor()
     {
-        GhostNoise.color = new Color(0.3f, 0.3f, 1, 0);
-
         if (Player._Floor != Floor)
         {
             Animator.SetBool("Moving", false);
@@ -82,11 +81,19 @@ public class Ghost : MonoBehaviour
             return;
         }
 
+        float distance = Vector3.Distance(transform.position + Vector3.up * 1.5f, Player.transform.position + Vector3.up * 1);
+
+        Debug.DrawRay(transform.position + Vector3.up * 1.5f, Player.transform.position + Vector3.up * 1 - transform.position - Vector3.up * 1.5f);
+        if (!Physics.Raycast(transform.position + Vector3.up * 1.5f, Player.transform.position + Vector3.up * 1 - transform.position - Vector3.up * 1.5f, distance, WallMask))
+        {
+            GhostNoise.color = new Color(0.3f, 0.3f, 1, 1 - Mathf.Clamp01(distance * 0.1f));
+        }
+        else
+        {
+            GhostNoise.color = new Color(0.3f, 0.3f, 1, 0);
+        }
+
         Head.LookAt(Camera);
-
-        float distance = Vector3.Distance(transform.position, Player.transform.position);
-
-        GhostNoise.color = new Color(0.3f, 0.3f, 1, 1 - Mathf.Clamp01(distance * 0.1f));
 
         Agent.destination = Player.transform.position;
 
@@ -101,11 +108,11 @@ public class Ghost : MonoBehaviour
 
         if(distance < 0.65f)
         {
-            Destroy(gameObject);
 
             if (Game._HotelMadness == 1)
             {
-                StartCoroutine(Kill());
+                Game.Over();
+                GhostNoise.color = new Color(0.3f, 0.3f, 1, 0);
                 return;
             }
 
@@ -145,16 +152,5 @@ public class Ghost : MonoBehaviour
 
             GhostNoise.color = new Color(0.3f, 0.3f, 1, 0);
         }
-    }
-
-    private IEnumerator Kill()
-    {
-        yield return new WaitForSecondsRealtime(1);
-
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-                Application.Quit();
-#endif
     }
 }

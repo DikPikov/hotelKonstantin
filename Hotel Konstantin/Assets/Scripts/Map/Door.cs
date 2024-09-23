@@ -5,6 +5,8 @@ public class Door : MonoBehaviour, IInteractable
     [SerializeField] private Transform[] InteractPoints;
 
     [SerializeField] private Animator Animator;
+    [SerializeField] private AudioSource BreakSound;
+    [SerializeField] private AudioSource BreakingSound;
     [SerializeField] private AudioSource[] OpenSounds;
     [SerializeField] private AudioSource[] CloseSounds;
     [SerializeField] private bool Opened;
@@ -37,6 +39,18 @@ public class Door : MonoBehaviour, IInteractable
     }
 
     public void SetBarriering(bool state) => Animator.SetBool("barriering", state);
+
+    public void PlayBreakSound()
+    {
+        BreakSound.pitch = Random.Range(0.9f, 1.1f);
+        BreakSound.Play();
+    }
+
+    public void PlayBreakingSound()
+    {
+        BreakingSound.pitch = Random.Range(0.9f, 1.1f);
+        BreakingSound.Play();
+    }
 
     public void PlayBreaking()
     {
